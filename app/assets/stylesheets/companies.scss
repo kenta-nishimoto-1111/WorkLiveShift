@@ -4,6 +4,7 @@
 
 // =================== ヘッダー部分のCSS ===================
 
+// 左上の文字
 .navbar-brand{
   font-size: 30px;
   color: #444444;
@@ -11,10 +12,12 @@
   padding-top: 15px;
   }
 
+  // ログイン／新規登録の文字色
 .btn-outline-success{
   color:#444444;
   border-color: #444444;
 }
+  // ログイン／新規登録のマウスを当てた時の色
 .btn-outline-success:hover{
   background-color: #BBBBBB;
   border-color: #DDDDDD;
@@ -22,4 +25,11 @@
 
 // =================== ヘッダー部分のCSS ===================
 
+// 画像の下にスペースを作る
+.carousel{
+  margin-bottom: 50px;
+}
 
+.form-select{
+  margin-bottom: 15px;
+}
