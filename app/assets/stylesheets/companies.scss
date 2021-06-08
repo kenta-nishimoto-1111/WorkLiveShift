@@ -12,6 +12,8 @@
   padding-top: 15px;
   }
 
+
+
   // ログイン／新規登録の文字色
 .btn-outline-success{
   color:#444444;
@@ -37,3 +39,30 @@
 }
 
 // =================== 検索部分のCSS ===================
+
+// =================== 記事一覧部分のCSS ===================
+.col-9{
+  padding: 20px ;
+}
+
+.img-fluid{
+  margin: 30px 0px 10px 0px;
+}
+
+.genre{
+  width:500px;
+  height:80px;
+  background:#DDDDDD;
+  border-radius:70px 70px 70px 70px;
+  padding: 10px;
+  font-size: 12px;
+  margin: 30px 10px;
+}
+
+.keyword{
+  margin: 30px 0px;
+}
+
+.office-name{
+  font-size: 30px;
+}
