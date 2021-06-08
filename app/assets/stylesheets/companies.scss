@@ -6,15 +6,20 @@
 
 .navbar-brand{
   font-size: 30px;
-}
+  color: #444444;
+  font-family: fantasy;
+  padding-top: 15px;
+  }
 
 .btn-outline-success{
-  color:#3366CC;
-  border-color: #3366CC;
+  color:#444444;
+  border-color: #444444;
 }
 .btn-outline-success:hover{
-  background-color: #3366CC;
-  border-color: #3366CC;
+  background-color: #BBBBBB;
+  border-color: #DDDDDD;
 }
 
 // =================== ヘッダー部分のCSS ===================
+
+
