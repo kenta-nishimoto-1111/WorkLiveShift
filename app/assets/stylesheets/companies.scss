@@ -1,0 +1,79 @@
+// Place all the styles related to the companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// =================== ヘッダー部分のCSS ===================
+
+// 左上の文字
+.navbar-brand{
+  font-size: 30px;
+  color: #444444;
+  font-family: fantasy;
+  padding-top: 15px;
+  }
+
+
+  // ログイン／新規登録の文字色
+.btn-outline-success{
+  color:#444444;
+  border-color: #444444;
+}
+  // ログイン／新規登録のマウスを当てた時の色
+.btn-outline-success:hover{
+  background-color: #BBBBBB;
+  border-color: #DDDDDD;
+}
+
+// =================== ヘッダー部分のCSS ===================
+
+// =================== 検索部分のCSS ===================
+
+// 画像の下にスペースを作る
+.carousel{
+  margin-bottom: 50px;
+}
+// 検索のジャンルの下にスペースを入れる
+.form-select{
+  margin-bottom: 15px;
+}
+
+// =================== 検索部分のCSS ===================
+
+// =================== 記事一覧部分のCSS ===================
+.col-9{
+  padding: 20px ;
+}
+
+.img-fluid{
+  margin: 30px 0px 10px 0px;
+}
+
+// ジャンルや地域のグレーの囲い
+.genre{
+  width:500px;
+  height:80px;
+  background:#DDDDDD;
+  border-radius:70px 70px 70px 70px;
+  padding: 10px;
+  font-size: 12px;
+  margin: 30px 10px;
+}
+
+
+.keyword{
+  margin: 30px 0px;
+}
+
+// 会社名のサイズ
+.office-name{
+  font-size: 30px;
+}
+
+// =================== フッター部分のCSS ===================
+
+.footer{
+  background-color: #DDDDDD;
+  max-width: 100%;
+  padding: 30px 50px;
+}
+
