@@ -1,8 +1,24 @@
+<%# ログイン中のヘッダー %>
+
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid" >
     <a class="navbar-brand">Work,LiveShift</a>
+    
+    <%# 右側のドロップボタン %>
     <div class="d-flex">
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-success mx-2" %>
+      <div class="dropdown dropstart">
+       <button class="btn dropdown-toggle mx-2 px-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+       <%# ユーザーネームと画像を表示させる %>
+         <%= current_user.family_name%><%= image_tag 'column-case015-01.png', class: 'rounded-circle ms-3', :size =>'55x55'%>
+       </button>
+
+       <%# ドロップボタンのリスト %>
+       <ul class="dropdown-menu float-end" aria-labelledby="dropdownMenuButton">
+         <li><a class="dropdown-item" href="#">お気に入りにした企業</a></li>
+         <li><a class="dropdown-item" href="#">応募した企業</a></li>
+         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-outline-success text-center ms-2" %></li>
+       </ul>
+      </div>
     </div>
   </div>
 </nav>
