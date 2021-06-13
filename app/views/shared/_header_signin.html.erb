@@ -46,24 +46,23 @@
            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
            </svg>
         <% end %>
-      </div>
 
 
 <%# ここからは右上のユーザーネームのドロップボタン %>
-      <div class="dropdown">
-        <button class="btn mx-2 px-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-         <%# （ ↪︎　idの「dropdown-toggle」を消すとドロップボックスの矢印が消える） %>
+        <div class="dropdown">
+          <button class="btn mx-2 px-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+           <%# （ ↪︎　idの「dropdown-toggle」を消すとドロップボックスの矢印が消える） %>
 
-         <%# ユーザーネームと画像を表示させる %>
-          <%= current_user.family_name%><%= image_tag 'column-case015-01.png', class: 'rounded-circle ms-3', :size =>'55x55'%>
-        </button>
-         <%# ドロップボタンのリスト %>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#">お気に入りにした企業</a></li>
-          <li><a class="dropdown-item" href="#">応募した企業</a></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-outline-success text-center ms-2" %></li>
-       </ul>
-      </div>
+           <%# ユーザーネームと画像を表示させる %>
+            <%= current_user.family_name%><%= image_tag 'column-case015-01.png', class: 'rounded-circle ms-3', :size =>'55x55'%>
+          </button>
+           <%# ドロップボタンのリスト %>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">お気に入りにした企業</a></li>
+            <li><a class="dropdown-item" href="#">応募した企業</a></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-outline-success text-center ms-2" %></li>
+          </ul>
+        </div>
     </div>
   </div>
 </nav>
