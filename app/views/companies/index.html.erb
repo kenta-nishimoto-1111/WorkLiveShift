@@ -1,4 +1,8 @@
-<%= render "shared/header"%>
+     <% if user_signed_in? %>
+       <%= render "shared/header_signin"%>
+     <% else %>
+       <%= render "shared/header"%>
+     <% end %>
 
 
 <%# 画像のスライド %>

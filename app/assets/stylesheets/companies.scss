@@ -24,6 +24,17 @@
   border-color: #DDDDDD;
 }
 
+// ログイン済みのユーザーのドロップダウンのCSS
+
+.dropdown-item{
+  width: 90%;
+  margin-top: 10px;
+}
+
+.link_icon{
+  text-decoration: none;
+}
+
 // =================== ヘッダー部分のCSS ===================
 
 // =================== 検索部分のCSS ===================
@@ -72,7 +83,6 @@
 // =================== フッター部分のCSS ===================
 
 .footer{
-  background-color: #DDDDDD;
   max-width: 100%;
   padding: 30px 50px;
 }

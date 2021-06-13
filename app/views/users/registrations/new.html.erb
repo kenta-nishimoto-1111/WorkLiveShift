@@ -1,0 +1,53 @@
+ <div class="form-user ">
+  <div class="row g-3">
+  <h1 class="user_appname" >Work,LiveShift</h1>
+  <h1 class="user_title" >〜 新規登録して始める 〜</h1>
+
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main row g-3 ', local: true do |f| %>
+ 
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <div class="form-floating mb-3">
+        <%= f.text_field :family_name , autofocus: true, class:"form-control" , id:"floatingInput" , placeholder:"name@example.com" %>
+        <label for="floatingInput">姓</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <div class="form-floating mb-3">
+        <%= f.text_field :name , class:"form-control" , id:"floatingInput" , placeholder:"name@example.com" %>
+        <label for="floatingInput">名</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <div class="form-floating mb-3">
+        <%= f.email_field :email, class:"form-control" , id:"floatingInput" , placeholder:"name@example.com", autofocus: true %>
+        <%# <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> %>
+        <label for="floatingInput">メールアドレス</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <div class="form-floating">
+        <%= f.password_field :password, class:"form-control" , id:"floatingPassword" , placeholder:"Password" %>
+        <%# <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> %>
+        <label for="floatingPassword">パスワード</label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-12 ">
+    <%= f.submit "情報を登録して性格診断へ進む" ,class:"btn btn-primary float-end" %>
+    <%# <button type="submit" class="btn btn-primary float-end ">情報を登録して性格診断へ進む</button> %>
+  </div>
+  </div>
+  </div>
+
+  <% end %>
