@@ -40,3 +40,8 @@
   }
 
   /* ------------- ログイン画面のCSS ------------- */
+
+  .link_icon{
+    text-decoration: none;
+  }
+  
