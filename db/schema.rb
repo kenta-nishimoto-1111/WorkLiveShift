@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_06_15_014624) do
 
   create_table "question_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "question_id", null: false
-    t.string "question_text", null: false
-    t.integer "personarity_type", null: false
+    t.string "question_text"
+    t.string "personarity_type"
     t.integer "point", null: false
     t.integer "sort_order", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_014624) do
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message", null: false
     t.integer "question_type", null: false
-    t.integer "personality_type", null: false
+    t.string "personality_type", null: false
     t.integer "sort_order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
