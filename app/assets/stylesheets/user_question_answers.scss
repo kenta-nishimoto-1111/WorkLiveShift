@@ -36,3 +36,25 @@
   display: inline;
   padding: 0 30px;
   }
+
+  // -------- 診断結果のCSS ---------
+
+  .graph{
+    height: 80%;
+    width: 70%;
+    margin: auto;
+  }
+
+  .answer{
+    height: 100px;
+    margin: 0px 50px;
+  }
+
+  .link{
+      width:500px;
+      height:150px;
+      background:#136FFF;
+      border-radius:70px 70px 70px 70px;
+      padding: 10px;
+      font-size: 16px;
+  }

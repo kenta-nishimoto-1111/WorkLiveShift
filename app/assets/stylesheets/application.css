@@ -24,6 +24,15 @@
  color: white;
  }
 
+ /* ユーザー詳細のタブの部分のサイズ */
+ .user_base{
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
  /* ------------- ログイン画面のCSS ------------- */
 
 
