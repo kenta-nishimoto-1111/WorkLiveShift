@@ -3,6 +3,8 @@ Rails.application.routes.draw do
                                    sessions: 'users/sessions' }
   root 'companies#index'
 
+  resources :users, only: :show
+
   resources :user_question_answers do
     collection do 
       get 'first_question'
