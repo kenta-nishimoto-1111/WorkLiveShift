@@ -2,8 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user{
+
+.user_prf_base{
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.user_prf_inbase{
 height: 80%;
 width: 80%;
 background-color: aqua;
+}
+
+
+
+.user_career_base{
+  height: 700px;
+  width: 100%;
+}
+
+.user_career_inbase{
+  height: 50%;
+  width: 70%;
+  margin: 30px auto 0 ;
 }
