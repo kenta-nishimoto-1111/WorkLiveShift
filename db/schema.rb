@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2021_06_18_011434) do
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "age", null: false
     t.date "birth_date", null: false
-    t.string "residence", null: false
-    t.string "strong_point", null: false
-    t.string "dream", null: false
+    t.integer "prefecture_id", null: false
+    t.text "strong_point", null: false
+    t.text "dream", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
