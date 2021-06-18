@@ -1,11 +1,10 @@
 <div class="user_prf_base">
   <div class="user_prf_inbase ">
 
-    <dl class="row">
+  <% if @user.profile.present? %>
+    <dl class="row user_prf_info">
       <dt class="col-sm-4 mb-3">お名前</dt>
-      <dd class="col-sm-8 mb-3">
-      <%= @user.family_name %><%= @user.name %>
-      </dd>
+      <dd class="col-sm-8 mb-3"><%= @user.family_name %><%= @user.name %></dd>
 
       <dt class="col-sm-4 mb-3">年齢</dt>
       <dd class="col-sm-8 mb-3"><%= @profile.age %>歳</dd>
@@ -19,16 +18,34 @@
       <dt class="col-sm-4 mb-4">長所・強み</dt>
       <dd class="col-sm-8 mb-4"><%= @profile.strong_point %></dd>
 
-      <dt class="col-sm-4 ">これからやってみたいこと</dt>
+      <dt class="col-sm-4 ">目標・やりたいこと</dt>
       <dd class="col-sm-8 "><%= @profile.dream %></dd>
     </dl>
+  <% else %>
+    <div class="d-flex justify-content-center" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-exclamation-circle mx-3" viewBox="0 0 16 16">
+       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+       <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+      </svg>
+      情報は未記入です！<br>追加しましょう！
+    </div>
+  <% end %>
+
   </div>
 </div>
 
-  <%= link_to(new_user_profile_path(current_user), class:"d-flex align-items-end flex-column bd-highlight mx-5 my-5 " )  do %>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus mx-3 text-white mt-auto p-2 bd-highlight user_link_icon" viewBox="0 0 15 18">
-    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-    </svg>
+  <% if @user.profile.present? %>
+   <%= link_to(edit_user_profile_path(@profile.id), class:"d-flex align-items-end flex-column bd-highlight mx-5 my-5 " )  do %>
+     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-person-lines-fill mx-3 text-white mt-auto p-2 bd-highlight user_link_icon" viewBox="0 0 14 18">
+     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+     </svg>
+   <% end %>
+  <% else %>
+    <%= link_to(new_user_profile_path(current_user), class:"d-flex align-items-end flex-column bd-highlight mx-5 my-5 " )  do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus mx-3 text-white mt-auto p-2 bd-highlight user_link_icon" viewBox="0 0 15 18">
+      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+      <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+    <% end %>
   <% end %>
 

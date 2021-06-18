@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'companies#index'
 
   resources :users, only: :show do
-    resources :profiles, only:[:new,:create]
-    resources :company_names, only:[:new,:create]
+    resources :profiles, only:[:new,:create,:edit,:update]
+    resources :company_names, only:[:new,:create,:edit,:update]
   end
 
 

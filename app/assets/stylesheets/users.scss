@@ -8,14 +8,17 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   }
 
 .user_prf_inbase{
   height: 60%;
-  width: 50%;
-  margin: 100px 0 0 150px ;
+  width: 100%;
 }
 
+.user_prf_info{
+  margin-left: 400px ;
+}
 
 
 .user_career_base{
