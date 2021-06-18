@@ -3,22 +3,24 @@
 
     <dl class="row">
       <dt class="col-sm-4 mb-3">お名前</dt>
-      <dd class="col-sm-8 mb-3">西本憲太</dd>
+      <dd class="col-sm-8 mb-3">
+      <%= @user.family_name %><%= @user.name %>
+      </dd>
 
       <dt class="col-sm-4 mb-3">年齢</dt>
-      <dd class="col-sm-8 mb-3">27歳</dd>
+      <dd class="col-sm-8 mb-3"><%= @profile.age %>歳</dd>
 
       <dt class="col-sm-4 mb-3">生年月日</dt>
-      <dd class="col-sm-8 mb-3">1993年11月4日</dd>
+      <dd class="col-sm-8 mb-3"><%= @profile.birth_date %></dd>
 
       <dt class="col-sm-4 mb-4">居住地</dt>
-      <dd class="col-sm-8 mb-4">兵庫県</dd>
+      <dd class="col-sm-8 mb-4"><%= @profile.prefecture.name %></dd>
 
-      <dt class="col-sm-4 mb-5">長所・強み</dt>
-      <dd class="col-sm-8 mb-5">あああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</dd>
+      <dt class="col-sm-4 mb-4">長所・強み</dt>
+      <dd class="col-sm-8 mb-4"><%= @profile.strong_point %></dd>
 
-      <dt class="col-sm-4 mb-5">これからやってみたいこと</dt>
-      <dd class="col-sm-8 mb-5">あああああああああああああああああああああゝああああゝああああああああああああああああああああゝああああゝあ</dd>
+      <dt class="col-sm-4 ">これからやってみたいこと</dt>
+      <dd class="col-sm-8 "><%= @profile.dream %></dd>
     </dl>
   </div>
 </div>
