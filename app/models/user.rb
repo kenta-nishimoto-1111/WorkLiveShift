@@ -4,5 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  # アソシエーション
   has_many :user_question_answers
+  has_many :profile
+  has_many :company_name
+  
+
 end
