@@ -14,20 +14,21 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:user_id])
+    @profile = Profile.find(params[:id])
   end
 
   def update
-    @profile = Profile.find(params[:user_id])
-    if @profile.update
+    @profile = Profile.find(params[:id])
+    if @profile.update(profile_params)
       redirect_to user_path(current_user)
     else
       render 'edit'
     end
   end
 
-  private
+ private
+
   def profile_params
-  params.require(:profile).permit(:age, :birth_date, :prefecture_id, :strong_point,:dream).merge(user_id: current_user.id)
+    params.require(:profile).permit(:age, :birth_date, :prefecture_id, :strong_point,:dream).merge(user_id: current_user.id)
   end
 end

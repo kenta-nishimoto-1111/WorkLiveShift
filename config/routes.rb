@@ -3,10 +3,10 @@ Rails.application.routes.draw do
                                    sessions: 'users/sessions' }
   root 'companies#index'
 
-  resources :users, only: :show do
-    resources :profiles, only:[:new,:create,:edit,:update]
-    resources :company_names, only:[:new,:create,:edit,:update]
-  end
+  resources :users, only: :show
+  resources :profiles, only:[:new,:create,:edit,:update]
+  resources :company_names, only:[:new,:create,:edit,:update]
+  
 
 
   resources :user_question_answers do
