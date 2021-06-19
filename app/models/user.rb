@@ -8,5 +8,5 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :user_question_answers
   has_one :profile
-  has_one :company_names
+  has_many :company_names
 end

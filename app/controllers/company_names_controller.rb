@@ -13,16 +13,22 @@ class CompanyNamesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @company_name = CompanyName.find(params[:id])
   end
 
   def update
-    @profile = Profile.find(params[:id])
-    if @profile.update(profile_params)
+    @company_name = CompanyName.find(params[:id])
+    if @company_name.update(company_name_params)
       redirect_to user_path(current_user)
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @company_name = CompanyName.find(params[:id])
+    @company_name.destroy
+    redirect_to user_path(current_user)
   end
 
  private
