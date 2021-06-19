@@ -13,7 +13,8 @@
 
       <dt class="col-sm-3 mb-3"></dt>
       <dt class="col-sm-3 mb-3">生年月日</dt>
-      <dd class="col-sm-6 mb-3"><%= @profile.birth_date %></dd>
+      <dd class="col-sm-6 mb-3"><%="#{@profile.birth_date.year}年#{@profile.birth_date.month}月#{@profile.birth_date.day}日" %></dd>
+
 
       <dt class="col-sm-3 mb-3"></dt>
       <dt class="col-sm-3 mb-4">居住地</dt>

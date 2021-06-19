@@ -1,0 +1,75 @@
+<div class="prfnew_base">
+  <div class="prfnew_inbase ">
+   <h1 class="user_appname" >Work,LiveShift</h1>
+   <h1 class="user_title mb-5" >〜 経歴を追加する 〜</h1>
+
+
+  <%= form_with model: @company_name, local: true do |f|%>
+
+    <dl class="row">
+      <dt class="col-sm-4 mb-3">会社名</dt>
+        <dd class="col-sm-8 mb-3">
+          <%= f.text_field :name , class:"form-control" , id:"floatingInput" %>
+        </dd>
+
+      <dt class="col-sm-4 mb-3">役職</dt>
+        <dd class="col-sm-8 mb-3">
+          <%= f.text_field :position , class:"form-control" , id:"floatingInput" %>
+        </dd>
+        
+
+
+      <dt class="col-sm-4 mt-2">就業期間</dt>
+      <dd class="col-sm-8 ">
+          <div class='input-birth-wrap'>
+               <%= raw sprintf(
+                    f.date_select(
+                      :period_start,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      discard_day: true,
+                      prompt:'--',
+                      start_year: 1980,
+                      end_year: (Time.now.year),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+           </div>
+       </dd>
+
+      <div class="text-center mb-3">↓</div>
+
+      <dt class="col-sm-4 mt-2"></dt>
+      <dd class="col-sm-8 ">
+          <div class='input-birth-wrap'>
+               <%= raw sprintf(
+                    f.date_select(
+                      :period_end,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      discard_day: true,
+                      prompt:'--',
+                      start_year: 1980,
+                      end_year: (Time.now.year),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+           </div>
+       </dd>
+
+
+
+      <dt class="col-sm-4 mb-4">業務内容</dt>
+        <dd class="col-sm-8 mb-4">
+          <div class="mb-3">
+           <%= f.text_area :business_content , class:"form-control" , id:"floatingInput" %>
+          </div>
+        </dd>
+
+      <div class="col-12">
+        <%= f.submit "保存する" ,class:"btn btn-primary float-end mb-5" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

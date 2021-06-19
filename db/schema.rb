@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 2021_06_18_011434) do
   create_table "company_names", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "position", null: false
-    t.integer "period", null: false
+    t.date "period_start", null: false
+    t.date "period_end", null: false
     t.text "business_content", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
