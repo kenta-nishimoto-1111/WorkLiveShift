@@ -41,6 +41,7 @@
   </div>
 </div>
 
+<% if current_user.id == @user.id %>
   <% if @user.profile.present? %>
    <%= link_to(edit_profile_path(@profile.id), class:"d-flex align-items-end flex-column bd-highlight mx-5 my-5 " )  do %>
      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-person-lines-fill mx-3 text-white mt-auto p-2 bd-highlight user_link_icon" viewBox="0 0 14 18">
@@ -55,4 +56,6 @@
       </svg>
     <% end %>
   <% end %>
+<% end %>
+
 

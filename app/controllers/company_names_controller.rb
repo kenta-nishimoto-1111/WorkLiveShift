@@ -1,4 +1,8 @@
 class CompanyNamesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_company_name, only:[:edit , :update ,:destroy ]
+  before_action :move_to_index, only:[:edit, :update, :destroy]
+
   def new
     @company_name = CompanyName.new
   end
@@ -13,11 +17,9 @@ class CompanyNamesController < ApplicationController
   end
 
   def edit
-    @company_name = CompanyName.find(params[:id])
   end
 
   def update
-    @company_name = CompanyName.find(params[:id])
     if @company_name.update(company_name_params)
       redirect_to user_path(current_user)
     else
@@ -26,7 +28,6 @@ class CompanyNamesController < ApplicationController
   end
 
   def destroy
-    @company_name = CompanyName.find(params[:id])
     @company_name.destroy
     redirect_to user_path(current_user)
   end
@@ -35,6 +36,14 @@ class CompanyNamesController < ApplicationController
 
   def company_name_params
     params.require(:company_name).permit(:name, :position, :period_start, :period_end, :business_content).merge(user_id: current_user.id)
+  end
+
+  def set_company_name
+  @company_name = CompanyName.find(params[:id])
+  end
+
+  def move_to_index
+    return redirect_to root_path if current_user.id != @company_name.user.id
   end
 
 end

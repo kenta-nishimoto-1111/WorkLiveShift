@@ -13,6 +13,7 @@
         <div class="fs-5"><%= career_inf.position %></div>
       </div>
 
+    <% if current_user.id == career_inf.user_id %>
       <div class="col-1">
         <div class="dropdown">
           <button class="btn mx-2 px-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,6 +28,7 @@
           </ul>
         </div>
       </div>
+    <% end %>
 
      </div>
     </div>
