@@ -1,0 +1,69 @@
+ <div class="card ">
+   <%= image_tag 'pastel_000422.jpeg', class: 'card-img-top bg-dark' , :size =>'800x300'%>
+   <div class="card-img-overlay">
+  <%# ユーザー詳細ののヘッダー %>
+    <nav class="navbar">
+       <div class="container-fluid" >
+         <%= link_to 'Work,LiveShift', root_path, class: "navbar-brand text-white" %>
+
+           <%# ヘッダーのアイコン %>
+          <div class="d-flex">
+            <div class="d-flex align-items-center">
+
+           <%# チャットのアイコン %>
+            <div class="dropdown ">
+              <div class="btn text-white" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-square-dots mx-2" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">ここにチャットを表示</a></li>
+                <li><a class="dropdown-item" href="#">ここにチャットを表示</a></li>
+                <li><a class="dropdown-item" href="#">ここにチャットを表示</a></li>
+              </ul>
+            </div>
+
+
+           <%# すずのアイコン %>
+            <div class="dropdown">
+              <div class="btn text-white" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell mx-2" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                </svg>
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+                <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+                <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+              </ul>
+            </div>
+             <%# 人のアイコン %>
+            <div class="dropdown">
+              <div class="btn text-white" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle mx-3 text-white" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </div>
+               <%# ドロップボタンのリスト %>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">お気に入りにした企業</a></li>
+                <li><a class="dropdown-item" href="#">応募した企業</a></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-outline-success text-center ms-2" %></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </nav>
+
+    <%# 画像の中の真ん中の写真と文字 %>
+    <div class="d-flex justify-content-center d-flex align-items-center">
+      <%= image_tag current_user.image.url, class: 'rounded-circle ms-3', :size =>'120x120'%>
+      <div class="text-white fs-2 mx-4">
+        <%= current_user.family_name %><%= current_user.name %>
+      </div>
+    </div>
+ </div>
+</div>

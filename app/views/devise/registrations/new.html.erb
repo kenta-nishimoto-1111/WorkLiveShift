@@ -42,6 +42,22 @@
       </div>
     </div>
   </div>
+
+    <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <div class="form-floating border-bottom border-secondary text-center">
+      ユーザー画像を登録する
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <div class="form-floating">
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+  </div>
   
   <div class="col-12 ">
     <%= f.submit "情報を登録して性格診断へ進む" ,class:"btn btn-primary float-end mb-5" %>
