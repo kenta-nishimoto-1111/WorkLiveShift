@@ -11,4 +11,9 @@ class User < ApplicationRecord
   has_many :company_names
 
   mount_uploader :image, ImageUploader
+
+  with_options presence: true do
+    validates :family_name
+    validates :name
+  end
 end
