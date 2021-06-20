@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   # アソシエーション
   has_many :user_question_answers
-  has_one :profile
-  has_many :company_names
+  has_one :profile, dependent: :destroy
+  has_many :company_names, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
