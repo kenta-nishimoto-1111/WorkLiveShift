@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :user_question_answers
   has_one :profile
   has_many :company_names
+
+  mount_uploader :image, ImageUploader
 end

@@ -57,3 +57,4 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'active_hash'
+gem 'carrierwave', '~> 2.0'

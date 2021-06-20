@@ -54,7 +54,7 @@
            <%# （ ↪︎ idの「dropdown-toggle」を消すとドロップボックスの矢印が消える） %>
 
            <%# ユーザーネームと画像を表示させる %>
-            <%= current_user.family_name%><%= image_tag 'column-case015-01.png', class: 'rounded-circle ms-3', :size =>'55x55'%>
+            <%= current_user.family_name%><%= image_tag current_user.image.url, class: 'rounded-circle ms-3', :size =>'55x55'%>
           </button>
            <%# ドロップボタンのリスト %>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
