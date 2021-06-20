@@ -4,24 +4,30 @@
 
 // =================== ヘッダー部分のCSS ===================
 
+
+
 // 左上の文字
 .navbar-brand{
   font-size: 30px;
-  color: #444444;
+  color: black;
   font-family: fantasy;
   padding-top: 15px;
   }
 
-
   // ログイン／新規登録の文字色
 .btn-outline-success{
-  color:#444444;
-  border-color: #444444;
+  border-color: #136FFF;
 }
+
   // ログイン／新規登録のマウスを当てた時の色
 .btn-outline-success:hover{
-  background-color: #BBBBBB;
-  border-color: #DDDDDD;
+  color: white;
+  background-color: #A4C6FF;
+  border-color: #136FFF;
+}
+
+.user_link{
+  color: black;
 }
 
 // ログイン済みのユーザーのドロップダウンのCSS
@@ -54,11 +60,12 @@
 .genre{
   width:500px;
   height:80px;
-  background:#DDDDDD;
+  background:#136FFF;
   border-radius:70px 70px 70px 70px;
   padding: 10px;
   font-size: 12px;
   margin: 30px 5px;
+  color: white;
 }
 
 
