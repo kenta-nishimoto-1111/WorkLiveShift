@@ -4,9 +4,13 @@ class CreateUserQuestionAnswers < ActiveRecord::Migration[6.0]
       t.integer :user_id, null: false
       t.integer :question_id,   null: false
       t.integer :question_option_id, null: false
-      t.integer :personarity_type, null: false
+      t.integer :personality_type, null: false
       t.integer :point, null: false
       t.timestamps
     end
+
+    add_index :user_question_answers, :personality_type
+    add_index :user_question_answers, [:personality_type, :user_id]
+
   end
 end

@@ -6,8 +6,11 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.integer    :prefecture_id, null: false
       t.text       :strong_point, null: false
       t.text       :dream, null: false
-      t.references :user, foreign_key: true
+      t.references :user, null: false, index: {unique: true}
       t.timestamps
     end
+    add_index :profiles, :age
+    add_index :profiles, :prefecture_id
+    add_index :profiles, [:age, :prefecture_id]
   end
 end

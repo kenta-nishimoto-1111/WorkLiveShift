@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_06_19_065520) do
 
   create_table "company_names", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "company_name", null: false
     t.string "position", null: false
     t.date "period_start", null: false
     t.date "period_end", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_06_19_065520) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["position"], name: "index_company_names_on_position"
     t.index ["user_id"], name: "index_company_names_on_user_id"
   end
 
@@ -30,43 +31,50 @@ ActiveRecord::Schema.define(version: 2021_06_19_065520) do
     t.integer "prefecture_id", null: false
     t.text "strong_point", null: false
     t.text "dream", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["age", "prefecture_id"], name: "index_profiles_on_age_and_prefecture_id"
+    t.index ["age"], name: "index_profiles_on_age"
+    t.index ["prefecture_id"], name: "index_profiles_on_prefecture_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
 
   create_table "question_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "question_id", null: false
-    t.string "question_text"
-    t.string "personarity_type"
+    t.string "option_text"
+    t.string "personality_type"
     t.integer "point", null: false
     t.integer "sort_order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["personality_type"], name: "index_question_options_on_personality_type"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message", null: false
-    t.integer "question_type", null: false
+    t.string "question_type", null: false
     t.string "personality_type", null: false
     t.integer "sort_order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["personality_type"], name: "index_questions_on_personality_type"
   end
 
   create_table "user_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
     t.integer "question_option_id", null: false
-    t.integer "personarity_type", null: false
+    t.integer "personality_type", null: false
     t.integer "point", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["personality_type", "user_id"], name: "index_user_question_answers_on_personality_type_and_user_id"
+    t.index ["personality_type"], name: "index_user_question_answers_on_personality_type"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "family_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -81,5 +89,4 @@ ActiveRecord::Schema.define(version: 2021_06_19_065520) do
   end
 
   add_foreign_key "company_names", "users"
-  add_foreign_key "profiles", "users"
 end
