@@ -1,6 +1,6 @@
-class CreateCompanyNames < ActiveRecord::Migration[6.0]
+class CreateCareers < ActiveRecord::Migration[6.0]
   def change
-    create_table :company_names do |t|
+    create_table :careers do |t|
       t.string     :company_name, null: false
       t.string     :position, null: false
       t.date       :period_start, null: false
@@ -10,7 +10,7 @@ class CreateCompanyNames < ActiveRecord::Migration[6.0]
       t.timestamps
     end
     
-    add_index :company_names, :position
+    add_index :careers, :position
 
   end
 end

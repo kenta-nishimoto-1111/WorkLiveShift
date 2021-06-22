@@ -4,12 +4,12 @@
    <h1 class="user_title mb-5" >〜 経歴を編集する 〜</h1>
 
 
-  <%= form_with model: @company_name, local: true do |f|%>
+  <%= form_with model: @career, local: true do |f|%>
 
     <dl class="row">
       <dt class="col-sm-4 mb-3">会社名</dt>
         <dd class="col-sm-8 mb-3">
-          <%= f.text_field :name , class:"form-control" , id:"floatingInput" %>
+          <%= f.text_field :company_name , class:"form-control" , id:"floatingInput" %>
         </dd>
 
       <dt class="col-sm-4 mb-3">役職</dt>

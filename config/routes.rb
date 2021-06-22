@@ -5,8 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   resources :profiles, only:[:new,:create,:edit,:update]
-  resources :company_names, only:[:new,:create,:edit,:update,:destroy]
-  
+  resources :careers, only:[:new,:create,:edit,:update,:destroy]
 
 
   resources :user_question_answers do

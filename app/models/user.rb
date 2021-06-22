@@ -8,12 +8,13 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :user_question_answers
   has_one :profile, dependent: :destroy
-  has_many :company_names, dependent: :destroy
+  has_many :career, dependent: :destroy
+
 
   mount_uploader :image, ImageUploader
 
   with_options presence: true do
     validates :family_name
-    validates :name
+    validates :last_name
   end
 end
