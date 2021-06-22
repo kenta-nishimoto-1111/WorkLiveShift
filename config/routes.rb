@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :user_question_answers do
     collection do 
-      get 'first_question'
+      get 'choice_questions'
      end
      collection do 
-      get 'second_question'
+      get 'label_questions'
      end
     end
   end

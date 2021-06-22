@@ -1,8 +1,11 @@
-class UserQuestionAnswersController < ApplicationController
+    class UserQuestionAnswersController < ApplicationController
 
-  def first_question
-    @a = current_user.user_question_answers.joins(:question).order('questions.sort_order')
-  end
- 
-end
+      def choice_questions
+        @questions = Question.choice.order(:sort_)
+      end
+
+      def label_questions
+      end
+    
+    end
 
