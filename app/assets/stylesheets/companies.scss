@@ -96,9 +96,27 @@
   align-items: center;
   }
 
+.new_base_sixth{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new_inbase_sixth{
+  height: 85%;
+  width: 90%;
+}
+
 .new_inbase{
   height: 85%;
   width: 50%;
+}
+
+.sixth_title{
+  width: 50%;
+  margin: 0 auto;
 }
 
 .form-image{

@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_055915) do
     t.string "company_image", null: false
     t.integer "prefecture_id", null: false
     t.date "founding_date", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "company_url", null: false
     t.text "company_content", null: false
     t.text "company_purpose", null: false

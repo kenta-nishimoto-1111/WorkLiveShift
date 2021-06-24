@@ -1,0 +1,10 @@
+<div class="new_base">
+  <div class="new_inbase ">
+   <h1 class="user_appname" >Work,LiveShift</h1>
+   <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
+    <%= form_with model: @company, local: true do |f|%>
+      <div class="fs-1 text-secondary mb-3">最終確認</div>
+      <%= f.submit "次へ" ,class:"btn btn-primary float-end mb-5" %>
+    <% end %>
+  </div>
+</div>

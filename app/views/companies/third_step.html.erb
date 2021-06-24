@@ -2,10 +2,10 @@
   <div class="new_inbase ">
    <h1 class="user_appname" >Work,LiveShift</h1>
    <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
-    <%= form_with model: @profile, local: true do |f|%>
+    <%= form_with model: @company, url: fourth_step_companies_path, method: :get, local: true do |f|%>
       <div class="fs-1 text-secondary mb-3">3/6</div>
       <div class="fs-3">あなたの会社の事業内容について書く</div>
-      <%= f.text_area :last_name , class:"form-control border border-primary rounded my-3", id:"floatingInput",rows: 7, placeholder:third_step_placeholder%>
+      <%= f.text_area :company_content, class:"form-control border border-primary rounded my-3", id:"floatingInput",rows: 7, placeholder:third_step_placeholder%>
       <%= f.submit "次へ" ,class:"btn btn-primary float-end mb-5" %>
     <% end %>
   </div>

@@ -36,6 +36,9 @@ Rails.application.routes.draw do
       collection do 
         get 'sixth_step'
       end
+      collection do 
+        get 'double_check'
+      end
     end
 
 
