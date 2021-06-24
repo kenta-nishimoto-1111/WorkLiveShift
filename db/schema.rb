@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_073138) do
+ActiveRecord::Schema.define(version: 2021_06_23_055915) do
 
   create_table "careers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 2021_06_22_073138) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["position"], name: "index_careers_on_position"
     t.index ["user_id"], name: "index_careers_on_user_id"
+  end
+
+  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "my_company_name", null: false
+    t.string "company_image", null: false
+    t.integer "prefecture_id", null: false
+    t.date "founding_date", null: false
+    t.integer "phone_number", null: false
+    t.string "company_url", null: false
+    t.text "company_content", null: false
+    t.text "company_purpose", null: false
+    t.text "company_environment", null: false
+    t.text "ingredients", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prefecture_id"], name: "index_companies_on_prefecture_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,4 +107,5 @@ ActiveRecord::Schema.define(version: 2021_06_22_073138) do
   end
 
   add_foreign_key "careers", "users"
+  add_foreign_key "companies", "users"
 end
