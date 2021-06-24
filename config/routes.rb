@@ -16,5 +16,28 @@ Rails.application.routes.draw do
       get 'label_questions'
      end
     end
-  end
+
+    resources :companies do
+      collection do 
+        get 'first_step'
+      end
+      collection do 
+        get 'second_step'
+      end
+      collection do 
+        get 'third_step'
+      end
+      collection do 
+        get 'fourth_step'
+      end
+      collection do 
+        get 'fifth_step'
+      end
+      collection do 
+        get 'sixth_step'
+      end
+    end
+
+
+end
 

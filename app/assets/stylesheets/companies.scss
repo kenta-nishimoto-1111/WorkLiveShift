@@ -85,3 +85,41 @@
   padding: 30px 50px;
 }
 
+// =================== 企業情報入力のCSS ===================
+
+
+.new_base{
+  height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.new_inbase{
+  height: 85%;
+  width: 50%;
+}
+
+.form-image{
+  input{
+    display: none;
+  }
+}
+
+
+.location{
+  height: 80%;
+  width: 100%;
+}
+
+.select_box_company {
+  height: 100%;
+  padding-left: 20px;
+  width: 100%;
+
+}
+
+.check_box{
+  background-color: #D9E5FF;
+}

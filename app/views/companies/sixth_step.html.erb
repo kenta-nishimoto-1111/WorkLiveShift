@@ -1,0 +1,22 @@
+<div class="new_base">
+  <div class="new_inbase ">
+   <h1 class="user_appname" >Work,LiveShift</h1>
+   <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
+    <%= form_with model: @profile, local: true do |f|%>
+
+      <div class="fs-1 text-secondary mb-3">6/6</div>
+      <div class="fs-3 mb-4">求める職種について選択しましょう</div>
+
+          <% %w( 営業 人事 販売 接客 事務 教育 エンジニア).each.with_index do |ingredient,i| %>
+              <label>
+                <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                  <%= check_box_tag 'samurai[ingredients][]', ingredient,false,id:"samurai_ingredients_#{i}"%>
+                  <%= ingredient %>
+                </div>
+              </label>
+          <% end %>
+
+      <%= f.submit "次へ" ,class:"btn btn-primary float-end my-5" %>
+    <% end %>
+  </div>
+</div>
