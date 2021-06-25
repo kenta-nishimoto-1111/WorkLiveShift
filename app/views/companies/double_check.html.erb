@@ -3,8 +3,40 @@
    <h1 class="user_appname" >Work,LiveShift</h1>
    <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
     <%= form_with model: @company, local: true do |f|%>
-      <div class="fs-1 text-secondary mb-3">最終確認</div>
-      <%= f.submit "次へ" ,class:"btn btn-primary float-end mb-5" %>
+      <div class="fs-1 text-secondary mb-4">最終確認</div>
+
+      <dl class="row ms-5">
+        <dd class="col-sm-3 mb-4 text-secondary">会社名</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.my_company_name %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">所在地</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.prefecture.name %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">創立</dd>
+        <dt class="col-sm-9 mb-4"><%="#{@check.founding_date.year}年#{@check.founding_date.month}月" %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">電話番号</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.phone_number %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">会社HP</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.company_url %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">事業内容</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.company_content %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">事業目的</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.company_purpose %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">働く環境</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.company_environment %></dt>
+
+        <dd class="col-sm-3 mb-4 text-secondary">職種</dd>
+        <dt class="col-sm-9 mb-4"><%= @check.ingredients %></dt>
+
+      </dl>
+
+
+      <%= f.submit "登録する" ,class:"btn btn-primary float-end mb-5" %>
     <% end %>
   </div>
 </div>
