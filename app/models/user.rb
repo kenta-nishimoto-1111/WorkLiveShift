@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :career, dependent: :destroy
 
-
   mount_uploader :image, ImageUploader
 
   with_options presence: true do

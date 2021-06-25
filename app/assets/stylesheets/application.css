@@ -24,12 +24,16 @@
  color: white;
  }
 
- /* ユーザー詳細のタブの部分のサイズ */
+ /* 生年月日のボーダーのデザイン */
+ .input-birth-wrap select{
+  border-radius:70px 70px 70px 70px;
+  border-color: royalblue;
+ }
 
-
- /* ------------- ログイン画面のCSS ------------- */
-
-
+ /* セレクトボタンの黄色い線を消す */
+ select{
+  outline: none
+ }
 
 /* ------------- ログイン画面のCSS ------------- */
 
