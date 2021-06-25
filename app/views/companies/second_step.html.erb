@@ -12,14 +12,14 @@
           <div class="container">
             <div class="row ">
 
-              <div class="col-3">
+              <div class="col-3 d-flex align-items-center ">
                 <div class="form-floating mb-1 location">
                   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select_box_company border-primary rounded-pill px-2", id:"item-prefecture"})%>
                 </div>
               </div>
 
-              <div class="col-8">
-                <div class="px-4">
+              <div class="col-8 ">
+                <div class="px-4 pt-2">
                     <dl class="row">
                         <dd class="col-sm-4 mt-4 ps-5">創立年月</dd>
                         <dd class="col-sm-7 mt-3">
