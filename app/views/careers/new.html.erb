@@ -9,12 +9,12 @@
     <dl class="row">
       <dt class="col-sm-4 mb-3">会社名</dt>
         <dd class="col-sm-8 mb-3">
-          <%= f.text_field :company_name , class:"form-control" , id:"floatingInput" %>
+          <%= f.text_field :company_name , class:"form-control  border border-primary rounded-pill" , id:"floatingInput" %>
         </dd>
 
       <dt class="col-sm-4 mb-3">役職</dt>
         <dd class="col-sm-8 mb-3">
-          <%= f.text_field :position , class:"form-control" , id:"floatingInput" %>
+          <%= f.text_field :position , class:"form-control  border border-primary rounded-pill" , id:"floatingInput" %>
         </dd>
         
 
@@ -25,7 +25,7 @@
                <%= raw sprintf(
                     f.date_select(
                       :period_start,
-                      class:'select-birth',
+                      class:'select-birth  border border-primary rounded-pill',
                       id:"birth-date",
                       use_month_numbers: true,
                       discard_day: true,
@@ -40,7 +40,7 @@
       <div class="text-center mb-3">↓</div>
 
       <dt class="col-sm-4 mt-2"></dt>
-      <dd class="col-sm-8 ">
+      <dd class="col-sm-8">
           <div class='input-birth-wrap'>
                <%= raw sprintf(
                     f.date_select(
@@ -62,7 +62,7 @@
       <dt class="col-sm-4 mb-4">業務内容</dt>
         <dd class="col-sm-8 mb-4">
           <div class="mb-3">
-           <%= f.text_area :business_content , class:"form-control " , id:"floatingInput" %>
+           <%= f.text_area :business_content , class:"form-control  border border-primary rounded" , id:"floatingInput" %>
           </div>
         </dd>
 

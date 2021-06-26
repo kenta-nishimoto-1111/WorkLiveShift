@@ -40,6 +40,10 @@
 
 // =================== ヘッダー部分のCSS ===================
 
+.company_list{
+  width: 70%;
+}
+
 // =================== 検索部分のCSS ===================
 
 // 画像の下にスペースを作る
@@ -85,3 +89,59 @@
   padding: 30px 50px;
 }
 
+// =================== 企業情報入力のCSS ===================
+
+
+.new_base{
+  height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.new_base_sixth{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new_inbase_sixth{
+  height: 85%;
+  width: 90%;
+}
+
+.new_inbase{
+  height: 85%;
+  width: 60%;
+}
+
+.sixth_title{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-image{
+  input{
+    display: none;
+  }
+}
+
+
+.location{
+  height: 50%;
+  width: 100%;
+}
+
+.select_box_company {
+  height: 100%;
+  padding-left: 20px;
+  width: 100%;
+
+}
+
+.check_box{
+  background-color: #D9E5FF;
+}

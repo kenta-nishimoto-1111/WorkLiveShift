@@ -1,0 +1,165 @@
+<div class="new_base_sixth">
+  <div class="new_inbase_sixth">
+   <h1 class="user_appname" >Work,LiveShift</h1>
+   <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
+    <%= form_with model: @company, url: double_check_companies_path, method: :get, local: true do |f|%>
+
+    <div class="sixth_title">
+      <div class="fs-1 text-secondary mb-3">6/6</div>
+      <div class="fs-3 mb-5">会社の職種について選択しましょう</div>
+    </div>
+
+<div class="container">
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              営業
+            </div>
+            <div class="col-9">
+              <% %w(個人営業 法人営業 ルート営業 テレフォンアポインター 営業アシスタント).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              コーポレート
+            </div>
+            <div class="col-9">
+              <% %w(一般事務 人事 経理 財務 法務 経営企画 秘書).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              販売・サービス
+            </div>
+            <div class="col-9">
+              <% %w(販売・接客 店長(ファッション) ホールスタッフ 調理 店長(飲食) ).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              コンサルティング
+            </div>
+            <div class="col-9">
+              <% %w(経営コンサルティング 人事コンサルティング ITコンサルティング マーケティングコンサルティング キャリアコンサルティング).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+      
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              教育
+            </div>
+            <div class="col-9">
+              <% %w(保育士・幼稚園教諭 スクール運営・マネジメント 教師 講師 スポーツインストラクター 教務事務).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              エンジニア
+            </div>
+            <div class="col-9">
+              <% %w(モバイルエンジニア webエンジニア インフラエンジニア システムエンジニア データサイエンティスト).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              デザイナー
+            </div>
+            <div class="col-9">
+              <% %w(グラフィックデザイナー アートデザイナー クリエイティブデザイナー フォトグラファー 動画クリエイター イラストレーター).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+          <hr align="center" >
+
+          <div class="row my-4">
+            <div class="col-3 fs-6 mt-3 text-secondary text-center ">
+              その他
+            </div>
+            <div class="col-9">
+              <% %w(その他).each.with_index do |ingredient,i| %>
+                <label>
+                  <div class="m-2 border border-primary rounded-pill p-2 check_box">
+                    <%= check_box_tag 'company[ingredients][]', ingredient,false,id:"company_ingredients_#{i}"%>
+                    <%= ingredient %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+        
+</div>
+
+
+      <%= f.submit "次へ" ,class:"btn btn-primary float-end my-5" %>
+    <% end %>
+  </div>
+</div>

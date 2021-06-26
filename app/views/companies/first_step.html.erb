@@ -1,0 +1,50 @@
+<div class="new_base">
+  <div class="new_inbase ">
+   <h1 class="user_appname" >Work,LiveShift</h1>
+   <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
+
+
+    <%= form_with model: @company, url: second_step_companies_path, method: :get, local: true do |f|%>
+
+    <div class="fs-1 text-secondary mb-3">1/6</div>
+
+    <div class="fs-3 mb-5">まずは会社の名前と写真を登録しましょう</div>
+
+      <div class="container my-5">
+        <div class="row">
+
+          <div class="col-2">
+            <div class="col-md-6">
+              <label class="form-image">
+                <span class="image-file">                
+                  <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-camera border border-primary rounded-circle p-3" viewBox="-1 0 18 18">
+                  <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                  <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                  </svg>
+                </span>
+                <%= f.file_field :company_image, class: 'hidden' %>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-10">
+            <div class="form-floating mb-3">
+              <%= f.text_field :my_company_name , class:"form-control border border-primary rounded-pill" , id:"floatingInput" , placeholder:"name@example.com" %>
+              <label for="floatingInput">会社名</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+      <div class="col-12">
+      <%= f.submit "次へ" ,class:"btn btn-primary float-end mb-5" %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
