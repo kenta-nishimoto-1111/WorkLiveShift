@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get 'choice_questions'
      end
      collection do 
-      get 'label_questions'
+      get 'scale_questions'
      end
     end
 
