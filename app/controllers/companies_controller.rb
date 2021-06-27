@@ -1,4 +1,9 @@
 class CompaniesController < ApplicationController
+
+  def top
+    
+  end
+
   def index
   end
   

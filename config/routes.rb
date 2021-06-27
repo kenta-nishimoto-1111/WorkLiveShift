@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations',
                                    sessions: 'users/sessions' }
-  root 'companies#index'
+  root 'companies#top'
 
   resources :users, only: :show
   resources :profiles, only:[:new,:create,:edit,:update]
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     end
 
     resources :companies do
+      collection do 
+        get 'top'
+      end
       collection do 
         get 'first_step'
       end
