@@ -4,32 +4,24 @@
 
 // パーソナリティ診断のCSS
 
-.form-test{
+.form-question{
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
   }
 
-  .form{
+  .form-question_inbase{
     // background-color: #DDDDDD;
     height: 80%;
     width: 90%;
     margin:  50px 0;
   }
 
-  .question{
-    margin: 50px 20% 50px 30%;
-  }
-
-  .questions{
-    margin: 50px 20px 50px 30px;
-  }
-
-  .question-text{
-  margin-bottom: 20px;
-  font-size: 30px;
+  .choice_question{
+    margin: 50px 70px;
   }
 
   .form-checkbox{

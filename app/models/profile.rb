@@ -6,7 +6,6 @@ class Profile < ApplicationRecord
 
 
   with_options presence: true do
-    validates :age
     validates :birth_date
     validates :prefecture_id
     validates :strong_point
