@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_06_23_055915) do
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "age", null: false
     t.date "birth_date", null: false
     t.integer "prefecture_id", null: false
     t.text "strong_point", null: false
@@ -52,8 +51,8 @@ ActiveRecord::Schema.define(version: 2021_06_23_055915) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["age", "prefecture_id"], name: "index_profiles_on_age_and_prefecture_id"
-    t.index ["age"], name: "index_profiles_on_age"
+    t.index ["birth_date", "prefecture_id"], name: "index_profiles_on_birth_date_and_prefecture_id"
+    t.index ["birth_date"], name: "index_profiles_on_birth_date"
     t.index ["prefecture_id"], name: "index_profiles_on_prefecture_id"
     t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
