@@ -4,7 +4,7 @@ class CreateUserQuestionAnswers < ActiveRecord::Migration[6.0]
       t.integer :user_id, null: false
       t.integer :question_id,   null: false
       t.integer :question_option_id, null: false
-      t.integer :personality_type, null: false
+      t.string  :personality_type, null: false
       t.integer :point, null: false
       t.timestamps
     end

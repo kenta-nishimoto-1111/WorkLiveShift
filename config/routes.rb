@@ -11,14 +11,16 @@ Rails.application.routes.draw do
   resources :user_question_answers do
     collection do 
       get 'choice_questions'
+      post 'answer_choice_questions'
      end
      collection do 
       get 'scale_questions'
      end
 
+
      collection do 
       get 'thinker'
-    end
+     end
     collection do 
       get 'pasi'
     end
@@ -65,4 +67,5 @@ Rails.application.routes.draw do
 
 
 end
+
 

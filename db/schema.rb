@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_055915) do
     t.integer "user_id", null: false
     t.integer "question_id", null: false
     t.integer "question_option_id", null: false
-    t.integer "personality_type", null: false
+    t.string "personality_type", null: false
     t.integer "point", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
