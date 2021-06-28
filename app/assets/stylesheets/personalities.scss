@@ -8,12 +8,7 @@
   margin-left: 10px;
 }
 
-.description_option{
-  line-height: 40px;
-}
-
-
-
+// -----------------------------------
 
 .thinker_name{
   color: #8EB8FF ;
@@ -41,7 +36,35 @@
 
 
 
+.description_option{
+  line-height: 50px;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
 
+.thinker_option{
+  text-decoration-color: #8EB8FF; /* 線の色 */
+}
+
+.pasi_option{
+  text-decoration-color: #C299FF; /* 線の色 */
+}
+
+.hamo_option{
+  text-decoration-color: #FF9872; /* 線の色 */
+}
+
+.ima_option{
+  text-decoration-color: #D2691E; /* 線の色 */
+}
+
+.revel_option{
+  text-decoration-color: #FFD700; /* 線の色 */
+}
+
+.pro_option{
+  text-decoration-color: #FF69A3 ; /* 線の色 */
+}
 
 // フッター部分のタグ
 
@@ -66,5 +89,5 @@
 }
 
 .pro_tag{
-  background-color:#FF69A3 ;
+  background-color: #FF69A3 ;
 }
