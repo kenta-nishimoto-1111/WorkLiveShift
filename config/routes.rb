@@ -15,7 +15,26 @@ Rails.application.routes.draw do
      collection do 
       get 'scale_questions'
      end
+
+     collection do 
+      get 'thinker'
     end
+    collection do 
+      get 'pasi'
+    end
+    collection do 
+      get 'hamo'
+    end
+    collection do 
+      get 'ima'
+    end
+    collection do 
+      get 'revel'
+    end
+    collection do 
+      get 'pro'
+    end
+  end
 
     resources :companies do
       collection do 
