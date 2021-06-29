@@ -34,18 +34,44 @@
   </div>
 </div>
 
-  <%= @total %>
-  <%= @total = @total.sort.reverse %>
 
-    <div class="answer mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center ">
-            <a href="#" class="link text-decoration-none text-white">あなたが最も強く持っているパーソナリティーは "<%= @total[0][0] %>" です</a>
-          </div>
-          <div class="col text-center">
-            <a href="#" class="link text-decoration-none text-white">あなたが次に強く持っているパーソナリティーは" <%= @total[1][0] %> "です</a>
-          </div>
+<div class="answer mt-5">
+  <div class="container">
+    <div class="row">
+      <% @total = @total.sort_by { |_, v| -v }.to_h %>
+        <div class="col text-center ">
+          <% @total_strong = @total.keys[0] %>
+            <% if @total_strong == "thinker" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"思考・論理"です', thinker_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_strong == "pasi" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"意見・価値観"です', pasi_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_strong == "hamo" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"心情・思いやり"です', hamo_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_strong == "ima" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"内省・想像"です', ima_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_strong == "revel" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"反応・ユーモア"です', revel_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% else @total_strong == "pro" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"行動・魅力"です', pro_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+          <% end %>
         </div>
-      </div>
+
+        <div class="col text-center ">
+          <% @total_weak = @total.keys[1] %>
+            <% if @total_weak == "thinker" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"思考・論理"です', thinker_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_weak == "pasi" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"意見・価値観"です', pasi_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_weak == "hamo" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"心情・思いやり"です', hamo_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_weak == "ima" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"内省・想像"です', ima_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% elsif @total_weak == "revel" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"反応・ユーモア"です', revel_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+            <% else @total_weak == "pro" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"行動・魅力"です', pro_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+          <% end %>
+        </div>
     </div>
+  </div>
+</div>
