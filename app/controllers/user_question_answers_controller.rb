@@ -40,8 +40,8 @@ class UserQuestionAnswersController < ApplicationController
       answers.each do |answer|
         @total[answer.personality_type] += answer.point  
       end
-      
     end
+    
     def thinker
     end
 
