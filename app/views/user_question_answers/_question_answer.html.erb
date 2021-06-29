@@ -1,47 +1,48 @@
-          <div class="form-test">
-          <div class="form">
-            <div class="graph">
-              <canvas id="myRaderChart"></canvas>
-              <!-- CDN -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-            
-              <script>
-                var ctx = document.getElementById("myRaderChart");
-                var myRadarChart = new Chart(ctx, {
-                    type: 'radar', 
-                    data: { 
-                        labels: ["心情・思いやり", "思考・論理", "信念・価値観", "内省・想像", "反応・ユーモア", "行動・魅力"],
-                        datasets: [ {
-                            label: '<%= current_user.family_name %>さん',
-                            data: [<%= @total["hamo"] %>, <%= @total["thinker"] %>, <%= @total["pasi"] %>, <%= @total["ima"] %>, <%= @total["revel"] %>, <%= @total["pro"] %>],
-                            backgroundColor: '#136FFF',
-                            borderColor: 'RGBA(115,255,25, 1)',
-                            borderWidth: 1,
-                            pointBackgroundColor: 'RGBA(115,255,25, 1)'
-                        }]
-                    },
-                    options: {
-                        scale:{
-                            ticks:{
-                                suggestedMin: 0,
-                                suggestedMax: 50,
-                                stepSize: 10,
-                            }
-                        }
+<div class="form-test">
+  <div class="form">
+    <div class="graph">
+      <canvas id="myRaderChart"></canvas>
+      <!-- CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+      <script>
+        var ctx = document.getElementById("myRaderChart");
+        var myRadarChart = new Chart(ctx, {
+            type: 'radar', 
+            data: { 
+                labels: ["心情・思いやり", "思考・論理", "信念・価値観", "内省・想像", "反応・ユーモア", "行動・魅力"],
+                datasets: [ {
+                    label: '<%= current_user.family_name %>さん',
+                    data: [<%= @total["hamo"] %>, <%= @total["thinker"] %>, <%= @total["pasi"] %>, <%= @total["ima"] %>, <%= @total["revel"] %>, <%= @total["pro"] %>],
+                    backgroundColor: '#136FFF',
+                    borderColor: 'RGBA(115,255,25, 1)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'RGBA(115,255,25, 1)'
+                }]
+            },
+            options: {
+                scale:{
+                    ticks:{
+                        suggestedMin: 0,
+                        suggestedMax: 50,
+                        stepSize: 10,
                     }
-                });
-                </script>
-            </div>
+                }
+            }
+        });
+        </script>
+    </div>
+  </div>
+</div>
 
-            <div class="answer ">
-              <div class="container">
-                <div class="row">
-                  <div class="col text-center ">
-                    <a href="#" class="link text-decoration-none text-white">あなたが最も強く持っているパーソナリティーは＝＝です</a>
-                  </div>
-                  <div class="col text-center">
-                    <a href="#" class="link text-decoration-none text-white">あなたが次に強く持っているパーソナリティーは＝＝です</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div class="answer mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center ">
+            <a href="#" class="link text-decoration-none text-white">あなたが最も強く持っているパーソナリティーは＝＝です</a>
+          </div>
+          <div class="col text-center">
+            <a href="#" class="link text-decoration-none text-white">あなたが次に強く持っているパーソナリティーは＝＝です</a>
+          </div>
+        </div>
+      </div>
+    </div>
