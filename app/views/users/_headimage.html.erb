@@ -1,6 +1,7 @@
-   <%= image_tag 'blue_00004', class: 'card-img-top bg-dark' , :size =>'800x300'%>
-   <div class="card-img-overlay">
-  <%# ユーザー詳細ののヘッダー %>
+ <div class="card ">
+  <%= image_tag 'blue_00004', class: 'card-img-top bg-dark' , :size =>'800x300'%>
+  <div class="card-img-overlay">
+    <%# ユーザー詳細ののヘッダー %>
     <nav class="navbar">
        <div class="container-fluid" >
          <%= link_to 'Work,LiveShift', root_path, class: "navbar-brand text-white" %>
@@ -64,4 +65,5 @@
         <%= current_user.family_name %><%= current_user.last_name %>
       </div>
     </div>
- </div>
+  </div>
+</div>
