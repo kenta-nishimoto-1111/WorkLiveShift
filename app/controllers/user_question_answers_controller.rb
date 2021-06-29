@@ -23,6 +23,18 @@ class UserQuestionAnswersController < ApplicationController
       @questions = Question.scale.order(:sort_order)
     end
 
+    def scale_choice_questions
+      questions = Question.scale.order(:sort_order)
+      questions.each do |question|
+        point = params[question.id.to_s].to_i
+        answer = current_user.user_question_answers.find_or_initialize_by(question_id: question.id)
+        answer.personality_type = question.personality_type
+        answer.point = point
+        answer.save!
+      end
+      redirect_to root_path
+    end
+
 
     def thinker
     end

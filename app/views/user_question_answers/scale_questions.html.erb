@@ -6,6 +6,8 @@
         <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z"/>
       </svg>パーソナリティ診断</h1>
 
+       <%= form_with url: scale_choice_questions_user_question_answers_path, local: true do |f| %>
+
 
         <% @questions.each do |question| %>
 
@@ -18,32 +20,32 @@
               <div class="form-check question-answer mb-5">
                   そう思う
                     <div class="form-checkbox">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="7">
+                        <label class="form-check-label" for="inlineRadio1"></label>
+                      </div>
                       <div class="form-check form-check-inline ">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="6">
                         <label class="form-check-label" for="inlineRadio1"></label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="5">
                         <label class="form-check-label" for="inlineRadio1"></label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="4">
                         <label class="form-check-label" for="inlineRadio1"></label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="3">
                         <label class="form-check-label" for="inlineRadio1"></label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="2">
                         <label class="form-check-label" for="inlineRadio1"></label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1"></label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions<%= question.id%>" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="<%= question.id%>" id="inlineRadio1" value="1">
                         <label class="form-check-label" for="inlineRadio1"></label>
                       </div>
                     </div>
@@ -56,9 +58,10 @@
         <% end %>
 
         <!-- ボタン -->
-        <button type="submit" class="btn btn-primary float-end mb-5">次へ</button>
+        <%= f.submit '登録' ,class:" btn btn-primary float-end mb-5" %>
+
+      <% end %>
 
 
     </div>
   </div>
-  

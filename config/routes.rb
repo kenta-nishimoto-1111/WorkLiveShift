@@ -8,32 +8,17 @@ Rails.application.routes.draw do
   resources :careers, only:[:new,:create,:edit,:update,:destroy]
 
 
-  resources :user_question_answers do
+  resources :user_question_answers, only:[:show] do
     collection do 
       get 'choice_questions'
       post 'answer_choice_questions'
-     end
-     collection do 
       get 'scale_questions'
-     end
-
-
-     collection do 
+      post 'scale_choice_questions'
       get 'thinker'
-     end
-    collection do 
       get 'pasi'
-    end
-    collection do 
       get 'hamo'
-    end
-    collection do 
       get 'ima'
-    end
-    collection do 
       get 'revel'
-    end
-    collection do 
       get 'pro'
     end
   end
@@ -41,26 +26,12 @@ Rails.application.routes.draw do
     resources :companies do
       collection do 
         get 'top'
-      end
-      collection do 
         get 'first_step'
-      end
-      collection do 
         get 'second_step'
-      end
-      collection do 
         get 'third_step'
-      end
-      collection do 
         get 'fourth_step'
-      end
-      collection do 
         get 'fifth_step'
-      end
-      collection do 
         get 'sixth_step'
-      end
-      collection do 
         get 'double_check'
       end
     end

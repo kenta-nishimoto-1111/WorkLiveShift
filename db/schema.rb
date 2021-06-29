@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_055915) do
   create_table "user_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
-    t.integer "question_option_id", null: false
+    t.integer "question_option_id"
     t.string "personality_type", null: false
     t.integer "point", null: false
     t.datetime "created_at", precision: 6, null: false
