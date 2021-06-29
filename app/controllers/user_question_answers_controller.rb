@@ -18,7 +18,6 @@ class UserQuestionAnswersController < ApplicationController
       redirect_to scale_questions_user_question_answers_path
     end
 
-
     def scale_questions
       @questions = Question.scale.order(:sort_order)
     end
@@ -35,7 +34,14 @@ class UserQuestionAnswersController < ApplicationController
       redirect_to user_question_answer_path(current_user)
     end
 
-
+    def show
+      answers = current_user.user_question_answers
+      @total = {"hamo"=>0, "pasi"=>0, "revel"=>0, "thinker"=>0, "ima"=>0, "pro"=>0}
+      answers.each do |answer|
+        @total[answer.personality_type] += answer.point  
+      end
+      
+    end
     def thinker
     end
 

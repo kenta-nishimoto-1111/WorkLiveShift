@@ -1,19 +1,19 @@
-        <div class="form-test">
+          <div class="form-test">
           <div class="form">
             <div class="graph">
               <canvas id="myRaderChart"></canvas>
               <!-- CDN -->
-            　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
             
               <script>
                 var ctx = document.getElementById("myRaderChart");
                 var myRadarChart = new Chart(ctx, {
                     type: 'radar', 
                     data: { 
-                        labels: ["心情", "思考", "信念", "内省", "反応", "行動"],
+                        labels: ["心情・思いやり", "思考・論理", "信念・価値観", "内省・想像", "反応・ユーモア", "行動・魅力"],
                         datasets: [ {
-                            label: '名前',
-                            data: [8, 6, 9, 7, 4, 2],
+                            label: '<%= current_user.family_name %>さん',
+                            data: [<%= @total["hamo"] %>, <%= @total["thinker"] %>, <%= @total["pasi"] %>, <%= @total["ima"] %>, <%= @total["revel"] %>, <%= @total["pro"] %>],
                             backgroundColor: '#136FFF',
                             borderColor: 'RGBA(115,255,25, 1)',
                             borderWidth: 1,
@@ -21,15 +21,11 @@
                         }]
                     },
                     options: {
-                        title: {
-                            display: true,
-                            text: 'パーソナリティ診断結果',
-                        },
                         scale:{
                             ticks:{
                                 suggestedMin: 0,
-                                suggestedMax: 10,
-                                stepSize: 4,
+                                suggestedMax: 50,
+                                stepSize: 10,
                             }
                         }
                     }
@@ -49,7 +45,3 @@
                 </div>
               </div>
             </div>
-
-
-        </div>
-      </div>
