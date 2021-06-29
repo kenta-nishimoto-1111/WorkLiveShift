@@ -1,6 +1,21 @@
 <div class="personality_base">
   <h1 class="user_appname fs-1" >Work,LiveShift</h1>
-  <h1 class="user_title mb-5 fs-6" >〜 あなたのパーソナリティ 〜</h1>
+  <h1 class="user_title mb-5 fs-6" >〜 <%= current_user.family_name %>さんのパーソナリティ 〜</h1>
 </div>
 
   <%= render partial: "question_answer" %>
+
+   <%# フッター部分 %>
+<div class="container footer border-top">
+      <div class="ps-5 fs-3">全てのパーソナリティについても見る</div>
+      <div class="mt-5">
+          <div class="d-flex justify-content-around ">
+            <%= link_to '思考・論理', thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+            <%= link_to '意見・価値観', pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+            <%= link_to '心情・思いやり', hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+            <%= link_to '内省・想像', ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+            <%= link_to '反応・ユーモア', revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+            <%= link_to '行動・魅力', pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+          </div>
+      </div>
+</div>
