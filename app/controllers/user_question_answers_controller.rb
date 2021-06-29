@@ -32,7 +32,7 @@ class UserQuestionAnswersController < ApplicationController
         answer.point = point
         answer.save!
       end
-      redirect_to root_path
+      redirect_to user_question_answer_path(current_user)
     end
 
 
