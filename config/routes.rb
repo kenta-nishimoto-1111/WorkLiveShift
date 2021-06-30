@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-    resources :companies do
+    resources :companies, only:[:index, :show] do
       collection do 
         get 'top'
         get 'first_step'

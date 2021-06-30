@@ -6,6 +6,10 @@ class CompaniesController < ApplicationController
   def index
     @company = Company.all
   end
+
+  def show
+    @company = Company.find(params[:id])
+  end
   
   def first_step
     @company = Company.new
@@ -72,7 +76,6 @@ class CompaniesController < ApplicationController
       company_environment: session[:company_environment], 
       ingredients: session[:ingredients]
     )
-    binding.pry
     if @company.save
       redirect_to root_path
     else
