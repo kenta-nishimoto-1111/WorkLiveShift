@@ -5,4 +5,8 @@ class UserQuestionAnswer < ApplicationRecord
   belongs_to :user
   belongs_to :question
   belongs_to :question_option, optional: true
+
+  with_options presence: true,numericality: { other_than: 0 } do
+    validates :point
+  end
 end
