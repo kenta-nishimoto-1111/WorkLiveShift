@@ -54,9 +54,7 @@
             <%# 会社一覧 %>
           <div class="col-8 ms-5">
             <h4 style="text-align: center;">おすすめ企業一覧</h4>
-            <%= render "company"%>
-            <%= render "company"%>
-            <%= render "company"%>
+            <%= render partial: 'company', collection: @company %>
           </div>
         </div>
       </div>

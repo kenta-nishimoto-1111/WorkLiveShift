@@ -60,11 +60,11 @@
 // =================== 記事一覧部分のCSS ===================
 
 
-// ジャンルや地域のグレーの囲い
+// ジャンルや地域の囲い
 .genre{
   width:500px;
   height:80px;
-  background:#75A9FF;
+  background:#136FFF;
   border-radius:70px 70px 70px 70px;
   padding: 10px;
   font-size: 12px;
@@ -148,4 +148,14 @@
 
 .top_image{
   background:#136FFF;
+}
+
+// 業務内容を指定の行のみ表示
+.company_content{
+  color: dimgray;
+  white-space: pre-wrap;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
