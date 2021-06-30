@@ -1,10 +1,10 @@
 class CompaniesController < ApplicationController
 
   def top
-    
   end
 
   def index
+    @company = Company.all
   end
   
   def first_step
