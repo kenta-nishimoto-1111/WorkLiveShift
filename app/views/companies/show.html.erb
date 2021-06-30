@@ -36,7 +36,7 @@
     <div class="container" >
       <div class="row d-flex justify-content-center mt-5">
          
-        <div class="col-9">
+        <div class="col-9 px-5">
           <div>
             <h2 class="mb-5 text-secondary">何をやるのか</h2>
               <p class="line_break sentence_interval"><%= @company.company_content %></p>
@@ -49,8 +49,20 @@
           </div>
         </div>
 
-        <div class="col-3 bg-primary">
-          2 of 2
+        <div class="col-3 border-start ps-5">
+          <h2 class="mb-5 fs-4 text-secondary">会社情報</h2>
+          <p><%= @company.my_company_name %></p>
+          <p>所在地：<%= @company.prefecture.name %></p>
+          <p>設立：<%="#{@company.founding_date.year}年#{@company.founding_date.month}月" %></p>
+          <p>Tel：<%= @company.phone_number %></p>
+          <p>HP：<%= @company.company_url %></p>
+          
+          <hr align="center" class="my-5">
+
+          <h2 class="my-5 fs-4 text-secondary">希望している職種</h2>
+          <%# <% @company.ingredients do |ingredient| %>
+            <%# <%= ingredient %>
+          <%# <% end %>
         </div>
       </div>
     </div>
