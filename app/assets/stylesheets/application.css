@@ -35,6 +35,10 @@
   outline: none
  }
 
+ /* 改行をする */
+ .line_break{
+  white-space: pre-wrap;
+}
 /* ------------- ログイン画面のCSS ------------- */
 
 .form-user{

@@ -153,9 +153,17 @@
 // 業務内容を指定の行のみ表示
 .company_content{
   color: dimgray;
-  white-space: pre-wrap;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.company_show{
+  width: 80%;
+  margin: 30px auto;
+}
+
+.sentence_interval{
+  line-height: 40px;
 }
