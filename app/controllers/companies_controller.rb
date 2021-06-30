@@ -72,12 +72,13 @@ class CompaniesController < ApplicationController
       company_environment: session[:company_environment], 
       ingredients: session[:ingredients]
     )
+    binding.pry
     if @company.save
-            redirect_to root_path
-          else
-            render 'sixth_step'
-          end
-        end
+      redirect_to root_path
+    else
+      render 'sixth_step'
+    end
+  end
 
   private
   
