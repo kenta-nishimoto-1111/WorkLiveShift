@@ -77,10 +77,16 @@ class CompaniesController < ApplicationController
       ingredients: session[:ingredients]
     )
     if @company.save
-      redirect_to root_path
+      redirect_to company_details_company_path(@company.id)
     else
       render 'sixth_step'
     end
+  end
+
+
+   # 企業側のユーザーページ
+  def company_details
+    @company = Company.find(params[:id])
   end
 
   private

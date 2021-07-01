@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-    resources :companies, only:[:index, :show] do
+    resources :companies, only:[:index, :create, :show] do
       collection do 
         get 'top'
         get 'first_step'
@@ -34,6 +34,11 @@ Rails.application.routes.draw do
         get 'sixth_step'
         get 'double_check'
       end
+    
+      member do 
+        get 'company_details'
+      end
+
     end
 
 
