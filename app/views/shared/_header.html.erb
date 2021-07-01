@@ -1,7 +1,7 @@
 <%# 未ログイン時のヘッダー %>
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid" >
-    <a class="navbar-brand">Work,LiveShift</a>
+    <%= link_to 'Work,LiveShift', root_path, class: "navbar-brand" %>
     <div class="d-flex ">
 
     <%= link_to(new_user_session_path, class: "text-decoration-none")  do %>
