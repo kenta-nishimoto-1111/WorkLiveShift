@@ -1,1 +1,32 @@
-テスト
+  <dl class="row">
+    <dd class="col-sm-3 mb-4 text-secondary">会社名</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.my_company_name %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">所在地</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.prefecture.name %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">創立日</dd>
+    <dt class="col-sm-9 mb-4"><%="#{@company.founding_date.year}年#{@company.founding_date.month}月" %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">電話番号</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.phone_number %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">会社HP</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.company_url %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">求めている職種</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.ingredients %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">ビュー数</dd>
+    <dt class="col-sm-9 mb-4"><%=  %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">応募数</dd>
+    <dt class="col-sm-9 mb-4"><%=  %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">お気に入り数</dd>
+    <dt class="col-sm-9 mb-4"><%=  %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">順位</dd>
+    <dt class="col-sm-9 mb-4"><%=  %></dt>
+
+  </dl>
