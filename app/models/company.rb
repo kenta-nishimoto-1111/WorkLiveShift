@@ -1,6 +1,5 @@
 class Company < ApplicationRecord
 
-  has_one_attached :company_image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
