@@ -6,6 +6,10 @@ class Company < ApplicationRecord
   
   belongs_to :user
   has_many :favorites
+
+  def already_favorited?(user) #引数を受け取るように設定
+    favorites.where(user_id: user.id).exists?
+  end
   
   with_options presence: true do
     validates :my_company_name
