@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   devise_for :users, controllers: {registrations: 'users/registrations',
                                    sessions: 'users/sessions' }
   root 'companies#top'
@@ -26,6 +24,7 @@ Rails.application.routes.draw do
   end
 
     resources :companies, only:[:index, :create, :show] do
+      resource :favorites, only: [:create, :destroy]
       collection do 
         get 'top'
         get 'first_step'
