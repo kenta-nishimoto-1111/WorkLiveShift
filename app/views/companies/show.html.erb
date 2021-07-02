@@ -27,23 +27,29 @@
       </a>
     </div>
 
-     <%# 企業名 %>
-    <h1 class="p-5 fw-bolder">
-      <%= @company.my_company_name %>
-    </h1>
+    <div class="d-flex justify-content-end mt-5">
+      <%# 企業名 %>
+      <h1 class="fw-bolder mx-5"><%= @company.my_company_name %></h1>
+      <%# お気に入りのボタン %>
+      <div class="d-flex justify-content-end">
+        <button class="border border-white rounded-pill bg-primary bg-gradient my-3">  
+          <%= link_to 'お気に入りにする', company_favorites_path(@company.id), method: :post, class: "text-decoration-none text-white" %>
+        </button>
+      </div>
+    </div>
 
      <%# 情報部分 %>
     <div class="container" >
       <div class="row d-flex justify-content-center mt-5">
          
-        <div class="col-9 px-5">
+        <div class="col-9 px-5 ">
           <div>
             <h2 class="mb-5 text-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check2-circle me-2" viewBox="1 1 15 15">
                 <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
               </svg>何をやるのか</h2>
-              <p class="line_break sentence_interval"><%= @company.company_content %></p>
+              <div class="line_break sentence_interval"><%= @company.company_content %></div>
               <hr align="center" class="my-5">
 
             <h2 class="my-5 text-secondary">
@@ -51,7 +57,7 @@
                 <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
               </svg>なぜやるのか</h2>
-              <p class="line_break sentence_interval"><%= @company.company_purpose %></p>
+              <div class="line_break sentence_interval"><%= @company.company_purpose %></div>
               <hr align="center" class="my-5">
 
             <h2 class="my-5 text-secondary">
@@ -59,7 +65,7 @@
                 <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
               </svg>どうやっているのか</h2>
-              <p class="line_break sentence_interval"><%= @company.company_environment %></p>
+              <div class="line_break sentence_interval"><%= @company.company_environment %></div>
           </div>
         </div>
 
