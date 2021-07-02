@@ -185,3 +185,21 @@
 .details_main{
   max-width: 70%;
 }
+
+.performance_tag{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.maru {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  font-size: 52px;
+  text-align: center;
+  line-height: 80px;
+}
