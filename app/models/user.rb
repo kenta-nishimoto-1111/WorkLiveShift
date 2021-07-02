@@ -10,7 +10,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :career, dependent: :destroy
 
-  mount_uploader :image, ImageUploader
+  has_one_attached :image
+
 
   with_options presence: true do
     validates :family_name

@@ -3,6 +3,7 @@ class Company < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
+  has_many_attached :company_image
   
   with_options presence: true do
     validates :my_company_name
@@ -16,5 +17,4 @@ class Company < ApplicationRecord
     validates :company_environment
     validates :ingredients
   end
-  mount_uploader :company_image, CompanyImageUploader
 end
