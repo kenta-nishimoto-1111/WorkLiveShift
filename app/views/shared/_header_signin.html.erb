@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid" >
-    <a class="navbar-brand">Work,LiveShift</a>
+    <%= link_to 'Work,LiveShift', root_path, class: "navbar-brand" %>
     
     <%# ヘッダーのアイコン %>
 
@@ -54,7 +54,7 @@
                 <%# （ ↪︎ idの「dropdown-toggle」を消すとドロップボックスの矢印が消える） %>
             
                 <%# ユーザーネームと画像を表示させる %>
-              <%= current_user.family_name%><%= image_tag current_user.image.url, class: 'rounded-circle ms-3', :size =>'55x55'%>
+              <%= current_user.family_name%><%= image_tag current_user.image, class: 'rounded-circle ms-3', :size =>'55x55'%>
             </button>
                 <%# ドロップボタンのリスト %>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">

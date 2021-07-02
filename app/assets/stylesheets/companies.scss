@@ -167,3 +167,47 @@
 .sentence_interval{
   line-height: 40px;
 }
+
+// エントリーするボタン
+.fixed_btn{
+  position: fixed;
+  bottom: 20px;
+  padding: 6px 40px;
+  background-color: #136FFF;
+}
+
+// ーーーーーーーーーーーー 企業側のユーザーページ ーーーーーーーーーーーー
+
+.company_details{
+  width: 85%;
+  margin: 50px auto;
+}
+
+.company_details_menu{
+  font-size: 18px;
+  color: darkgray;
+  border-right: 1px solid;
+  padding-right: 20px;
+}
+
+.details_main{
+  max-width: 70%;
+}
+
+.performance_tag{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.maru {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  font-size: 52px;
+  text-align: center;
+  line-height: 80px;
+}

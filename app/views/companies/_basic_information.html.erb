@@ -1,0 +1,42 @@
+<div class="mb-5 mx-auto" style="width:70%;">
+  <nav>
+    <div class="nav nav-tabs d-flex justify-content-center d-flex align-items-center" id="nav-tab" role="tablist">
+      <a class="nav-link active text-secondary id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">ビュー数</a>
+      <a class="nav-link text-secondary mx-5" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">お気に入り数</a>
+      <a class="nav-link text-secondary" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">応募数</a>
+    </div>
+  </nav>
+  <div class="performance_tag tab-content border border-2 border-top-0" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="maru bg-primary bg-gradient">18</div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="maru bg-primary bg-gradient">17</div>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <div class="maru bg-primary bg-gradient">4</div>
+    </div>
+  </div>
+</div>
+
+
+  <dl class="row">
+    <dd class="col-sm-3 mb-4 text-secondary">会社名</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.my_company_name %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">所在地</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.prefecture.name %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">創立日</dd>
+    <dt class="col-sm-9 mb-4"><%="#{@company.founding_date.year}年#{@company.founding_date.month}月" %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">電話番号</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.phone_number %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">会社HP</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.company_url %></dt>
+
+    <dd class="col-sm-3 mb-4 text-secondary">求めている職種</dd>
+    <dt class="col-sm-9 mb-4"><%= @company.ingredients %></dt>
+
+  </dl>

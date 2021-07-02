@@ -42,34 +42,34 @@
         <div class="col text-center ">
           <% @total_strong = @total.keys[0] %>
             <% if @total_strong == "thinker" %>
-              <%= link_to 'あなたが最も強く持っているパーソナリティーは"思考・論理"です', thinker_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"思考・論理"です', thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_strong == "pasi" %>
-              <%= link_to 'あなたが最も強く持っているパーソナリティーは"意見・価値観"です', pasi_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"意見・価値観"です', pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_strong == "hamo" %>
-              <%= link_to 'あなたが最も強く持っているパーソナリティーは"心情・思いやり"です', hamo_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"心情・思いやり"です', hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_strong == "ima" %>
-              <%= link_to 'あなたが最も強く持っているパーソナリティーは"内省・想像"です', ima_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"内省・想像"です', ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_strong == "revel" %>
-              <%= link_to 'あなたが最も強く持っているパーソナリティーは"反応・ユーモア"です', revel_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"反応・ユーモア"です', revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-secondary" %>
             <% else @total_strong == "pro" %>
-              <%= link_to 'あなたが最も強く持っているパーソナリティーは"行動・魅力"です', pro_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが最も強く持っているパーソナリティーは"行動・魅力"です', pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-white" %>
           <% end %>
         </div>
 
         <div class="col text-center ">
           <% @total_weak = @total.keys[1] %>
             <% if @total_weak == "thinker" %>
-              <%= link_to 'あなたが次に強く持っているパーソナリティーは"思考・論理"です', thinker_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"思考・論理"です', thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_weak == "pasi" %>
-              <%= link_to 'あなたが次に強く持っているパーソナリティーは"意見・価値観"です', pasi_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"意見・価値観"です', pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_weak == "hamo" %>
-              <%= link_to 'あなたが次に強く持っているパーソナリティーは"心情・思いやり"です', hamo_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"心情・思いやり"です', hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_weak == "ima" %>
-              <%= link_to 'あなたが次に強く持っているパーソナリティーは"内省・想像"です', ima_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"内省・想像"です', ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-white" %>
             <% elsif @total_weak == "revel" %>
-              <%= link_to 'あなたが次に強く持っているパーソナリティーは"反応・ユーモア"です', revel_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"反応・ユーモア"です', revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-secondary" %>
             <% else @total_weak == "pro" %>
-              <%= link_to 'あなたが次に強く持っているパーソナリティーは"行動・魅力"です', pro_user_question_answers_path, class: "link border rounded-pill p-3 text-decoration-none text-white" %>
+              <%= link_to 'あなたが次に強く持っているパーソナリティーは"行動・魅力"です', pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-white" %>
           <% end %>
         </div>
     </div>
