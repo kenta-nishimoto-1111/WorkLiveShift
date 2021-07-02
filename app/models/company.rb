@@ -1,9 +1,11 @@
 class Company < ApplicationRecord
-
-
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
+  
+  belongs_to :user
+  has_many :favorites
   
   with_options presence: true do
     validates :my_company_name
