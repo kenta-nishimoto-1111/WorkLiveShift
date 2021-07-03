@@ -3,7 +3,7 @@ Rails.application.routes.draw do
                                    sessions: 'users/sessions' }
   root 'companies#top'
 
-  resources :users, only: :show
+  resources :users, only: :show 
   resources :profiles, only:[:new,:create,:edit,:update]
   resources :careers, only:[:new,:create,:edit,:update,:destroy]
 
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
     resources :companies, only:[:index, :create, :show] do
-      resource :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:show, :create, :destroy]
       collection do 
         get 'top'
         get 'first_step'

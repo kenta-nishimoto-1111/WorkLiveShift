@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :career, dependent: :destroy
 
   has_many :favorites
-  has_many :favorite_companies, through: :favorites, source: :event 
+  has_many :companies, through: :favorites
 
   has_one_attached :image
 

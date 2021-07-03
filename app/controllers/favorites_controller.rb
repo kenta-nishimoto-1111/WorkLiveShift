@@ -1,5 +1,11 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:show, :create, :destroy]
+
+  def show
+    @user = User.find(params[:company_id])
+    @favorite = @user.companies
+  end
+
   def create
     favorite = current_user.favorites.build(company_id: params[:company_id])
     favorite.save

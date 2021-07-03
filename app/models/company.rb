@@ -4,8 +4,8 @@ class Company < ApplicationRecord
   belongs_to_active_hash :prefecture
   
   
-  belongs_to :user
   has_many :favorites
+  has_many :users, through: :favorites
 
   def already_favorited?(user) #引数を受け取るように設定
     favorites.where(user_id: user.id).exists?
