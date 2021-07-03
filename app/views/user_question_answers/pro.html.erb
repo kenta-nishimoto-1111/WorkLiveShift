@@ -65,3 +65,10 @@
           </div>
       </div>
 </div>
+
+<%# 戻るボタン %>
+<div class="d-flex justify-content-center">
+  <button class="user_btn border border-white rounded-pill bg-gradient ">  
+    <%= link_to 'ユーザー画面に戻る', user_path(current_user.id), class: "text-decoration-none text-white" %>
+  </button>
+</div>
