@@ -13,8 +13,6 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :companies, through: :favorites
 
-  has_many :chats,dependent: :destroy
-
   has_one_attached :image
 
 
