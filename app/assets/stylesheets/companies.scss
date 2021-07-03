@@ -164,8 +164,10 @@
   margin: 30px auto;
 }
 
+
 .sentence_interval{
-  line-height: 40px;
+  line-height: 40px;  
+  word-break: break-all
 }
 
 // エントリーするボタン

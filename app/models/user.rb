@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :career, dependent: :destroy
 
+  has_many :favorites
+  has_many :companies, through: :favorites
+
   has_one_attached :image
 
 

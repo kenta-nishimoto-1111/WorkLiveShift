@@ -1,10 +1,15 @@
 class Company < ApplicationRecord
-
-  has_one_attached :company_image
-
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
+  
+  has_many :favorites
+  has_many :users, through: :favorites
+
+  def already_favorited?(user) #引数を受け取るように設定
+    favorites.where(user_id: user.id).exists?
+  end
   
   with_options presence: true do
     validates :my_company_name
