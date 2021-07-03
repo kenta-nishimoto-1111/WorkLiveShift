@@ -58,3 +58,4 @@ gem 'pry-rails'
 
 gem 'active_hash'
 gem 'carrierwave', '~> 2.0'
+gem 'jquery-rails'
