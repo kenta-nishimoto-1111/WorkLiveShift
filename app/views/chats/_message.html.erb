@@ -1,3 +1,5 @@
+<%# 一つ一つのメッセージが表示されているビュー %>
+
 <div class="message overflow-auto">
   <% @messages.each do |message| %>
     <% if message.sent_person == current_user.id %>
