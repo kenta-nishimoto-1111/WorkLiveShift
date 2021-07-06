@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'chats/index'
-  get 'chats/show'
-  get 'chats/new'
-  get 'chats/create'
   devise_for :users, controllers: {registrations: 'users/registrations',
                                    sessions: 'users/sessions' }
   root 'companies#top'
@@ -10,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: :show 
   resources :profiles, only:[:new,:create,:edit,:update]
   resources :careers, only:[:new,:create,:edit,:update,:destroy]
+  resources :chats, only:[:index,:new,:create,:show]
 
 
   resources :user_question_answers, only:[:show] do
