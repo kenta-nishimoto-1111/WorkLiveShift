@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'chats/index'
+  get 'chats/show'
+  get 'chats/new'
+  get 'chats/create'
   devise_for :users, controllers: {registrations: 'users/registrations',
                                    sessions: 'users/sessions' }
   root 'companies#top'
