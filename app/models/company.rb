@@ -7,6 +7,8 @@ class Company < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
 
+  has_one_attached :company_image
+
   def already_favorited?(user) #引数を受け取るように設定
     favorites.where(user_id: user.id).exists?
   end
