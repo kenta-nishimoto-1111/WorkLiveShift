@@ -10,36 +10,23 @@
       <div class="chat_partner border-bottom ">株式会社！！！</div>
     </div>
 
-
-
     <div class="main">
-      <div class="message">
-        <div>
-          <div class="balloon1-left ">
-            <p>こんにちは。これは例です。</p>
+        <div class="message overflow-auto">
+          <div class="d-flex align-items-center">
+            <%= image_tag current_user.image, class: 'rounded-circle ms-3', :size =>'55x55'%>
+            <div class="balloon1-left">
+              <p>こんにちは。これは例です。</p>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div class="balloon1-left">
-            <p>こんにちは。これは例です。</p>
-            <p>こんにちは。これは例です。</p>
-            <p>こんにちは。これは例です。</p>
-
+          <div class="d-flex align-items-center d-flex justify-content-end ">
+            <div class="balloon1-right">
+              <p>こんにちは。これは例です。</p>
+            </div>
+            <%= image_tag current_user.image, class: 'rounded-circle me-3', :size =>'55x55'%>
           </div>
+          
         </div>
-
-        <div class="d-flex justify-content-end">
-          <div class="balloon1-right ">
-            <p>こんにちは。これは例です。</p>
-          </div>
-        </div>
-
-        <div class="balloon1-left">
-            <p>こんにちは。これは例です。</p>
-        </div>
-
-      </div>
 
 
       <div class="form border-top d-flex py-2">
