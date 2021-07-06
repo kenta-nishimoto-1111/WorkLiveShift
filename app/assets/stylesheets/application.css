@@ -49,6 +49,11 @@
   background-color: #136FFF;
 }
 
+/* ボタンの黄色い枠を消す */
+.button-outline {
+  outline: none
+}
+
 
 /* マウスを乗せると文字を表示させる */
 

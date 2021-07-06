@@ -14,28 +14,10 @@
     </div>
 
     <div class="main">
-        <div class="message overflow-auto">
-          <% @messages.each do |message| %>
-            <% if message.sent_person == current_user.id %>
-              <div class="d-flex align-items-center">
-                <%= image_tag current_user.image, class: 'rounded-circle ms-3', :size =>'55x55'%>
-                <div class="balloon1-left">
-                  <%= message.content %>
-                </div>
-              </div>
-            <% else %>
-              <div class="d-flex align-items-center d-flex justify-content-end ">
-                <div class="balloon1-right">
-                  <%= message.content %>
-                </div>
-                <%= image_tag current_user.image, class: 'rounded-circle me-3', :size =>'55x55'%>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
+      <%= render partial: 'message'%>
 
         <%= form_with model: [@chat_room, @message], class: 'chat_form border-top d-flex align-items-center', local: true do |f| %>
-          <%= f.text_field :content, class: 'form-input border border-primary rounded-pill p-2', placeholder: 'type a message' %>
+          <%= f.text_field :content, class: 'button-outline form-input border border-primary rounded-pill p-2', placeholder: 'type a message' %>
           <%= f.submit '送信', class: 'form-submit border border-primary rounded-pill mx-auto text-center' %>
         <% end %>
     </div>
