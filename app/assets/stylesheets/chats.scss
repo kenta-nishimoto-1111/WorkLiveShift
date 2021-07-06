@@ -1,3 +1,125 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chat{
+  height: 90vh;
+  width: 80%;
+  margin: 30px auto;
+}
+
+.chat-header{
+  height: 10vh;
+}
+
+.header_left{
+  height: 100%;
+  width: 20%;
+}
+
+.header_right{
+  height: 100%;
+  width: 80%;
+}
+
+.chat_list{
+  height: 80vh;
+  width: 20%;
+}
+
+.chat_partner{
+  height: 7vh;
+  font-size: 15px;
+  padding: 12px 5px;
+}
+
+.main{
+  height: 80vh;
+  width: 80%;
+}
+
+.message{
+  height: 90%;
+}
+
+.form {
+  padding: 5px 0px 5px 20px;
+  height: 10vh;
+}
+
+.form-input{
+  height: 70%;
+  width: 80%;
+}
+
+.form-submit{
+  height: 70%;
+  width: 10%;
+  color: white;
+  background-color: #38AEF0;
+}
+
+
+// ======== 吹き出しのCSS ============
+.balloon1-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius:10px 10px 10px 10px;
+
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.balloon1-left p {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.balloon1-right {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius:10px 10px 10px 10px;
+
+}
+
+.balloon1-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 98%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #e0edff;
+}
+
+.balloon1-right p {
+  margin: 0;
+  padding: 0;
+}
+
+
+
