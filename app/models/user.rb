@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :user_question_answers
   has_one :profile, dependent: :destroy
   has_many :career, dependent: :destroy
+  has_many :chats
 
   has_many :favorites
   has_many :companies, through: :favorites
