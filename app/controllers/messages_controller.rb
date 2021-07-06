@@ -5,10 +5,10 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to chat_path(@chat_room)
     else
-      redirect_to root_path
+      redirect_to chat_path(@chat_room)
     end
   end
-  
+
   private
   
     def message_params
