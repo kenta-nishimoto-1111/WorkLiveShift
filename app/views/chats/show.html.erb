@@ -17,7 +17,7 @@
       <%= render partial: 'message'%>
 
         <%= form_with model: [@chat_room, @message], class: 'chat_form border-top d-flex align-items-center', local: true do |f| %>
-          <%= f.text_field :content, class: 'button-outline form-input border border-primary rounded-pill p-2', placeholder: 'type a message' %>
+          <%= f.text_area :content, class: 'button-outline form-input border border-primary rounded-pill p-2', placeholder: 'type a message' %>
           <%= f.submit '送信', class: 'form-submit border border-primary rounded-pill mx-auto text-center' %>
         <% end %>
     </div>
