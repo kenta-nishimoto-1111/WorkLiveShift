@@ -1,13 +1,16 @@
 <div class="chat border">
   <div class="chat-header d-flex align-items-center">
-    <div class="header_left py-4 ps-3 border">メッセージ</div>
+    <div class="header_left py-4 ps-3 border text-secondary">メッセージ</div>
     <div class="header_right text-center py-4 border">企業名</div>
   </div>
 
   <div class="d-flex align-items-center">
     <div class="chat_list border">
-      <div class="chat_partner border-bottom ">株式会社！！！</div>
-      <div class="chat_partner border-bottom ">株式会社！！！</div>
+      <% current_user.chats.each do |chat| %>
+        <div class="chat_partner border-bottom">
+          <%= link_to chat.company.my_company_name, chat_path(chat), class: "text-decoration-none text-dark" %>
+        </div>
+      <% end %>
     </div>
 
     <div class="main">
@@ -29,9 +32,9 @@
         </div>
 
 
-      <div class="form border-top d-flex py-2">
+      <div class="chat_form border-top d-flex align-items-center">
         <div class="form-input border border-primary rounded-pill"></div>
-        <div class="form-submit border border-primary rounded-pill mx-auto text-center pt-1">送信</div>
+        <div class="form-submit border border-primary rounded-pill mx-auto text-center">送信</div>
       </div>
     </div>
 

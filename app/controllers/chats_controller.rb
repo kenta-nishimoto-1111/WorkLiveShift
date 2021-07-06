@@ -3,6 +3,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @chat_room = Chat.find(params[:id])
   end
 
   def new
