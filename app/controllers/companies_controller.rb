@@ -76,7 +76,6 @@ class CompaniesController < ApplicationController
       company_environment: session[:company_environment], 
       ingredients: session[:ingredients]
     )
-    binding.pry
     if @company.save
       redirect_to company_details_company_path(@company.id)
     else
