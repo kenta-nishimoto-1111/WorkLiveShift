@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :profiles, only:[:new,:create,:edit,:update]
   resources :careers, only:[:new,:create,:edit,:update,:destroy]
 
+  resources :chats, only:[:index,:new,:create,:show] do
+    resources :messages, only:[:new,:create]
+  end
 
   resources :user_question_answers, only:[:show] do
     collection do 
