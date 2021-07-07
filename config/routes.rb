@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :job_offers
   devise_for :users, controllers: {registrations: 'users/registrations',
                                    sessions: 'users/sessions' }
   root 'companies#top'
