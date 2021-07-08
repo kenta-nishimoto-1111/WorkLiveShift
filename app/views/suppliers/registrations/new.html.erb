@@ -13,15 +13,18 @@
             </svg>
           </span>
           <span class="image-file ms-3">                
-            ユーザーの画像を保存する
+            企業のアイコン画像を保存する
           </span>
-          <%= f.file_field :_company_image, class: 'hidden' %>
+          <%= f.file_field :company_image, class: 'hidden' %>
         </label>
 
-        <div class="col-md-6">
-          <div class="form-floating mb-3 ">
-              <%= f.text_field :company_name, autofocus: true, class:"form-control border border-primary rounded-pill" , id:"floatingInput" , placeholder:"name@example.com" %>
-              <label for="floatingInput">会社名</label>
+        <div class="col-12 mt-3">
+          <div class="form-floating mb-3">
+            <div class="form-floating mb-3">
+              <%= f.text_field :company_name, class:"form-control border border-primary rounded-pill" , id:"floatingInput" , placeholder:"name@example.com", autofocus: true %>
+              <%# <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> %>
+              <label for="floatingInput">企業名</label>
+            </div>
           </div>
         </div>
 
@@ -30,7 +33,7 @@
             <div class="form-floating mb-3">
               <%= f.email_field :email, class:"form-control border border-primary rounded-pill" , id:"floatingInput" , placeholder:"name@example.com", autofocus: true %>
               <%# <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> %>
-              <label for="floatingInput">メールアドレス</label>
+              <label for="floatingInput">代表メールアドレス</label>
             </div>
           </div>
         </div>
