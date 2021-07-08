@@ -2,12 +2,12 @@
 
 <div class="message overflow-auto">
   <% @messages.each do |message| %>
-    <% if message.sent_person == current_user.id %>
+    <% if message.chat.supplier_id == current_supplier.id %>
       <div class="d-flex align-items-center d-flex justify-content-end ">
         <div class="balloon1-right">
           <%= simple_format(h message.content) %>
         </div>
-        <%= image_tag current_user.image, class: 'rounded-circle me-3', :size =>'55x55'%>
+        <%= image_tag message.chat.supplier_id, class: 'rounded-circle me-3', :size =>'55x55'%>
       </div>
     <% else %>
       <div class="d-flex align-items-center">
