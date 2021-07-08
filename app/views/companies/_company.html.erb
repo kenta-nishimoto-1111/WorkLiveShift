@@ -2,7 +2,7 @@
   <%# 会社一覧の一つの会社のビュー %>
   <div class="card my-5 shadow-lg bg-white rounded">
     <div class="card mouse_white">
-      <%= image_tag 'column-case015-01.png', class: 'card-img-top bg-dark' %>
+      <%= image_tag company.supplier.company_image, class: 'card-img-top bg-dark' %>
       <div class="card-img-overlay">
         <% if user_signed_in? %>
           <% if company.already_favorited?(current_user) %>
