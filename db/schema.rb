@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 2021_07_08_050057) do
   end
 
   create_table "suppliers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "company_name", null: false
+    t.string "company_image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
