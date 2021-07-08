@@ -12,8 +12,6 @@ class Company < ApplicationRecord
   end
   
   with_options presence: true do
-    validates :my_company_name
-    validates :company_image
     validates :prefecture_id
     validates :founding_date
     validates :phone_number

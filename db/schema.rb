@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_07_08_050057) do
   end
 
   create_table "careers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "company_name", null: false
+    t.string "career_name", null: false
     t.string "position", null: false
     t.date "period_start", null: false
     t.date "period_end", null: false
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 2021_07_08_050057) do
   end
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "my_company_name", null: false
-    t.string "company_image", null: false
     t.integer "prefecture_id", null: false
     t.date "founding_date", null: false
     t.string "phone_number", null: false
@@ -66,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_07_08_050057) do
     t.text "company_purpose", null: false
     t.text "company_environment", null: false
     t.text "ingredients", null: false
+    t.integer "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["prefecture_id"], name: "index_companies_on_prefecture_id"

@@ -35,7 +35,7 @@ class CareersController < ApplicationController
    private
   
     def careers_params
-      params.require(:career).permit(:company_name, :position, :period_start, :period_end, :business_content).merge(user_id: current_user.id)
+      params.require(:career).permit(:career_name, :position, :period_start, :period_end, :business_content).merge(user_id: current_user.id)
     end
   
     def set_career
