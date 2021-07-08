@@ -9,7 +9,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.text       :company_purpose, null: false   #事業目的
       t.text       :company_environment, null: false #社内の環境
       t.text       :ingredients, null: false #職種の選択
-      t.integer :supplier_id, null: false
+      t.integer    :supplier_id, null: false
       t.timestamps
     end
 

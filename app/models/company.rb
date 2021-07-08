@@ -3,7 +3,6 @@ class Company < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to :supplier
-  has_many :chats, dependent: :destroy
   has_many :favorites
   has_many :users, through: :favorites
 

@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2021_07_08_050057) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "company_id"
+    t.bigint "supplier_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_chats_on_company_id"
+    t.index ["supplier_id"], name: "index_chats_on_supplier_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
@@ -166,7 +166,6 @@ ActiveRecord::Schema.define(version: 2021_07_08_050057) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "careers", "users"
-  add_foreign_key "chats", "companies"
   add_foreign_key "chats", "users"
   add_foreign_key "favorites", "companies"
   add_foreign_key "favorites", "users"
