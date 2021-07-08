@@ -4,6 +4,7 @@ class Supplier < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :company
   has_one_attached :company_image
 
 end
