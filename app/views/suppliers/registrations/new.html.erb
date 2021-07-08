@@ -1,8 +1,9 @@
 <div class="form-user ">
   <div class="row g-3">
   <h1 class="appname" >Work,LiveShift</h1>
-  <h1 class="user_title" >〜 新規登録 〜</h1>
-
+  <h1 class="user_title" >〜 企業情報を登録する 〜</h1>
+  <div class="fs-1 text-secondary">1/6</div>
+  <div class="fs-3 mb-3">基本情報を登録する</div>
   <%= form_with model: @supplier , url: supplier_registration_path, class: 'registration-main', local: true do |f| %>
  
         <label class="form-image">
@@ -50,6 +51,6 @@
 
         
         <div class="col-12 ">
-          <%= f.submit "情報を登録して性格診断へ進む" ,class:"btn btn-primary float-end mb-5" %>
+          <%= f.submit "次へ" ,class:"btn btn-primary float-end mb-5" %>
         </div>
 <% end %>
