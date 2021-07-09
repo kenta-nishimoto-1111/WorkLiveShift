@@ -22,7 +22,9 @@
             <div class="balloon1-left">
               <%= simple_format(h message.content) %>
             </div>
-            <%= l message.created_at, format: '%-m/%-d %H:%M' %>
+            <div class="ms-3">
+              <%= l message.created_at, format: '%-m/%-d %H:%M' %>
+            </div>
           </div>
         </div>
       <% end %>
@@ -48,10 +50,13 @@
             <div class="balloon1-left">
               <%= simple_format(h message.content) %>
             </div>
+            <div class="ms-3">
               <%= l message.created_at, format: '%-m/%-d %H:%M' %>
+            </div>
           </div>
         </div>
       <% end %>
+
     <% end %>
   <% end %>
 </div>

@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
 
   # アソシエーション
-  has_many :user_question_answers
+  has_many :user_question_answers, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :career, dependent: :destroy
   has_many :chats
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :companies, through: :favorites
 
   has_one_attached :image
