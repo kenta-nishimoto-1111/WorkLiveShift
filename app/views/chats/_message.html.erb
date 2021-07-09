@@ -2,20 +2,40 @@
 
 <div class="message overflow-auto">
   <% @messages.each do |message| %>
-    <% if message.chat.supplier_id == current_supplier.id %>
-      <div class="d-flex align-items-center d-flex justify-content-end ">
-        <div class="balloon1-right">
-          <%= simple_format(h message.content) %>
+    <% if current_user %>
+      <% if message.sent_person == current_user.id %>
+        <div class="d-flex align-items-center d-flex justify-content-end ">
+          <div class="balloon1-right">
+            <%= simple_format(h message.content) %>
+          </div>
+          <%= image_tag message.chat.user.image, class: 'rounded-circle me-3', :size =>'55x55'%>
         </div>
-        <%= image_tag message.chat.supplier_id, class: 'rounded-circle me-3', :size =>'55x55'%>
-      </div>
-    <% else %>
-      <div class="d-flex align-items-center">
-        <%= image_tag current_user.image, class: 'rounded-circle ms-3', :size =>'55x55'%>
-        <div class="balloon1-left">
-          <%= simple_format(h message.content) %>
+      <% else %>
+        <div class="d-flex align-items-center">
+          <%= image_tag message.chat.supplier.company_image, class: 'rounded-circle ms-3', :size =>'55x55'%>
+          <div class="balloon1-left">
+            <%= simple_format(h message.content) %>
+          </div>
         </div>
-      </div>
+      <% end %>
+
+    <% elsif current_supplier %>
+    
+      <% if message.sent_person == current_supplier.id %>
+        <div class="d-flex align-items-center d-flex justify-content-end ">
+          <div class="balloon1-right">
+            <%= simple_format(h message.content) %>
+          </div>
+          <%= image_tag message.chat.supplier.company_image, class: 'rounded-circle me-3', :size =>'55x55'%>
+        </div>
+      <% else %>
+        <div class="d-flex align-items-center">
+          <%= image_tag message.chat.user.image, class: 'rounded-circle ms-3', :size =>'55x55'%>
+          <div class="balloon1-left">
+            <%= simple_format(h message.content) %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
