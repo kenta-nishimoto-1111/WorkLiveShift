@@ -11,6 +11,7 @@ class ChatsController < ApplicationController
   def new
     @chat = Chat.new
     @entry = current_supplier.entries
+    
   end
 
   def create
