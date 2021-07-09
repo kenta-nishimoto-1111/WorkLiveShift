@@ -1,0 +1,20 @@
+<div class="new_base">
+  <div class="new_inbase ">
+   <h1 class="appname" >Work,LiveShift</h1>
+   <h1 class="user_title mb-5" >〜 チャットを始める 〜</h1>
+
+      <div>
+       <select name="room[user_ids][]">
+        <option value="">チャットするユーザーを選択してください</option>
+          <% @user.each do |user| %>
+          <%# ↪︎これでログイン中の人は選択肢に含まれないことになる %>
+          <option value=<%= user.id %>> <%= user.name %> </option>
+          <% end %>
+       </select>
+       <input name="room[user_ids][]" type="hidden" value=<%= current_supplier.id %>>
+       <%# ↪︎この記述でログイン中のユーザーの情報もパラメーターで送られる
+        「type="hidden"」とすることで画面上には表示されないinput要素が作成できる %>
+      </div>
+
+  </div>
+</div>

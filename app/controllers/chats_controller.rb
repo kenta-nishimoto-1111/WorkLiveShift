@@ -9,6 +9,9 @@ class ChatsController < ApplicationController
   end
 
   def new
+    @chat = Chat.new
+    @favorite = current_supplier.favorites
+    @user = @favorite.user
   end
 
   def create

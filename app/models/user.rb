@@ -19,5 +19,6 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :family_name
     validates :last_name
+    validates :image
   end
 end
