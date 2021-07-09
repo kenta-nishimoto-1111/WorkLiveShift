@@ -3,7 +3,7 @@
 <div class="message overflow-auto">
   <% @messages.each do |message| %>
     <% if current_user %>
-      <% if message.sent_person == current_user.id %>
+      <% if message.sent_person == current_user.family_name%>
         <div class="d-flex align-items-center d-flex justify-content-end ">
           <div class="d-flex flex-column">
             <div class="balloon1-right">
@@ -31,7 +31,7 @@
 
     <% elsif current_supplier %>
     
-      <% if message.sent_person == current_supplier.id %>
+      <% if message.sent_person == current_supplier.company_name %>
         <div class="d-flex align-items-center d-flex justify-content-end ">
           <div class="d-flex flex-column">
             <div class="balloon1-right">
