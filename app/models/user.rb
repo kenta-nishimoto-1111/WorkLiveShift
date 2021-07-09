@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :career, dependent: :destroy
   has_many :chats
 
+  has_many :entries, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :companies, through: :favorites
 

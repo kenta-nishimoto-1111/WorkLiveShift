@@ -10,10 +10,21 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
-    @favorite = current_supplier.favorites
-    @user = @favorite.user
+    @entry = current_supplier.entries
   end
 
   def create
+    @chat = Chat.new(chat_params)
+    @entry = current_supplier.entries
+    if @chat.save
+      redirect_to chats_path
+    else
+      render 'new'
+    end
   end
+
+  def chat_params
+    params.require(:chat).permit(:user_id).merge(supplier_id: current_supplier.id)
+  end
+
 end
