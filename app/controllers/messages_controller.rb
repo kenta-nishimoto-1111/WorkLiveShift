@@ -2,9 +2,9 @@ class MessagesController < ApplicationController
   def create
 
     if current_user
-      @sent_person = current_user.id
+      @sent_person = current_user.family_name
     elsif current_supplier
-      @sent_person = current_supplier.id
+      @sent_person = current_supplier.company_name
     end
 
     @chat_room = Chat.find(params[:chat_id])

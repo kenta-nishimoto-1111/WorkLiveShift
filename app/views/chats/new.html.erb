@@ -3,12 +3,12 @@
    <h1 class="appname" >Work,LiveShift</h1>
    <h1 class="user_title mb-5" >〜 チャットを始める 〜</h1>
     <%=form_with model: @chat, local: true do |f|%>
-      <div>
-        <select name="chat[user_id]">
+      <div class="d-flex justify-content-center">
+        <select name="chat[user_id]" class="select-box  border border-primary rounded-pill my-5">
           <option value="">チャットするユーザーを選択してください</option>
             <% @entry.each do |user| %>
               <% User.where(id: user.id).each do |user| %>
-                <option value=<%= user.id %>> <%= user.family_name %> </option>
+                <option value=<%= user.id %>> <%= user.family_name %><%= user.last_name %> 様 </option>
               <% end %>
             <% end %>
         </select>
