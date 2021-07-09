@@ -2,7 +2,7 @@ class Career < ApplicationRecord
   belongs_to :user
 
   with_options presence: true do
-    validates :company_name
+    validates :career_name
     validates :position
     validates :period_start
     validates :period_end

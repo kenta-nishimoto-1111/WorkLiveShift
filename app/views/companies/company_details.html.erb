@@ -3,8 +3,9 @@
   <div class="container-fluid" >
     <%= link_to 'Work,LiveShift', root_path, class: "navbar-brand" %>
     <div class="fs-3 me-5">
-      <%= @company.my_company_name %>様
+      <%= current_supplier.company_name %>様
     </div>
+    <%= link_to 'ログアウト', destroy_supplier_session_path, method: :delete, class: "" %>
   </div>
 </nav>
 

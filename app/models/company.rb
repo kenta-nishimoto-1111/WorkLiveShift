@@ -2,8 +2,7 @@ class Company < ApplicationRecord
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  
-  has_many :chats, dependent: :destroy
+  belongs_to :supplier
   has_many :favorites
   has_many :users, through: :favorites
 
@@ -12,8 +11,6 @@ class Company < ApplicationRecord
   end
   
   with_options presence: true do
-    validates :my_company_name
-    validates :company_image
     validates :prefecture_id
     validates :founding_date
     validates :phone_number

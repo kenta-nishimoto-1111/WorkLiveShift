@@ -12,12 +12,9 @@ class CompaniesController < ApplicationController
   end
   
   def first_step
-    @company = Company.new
   end
   
   def second_step
-    session[:my_company_name] = company_params[:my_company_name]
-    session[:company_image] =  params[:company]['company_image']
     @company = Company.new
   end
   
@@ -49,8 +46,6 @@ class CompaniesController < ApplicationController
   def double_check
     session[:ingredients] = company_params[:ingredients]
     @check = Company.new(
-      my_company_name: session[:my_company_name],
-      company_image: session[:company_image],
       prefecture_id: session[:prefecture_id],
       founding_date: "#{session['founding_date(1i)']}-#{session['founding_date(2i)']}-#{session['founding_date(3i)']}",
       phone_number: session[:phone_number], 
@@ -65,8 +60,6 @@ class CompaniesController < ApplicationController
   
   def create
     @company = Company.new(
-      my_company_name: session[:my_company_name],
-      company_image: session[:company_image],
       prefecture_id: session[:prefecture_id],
       founding_date: "#{session['founding_date(1i)']}-#{session['founding_date(2i)']}-#{session['founding_date(3i)']}",
       phone_number: session[:phone_number], 
@@ -74,7 +67,8 @@ class CompaniesController < ApplicationController
       company_content: session[:company_content], 
       company_purpose: session[:company_purpose], 
       company_environment: session[:company_environment], 
-      ingredients: session[:ingredients]
+      ingredients: session[:ingredients],
+      supplier_id: current_supplier.id
     )
     if @company.save
       redirect_to company_details_company_path(@company.id)
@@ -93,8 +87,6 @@ class CompaniesController < ApplicationController
   
   def company_params
     params.require(:company).permit(
-      :my_company_name,
-      :company_image,
       :prefecture_id,
       :founding_date,
       :phone_number,
@@ -103,7 +95,7 @@ class CompaniesController < ApplicationController
       :company_purpose,
       :company_environment,
       ingredients:[],
-    )
+    ).merge(supplier_id: current_supplier.id)
   end
 
 end

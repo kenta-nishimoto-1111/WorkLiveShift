@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_084753) do
+ActiveRecord::Schema.define(version: 2021_07_08_050057) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_07_06_084753) do
   end
 
   create_table "careers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "company_name", null: false
+    t.string "career_name", null: false
     t.string "position", null: false
     t.date "period_start", null: false
     t.date "period_end", null: false
@@ -48,16 +48,14 @@ ActiveRecord::Schema.define(version: 2021_07_06_084753) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "company_id"
+    t.bigint "supplier_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_chats_on_company_id"
+    t.index ["supplier_id"], name: "index_chats_on_supplier_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "my_company_name", null: false
-    t.string "company_image", null: false
     t.integer "prefecture_id", null: false
     t.date "founding_date", null: false
     t.string "phone_number", null: false
@@ -66,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_07_06_084753) do
     t.text "company_purpose", null: false
     t.text "company_environment", null: false
     t.text "ingredients", null: false
+    t.integer "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["prefecture_id"], name: "index_companies_on_prefecture_id"
@@ -124,6 +123,20 @@ ActiveRecord::Schema.define(version: 2021_07_06_084753) do
     t.index ["personality_type"], name: "index_questions_on_personality_type"
   end
 
+  create_table "suppliers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "company_name", null: false
+    t.string "company_image"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_suppliers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_suppliers_on_reset_password_token", unique: true
+  end
+
   create_table "user_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
@@ -153,7 +166,6 @@ ActiveRecord::Schema.define(version: 2021_07_06_084753) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "careers", "users"
-  add_foreign_key "chats", "companies"
   add_foreign_key "chats", "users"
   add_foreign_key "favorites", "companies"
   add_foreign_key "favorites", "users"
