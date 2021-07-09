@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   devise_for :suppliers, controllers: {
     sessions: 'suppliers/sessions',
     passwords: 'suppliers/passwords',
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
     resources :companies, only:[:index, :create, :show] do
       resource :favorites, only: [:show, :create, :destroy]
+      resource :entries, only: [:new, :create, :destroy]
       collection do 
         get 'top'
         get 'first_step'
