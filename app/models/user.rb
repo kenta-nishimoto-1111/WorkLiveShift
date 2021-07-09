@@ -16,7 +16,6 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
-
   with_options presence: true do
     validates :family_name
     validates :last_name
