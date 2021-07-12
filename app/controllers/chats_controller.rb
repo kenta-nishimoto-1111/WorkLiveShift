@@ -11,7 +11,6 @@ class ChatsController < ApplicationController
   def new
     @chat = Chat.new
     @entry = current_supplier.entries
-    
   end
 
   def create
@@ -25,7 +24,7 @@ class ChatsController < ApplicationController
   end
 
   def chat_params
-    params.require(:chat).permit(:user_id).merge(supplier_id: current_supplier.id)
+    params.require(:chat).permit(:user_id).merge(supplier_id: current_supplier.id, latest_message_time: Time.current)
   end
 
 end

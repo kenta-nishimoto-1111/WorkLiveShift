@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_07_09_054058) do
   end
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "latest_message"
+    t.datetime "latest_message_time"
     t.bigint "user_id"
     t.bigint "supplier_id"
     t.datetime "created_at", precision: 6, null: false
@@ -89,7 +91,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_054058) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.string "sent_person"
     t.bigint "chat_id"
     t.datetime "created_at", precision: 6, null: false

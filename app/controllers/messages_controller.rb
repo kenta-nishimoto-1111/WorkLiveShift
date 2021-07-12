@@ -9,10 +9,11 @@ class MessagesController < ApplicationController
 
     @chat_room = Chat.find(params[:chat_id])
     @message = @chat_room.messages.new(message_params)
-    if @message.save
-      redirect_to chat_path(@chat_room)
+    if  @message.save
+        @chat_room.update(latest_message: @message.content, latest_message_time: Time.current)
+        redirect_to chat_path(@chat_room)
     else
-      redirect_to chat_path(@chat_room)
+        redirect_to chat_path(@chat_room)
     end
   end
 

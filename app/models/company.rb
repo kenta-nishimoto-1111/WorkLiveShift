@@ -9,6 +9,10 @@ class Company < ApplicationRecord
   def already_favorited?(user) #引数を受け取るように設定
     favorites.where(user_id: user.id).exists?
   end
+
+  def already_entries?(user) #引数を受け取るように設定
+    supplier.entries.where(user_id: user.id).exists?
+  end
   
   with_options presence: true do
     validates :prefecture_id

@@ -7,13 +7,13 @@
   <div class="d-flex align-items-center">
     <div class="chat_list border">
       <% if current_user %>
-        <% current_user.chats.each do |chat| %>
+        <% current_user.chats.order(latest_message_time: :desc).each do |chat| %>
           <div class="chat_partner border-bottom">
             <%= link_to chat.supplier.company_name, chat_path(chat), class: "text-decoration-none text-dark" %>
           </div>
         <% end %>
       <% elsif current_supplier %>
-        <% current_supplier.chats.each do |chat| %>
+        <% current_supplier.chats.order(latest_message_time: :desc).each do |chat| %>
           <div class="chat_partner border-bottom">
             <%= link_to "#{chat.user.family_name}さま", chat_path(chat), class: "text-decoration-none text-dark" %>
           </div>
