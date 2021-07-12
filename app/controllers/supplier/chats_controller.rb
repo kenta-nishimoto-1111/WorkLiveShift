@@ -19,7 +19,7 @@ class Supplier::ChatsController < ApplicationController
     @chat = Chat.new(chat_params)
     @entry = current_supplier.entries
     if @chat.save
-      redirect_to chats_path
+      redirect_to supplier_chats_path
     else
       render 'new'
     end

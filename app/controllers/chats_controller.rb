@@ -1,5 +1,9 @@
 class ChatsController < ApplicationController
-  def index; end
+
+  before_action :authenticate_user!
+
+  def index
+  end
 
   def show
     @chat_room = Chat.find(params[:id])
