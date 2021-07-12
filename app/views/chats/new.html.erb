@@ -6,10 +6,8 @@
       <div class="d-flex justify-content-center">
         <select name="chat[user_id]" class="select-box  border border-primary rounded-pill my-5">
           <option value="">チャットするユーザーを選択してください</option>
-            <% @entry.each do |user| %>
-              <% User.where(id: user.user_id).each do |user| %>
-                <option value=<%= user.id %>> <%= user.family_name %><%= user.last_name %> 様 </option>
-              <% end %>
+            <% @entries.each do |entry| %>
+              <option value=<%= entry.user.id %>> <%= entry.user.family_name %><%= entry.user.last_name %> 様 </option>
             <% end %>
         </select>
       </div>

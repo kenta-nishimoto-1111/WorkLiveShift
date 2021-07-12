@@ -10,7 +10,8 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
-    @entry = current_supplier.entries
+    has_chat_user_ids = current_supplier.chats.pluck(:user_id)
+    @entries = current_supplier.entries.where.not(user_id: has_chat_user_ids)
   end
 
   def create
