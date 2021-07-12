@@ -1,19 +1,20 @@
 class Company < ApplicationRecord
-  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to :supplier
   has_many :favorites
   has_many :users, through: :favorites
 
-  def already_favorited?(user) #引数を受け取るように設定
+  # 引数を受け取るように設定
+  def already_favorited?(user)
     favorites.where(user_id: user.id).exists?
   end
 
-  def already_entries?(user) #引数を受け取るように設定
+  # 引数を受け取るように設定
+  def already_entries?(user)
     supplier.entries.where(user_id: user.id).exists?
   end
-  
+
   with_options presence: true do
     validates :prefecture_id
     validates :founding_date

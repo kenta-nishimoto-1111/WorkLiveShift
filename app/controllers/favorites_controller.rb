@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create, :destroy]
+  before_action :authenticate_user!, only: %i[show create destroy]
 
   def show
     @user = User.find(params[:company_id])

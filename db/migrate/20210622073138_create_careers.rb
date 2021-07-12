@@ -9,8 +9,7 @@ class CreateCareers < ActiveRecord::Migration[6.0]
       t.references :user, foreign_key: true
       t.timestamps
     end
-    
-    add_index :careers, :position
 
+    add_index :careers, :position
   end
 end

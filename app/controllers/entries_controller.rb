@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
   def create
     @company = Company.find(params[:company_id])
     @company = @company.supplier
-    
+
     @entry = Entry.new(
       supplier_id: @company.id,
       user_id: current_user.id
@@ -18,5 +18,4 @@ class EntriesController < ApplicationController
       render 'new'
     end
   end
-
 end

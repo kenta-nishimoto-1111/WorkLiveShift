@@ -1,4 +1,6 @@
-class ChatsController < ApplicationController
+class Supplier::ChatsController < ApplicationController
+  before_action :authenticate_supplier!
+
   def index; end
 
   def show

@@ -1,5 +1,5 @@
 module CompaniesHelper
-  def third_step_placeholder 
+  def third_step_placeholder
     <<-"EOS".strip_heredoc
     ・あなたの会社のサービスは、どのような実績をあげていますか？
     ・プロダクトの強みとして、自慢できるポイントはなんですか？
@@ -22,5 +22,4 @@ module CompaniesHelper
     ・企業文化を支える、ユニークな制度はありますか？
     EOS
   end
-  
-  end
+end

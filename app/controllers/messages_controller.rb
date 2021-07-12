@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def create
-
     if current_user
       @sent_person = current_user.family_name
     elsif current_supplier
@@ -9,17 +8,13 @@ class MessagesController < ApplicationController
 
     @chat_room = Chat.find(params[:chat_id])
     @message = @chat_room.messages.new(message_params)
-    if  @message.save
-        @chat_room.update(latest_message: @message.content, latest_message_time: Time.current)
-        redirect_to chat_path(@chat_room)
-    else
-        redirect_to chat_path(@chat_room)
-    end
+    @chat_room.update(latest_message: @message.content, latest_message_time: Time.current) if @message.save
+    redirect_to chat_path(@chat_room)
   end
 
   private
-  
-    def message_params
-      params.require(:message).permit(:content).merge(sent_person: @sent_person)
-    end
+
+  def message_params
+    params.require(:message).permit(:content).merge(sent_person: @sent_person)
+  end
 end

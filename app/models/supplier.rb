@@ -11,5 +11,4 @@ class Supplier < ApplicationRecord
 
   validates :company_name, presence: true
   validates :company_image, presence: true
-
 end

@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_profile, only:[:edit , :update]
-  before_action :move_to_index, only:[ :edit, :update]
+  before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :set_profile, only: %i[edit update]
+  before_action :move_to_index, only: %i[edit update]
 
   def new
     @profile = Profile.new
@@ -16,8 +16,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @profile.update(profile_params)
@@ -27,17 +26,17 @@ class ProfilesController < ApplicationController
     end
   end
 
- private
+  private
 
   def profile_params
-    params.require(:profile).permit(:birth_date, :prefecture_id, :strong_point,:dream).merge(user_id: current_user.id)
+    params.require(:profile).permit(:birth_date, :prefecture_id, :strong_point, :dream).merge(user_id: current_user.id)
   end
 
   def set_profile
     @profile = Profile.find(params[:id])
-    end
-  
-    def move_to_index
-      return redirect_to root_path if current_user.id != @profile.user.id
-    end
+  end
+
+  def move_to_index
+    return redirect_to root_path if current_user.id != @profile.user.id
+  end
 end

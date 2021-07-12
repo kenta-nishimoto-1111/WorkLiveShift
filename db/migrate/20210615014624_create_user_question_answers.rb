@@ -10,7 +10,6 @@ class CreateUserQuestionAnswers < ActiveRecord::Migration[6.0]
     end
 
     add_index :user_question_answers, :personality_type
-    add_index :user_question_answers, [:personality_type, :user_id]
-
+    add_index :user_question_answers, %i[personality_type user_id]
   end
 end

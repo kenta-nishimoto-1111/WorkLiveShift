@@ -8,5 +8,4 @@ class Career < ApplicationRecord
     validates :period_end
     validates :business_content
   end
-  
 end
