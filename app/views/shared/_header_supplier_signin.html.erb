@@ -1,0 +1,53 @@
+<%# ログイン中のヘッダー %>
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid" >
+      <%= link_to 'Work,LiveShift', root_path, class: "navbar-brand mt-1" %>
+          
+    <%# ヘッダーのアイコン %>
+
+    <div class="d-flex">
+      <div class="d-flex align-items-center">
+
+          <div class="balloonoya border-end border-1 border-dark">
+              <%= link_to(company_path(current_supplier.companies.ids)) do %>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-building text-dark mx-3" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                  <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                </svg>
+              <% end %>
+            <span class="balloon text-center">掲載画面へ移動する</span>
+          </div>
+
+
+        <%# すずのアイコン %>
+          <div class="dropdown">
+            <div class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell mx-2" viewBox="0 0 16 16">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+              </svg>
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+              <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+              <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+            </ul>
+          </div>
+
+            <%# ここからは右上のユーザーネームのドロップボタン %>
+        <div class="dropdown">
+            <button class="btn mx-2 px-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <%# （ ↪︎ idの「dropdown-toggle」を消すとドロップボックスの矢印が消える） %>
+            
+                <%# ユーザーネームと画像を表示させる %>
+              <%= current_supplier.company_name%><%= image_tag current_supplier.company_image, class: 'rounded-circle ms-3', :size =>'55x55'%>
+            </button>
+                <%# ドロップボタンのリスト %>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-outline-success text-center ms-2" %></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
