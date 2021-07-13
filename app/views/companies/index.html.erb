@@ -1,62 +1,64 @@
-     <% if user_signed_in? %>
-       <%= render "shared/header_signin"%>
-     <% else %>
-       <%= render "shared/header"%>
-     <% end %>
+  <% if user_signed_in? %>
+    <%= render "shared/header_signin"%>
+  <% elsif supplier_signed_in? %>
+    <%= render "shared/header_supplier_signin"%>
+  <% else %>
+    <%= render "shared/header"%>
+  <% end %>
 
 
 <%# 画像のスライド %>
-      <div id="carouselExampleCaptions" class="carousel carousel-dark slide mouse_white mt-3" data-bs-ride="carousel">
-          <ol class="carousel-indicators ">
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-          </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-              <%= image_tag 'column-case015-01.png', class: 'd-block w-100 ' , :size =>'800x500'%>
-              <div class="carousel-caption d-none d-md-block fs-1">
-                <p>株式会社AAA</p>
-              </div>
+  <div id="carouselExampleCaptions" class="carousel carousel-dark slide mouse_white mt-3" data-bs-ride="carousel">
+      <ol class="carousel-indicators ">
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+      </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <%= image_tag 'column-case015-01.png', class: 'd-block w-100 ' , :size =>'800x500'%>
+          <div class="carousel-caption d-none d-md-block fs-1">
+            <p>株式会社AAA</p>
           </div>
-          <div class="carousel-item">
-              <%= image_tag 'cool.jpeg', class: 'd-block w-100' , :size =>'800x500'%>
-              <div class="carousel-caption d-none d-md-block fs-1">
-              <p>株式会社BBBB</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <%= image_tag 'test.png', class: 'd-block w-100' , :size =>'800x500'%>
-              <div class="carousel-caption d-none d-md-block fs-1">
-                <p>株式会社CCCCC</p>
-              </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
       </div>
+      <div class="carousel-item">
+          <%= image_tag 'cool.jpeg', class: 'd-block w-100' , :size =>'800x500'%>
+          <div class="carousel-caption d-none d-md-block fs-1">
+          <p>株式会社BBBB</p>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <%= image_tag 'test.png', class: 'd-block w-100' , :size =>'800x500'%>
+          <div class="carousel-caption d-none d-md-block fs-1">
+            <p>株式会社CCCCC</p>
+          </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
 <%# 画像のスライドショー %>
 
 <%# 検索ページ %>
-      <div class="container company_list">
-          <div class="row">
-            <%# 検索ページ %>
-          <div class="col-3">
-          <%= render "shared/search"%>
-          </div>
-
-            <%# 会社一覧 %>
-          <div class="col-8 ms-5">
-            <h4 style="text-align: center;">おすすめ企業一覧</h4>
-            <%= render partial: 'company', collection: @company %>
-          </div>
-        </div>
+  <div class="container company_list">
+      <div class="row">
+        <%# 検索ページ %>
+      <div class="col-3">
+      <%= render "shared/search"%>
       </div>
 
-      <%= render "shared/footer"%>
+        <%# 会社一覧 %>
+      <div class="col-8 ms-5">
+        <h4 style="text-align: center;">おすすめ企業一覧</h4>
+        <%= render partial: 'company', collection: @company %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "shared/footer"%>
