@@ -5,6 +5,7 @@ class Supplier::ChatsController < ApplicationController
 
   def show
     @chat_room = Chat.find(params[:id])
+    @user_name = @chat_room.user.family_name
     @messages = @chat_room.messages
     @message = Message.new
   end
