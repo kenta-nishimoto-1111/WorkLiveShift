@@ -68,6 +68,8 @@ class Supplier::CompaniesController < ApplicationController
   # 企業側のユーザーページ
   def company_details
     @company = Company.find(params[:id])
+    @favorites = Favorite.where(company_id: current_supplier.id).count
+    @entries = Entry.where(supplier_id: current_supplier.id).count
   end
 
   private

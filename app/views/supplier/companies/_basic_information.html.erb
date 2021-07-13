@@ -8,13 +8,13 @@
   </nav>
   <div class="performance_tag tab-content border border-2 border-top-0" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-      <div class="maru bg-primary bg-gradient"><%=  @company.impressionist_count %></div>
+      <div class="maru bg-primary bg-gradient"><%= @company.impressionist_count %></div>
     </div>
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <div class="maru bg-primary bg-gradient">17</div>
+      <div class="maru bg-primary bg-gradient"><%= @favorites %></div>
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-      <div class="maru bg-primary bg-gradient">4</div>
+      <div class="maru bg-primary bg-gradient"><%= @entries %></div>
     </div>
   </div>
 </div>
