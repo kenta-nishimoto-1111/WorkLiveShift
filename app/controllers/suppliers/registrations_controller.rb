@@ -52,7 +52,7 @@ class Suppliers::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(_resource)
-    second_step_companies_path
+    second_step_supplier_companies_path
   end
 
   # The path used after sign up for inactive accounts.

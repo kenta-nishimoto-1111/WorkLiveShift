@@ -26,10 +26,7 @@ Rails.application.routes.draw do
     end
 
     resources :companies, only:[:index, :create, :show] do
-      resource :favorites, only: [:show, :create, :destroy]
-      resource :entries, only: [:new, :create, :destroy]
       collection do 
-        get 'top'
         get 'first_step'
         get 'second_step'
         get 'third_step'
@@ -65,18 +62,8 @@ Rails.application.routes.draw do
       resource :entries, only: [:new, :create, :destroy]
       collection do 
         get 'top'
-        get 'first_step'
-        get 'second_step'
-        get 'third_step'
-        get 'fourth_step'
-        get 'fifth_step'
-        get 'sixth_step'
-        get 'double_check'
       end
     
-      member do 
-        get 'company_details'
-      end
     end
 
 end

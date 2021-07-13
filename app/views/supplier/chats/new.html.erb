@@ -2,7 +2,7 @@
   <div class="new_inbase ">
    <h1 class="appname" >Work,LiveShift</h1>
    <h1 class="user_title mb-5" >〜 チャットを始める 〜</h1>
-    <%=form_with model: @chat, local: true do |f|%>
+    <%=form_with model: @chat, url: supplier_chats_path, method: :post, local: true do |f|%>
       <div class="d-flex justify-content-center">
         <select name="chat[user_id]" class="select-box  border border-primary rounded-pill my-5">
           <option value="">チャットするユーザーを選択してください</option>

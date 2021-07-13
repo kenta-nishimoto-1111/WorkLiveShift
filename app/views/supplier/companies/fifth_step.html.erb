@@ -2,7 +2,7 @@
   <div class="new_inbase ">
    <h1 class="appname" >Work,LiveShift</h1>
    <h1 class="user_title mb-5" >〜 企業情報を登録する 〜</h1>
-    <%= form_with model: @company, url: sixth_step_companies_path, method: :get, local: true do |f|%>
+    <%= form_with model: @company, url: sixth_step_supplier_companies_path, method: :get, local: true do |f|%>
       <div class="fs-1 text-secondary mb-3">5/6</div>
       <div class="fs-3">チームの文化や働く環境について書く</div>
       <%= f.text_area :company_environment, class:"form-control border border-primary rounded my-3", id:"floatingInput",rows: 7, placeholder:fifth_step_placeholder %>
