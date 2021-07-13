@@ -15,6 +15,9 @@ class Company < ApplicationRecord
     supplier.entries.where(user_id: user.id).exists?
   end
 
+  #ビュー数獲得のための記述
+  is_impressionable
+
   with_options presence: true do
     validates :prefecture_id
     validates :founding_date
