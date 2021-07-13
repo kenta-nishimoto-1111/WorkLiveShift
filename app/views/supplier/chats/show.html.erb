@@ -10,7 +10,7 @@
     <div class="chat_list border">
       <% current_supplier.chats.order(latest_message_time: :desc).each do |chat| %>
         <div class="chat_partner border-bottom">
-          <%= link_to "#{chat.user.family_name}さま", supplier_chat_path(chat), class: "text-decoration-none text-dark" %>
+          <%= sidebar_link_item("#{chat.user.family_name}さま", supplier_chat_path(chat)) %>
         </div>
       <% end %>
     </div>

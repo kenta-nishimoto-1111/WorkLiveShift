@@ -30,7 +30,7 @@
 .chat_partner{
   height: 7vh;
   font-size: 15px;
-  padding: 12px 5px;
+  list-style: none;
 }
 
 .main{
@@ -125,4 +125,26 @@
 
 .chat_time{
   font-size: 1px;
+}
+
+.channel {
+  height: 100%;
+  line-height: 24px;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  padding: 7px 0 0 8px;
+  color: black;
+  a {
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    display: inline-block;
+  }
+  a:hover {
+    color: black;
+  }
+}
+
+.channel.active {
+  background: #e0edff;
 }
