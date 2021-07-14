@@ -9,17 +9,23 @@
 
 <%# 検索ページ %>
   <div class="container company_list mt-5">
-      <div class="row">
-        <%# 検索ページ %>
+    <div class="row">
+      <%# 検索ページ %>
       <div class="col-3">
-      <%= render "shared/search"%>
+        <%= render "shared/search"%>
       </div>
 
         <%# 会社一覧 %>
+    <% if @company.present? %>
       <div class="col-8 ms-5">
         <h4 style="text-align: center;">検索結果</h4>
         <%= render partial: 'company', collection: @company %>
       </div>
+    <% else %>
+      <div class="col-8 ms-5">
+        <h4 class="text-center" style="height: 400px;">検索結果がありませんでした</h4>
+      </div>
+    <% end %>
     </div>
   </div>
 
