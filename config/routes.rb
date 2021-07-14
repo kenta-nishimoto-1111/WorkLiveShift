@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     resource :entries, only: %i[new create destroy]
     collection do
       get 'top'
+      get 'search'
     end
   end
 end
