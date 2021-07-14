@@ -1,5 +1,4 @@
 class Supplier::CompaniesController < ApplicationController
-
   def first_step; end
 
   def second_step

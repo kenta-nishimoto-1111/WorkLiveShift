@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  impressionist :actions=> [:show]
-  
+  impressionist actions: [:show]
+
   def top; end
 
   def index
