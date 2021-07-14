@@ -11,4 +11,8 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     impressionist(@company, nil, unique: [:session_hash])
   end
+
+  def search
+    @company = Company.search(params[:keyword])
+  end
 end

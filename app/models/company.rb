@@ -15,6 +15,14 @@ class Company < ApplicationRecord
     supplier.entries.where(user_id: user.id).exists?
   end
 
+  def self.search(search)
+    if search
+      Company.where(["company_content like? OR company_purpose like? OR company_environment like? OR ingredients like?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      Company.all
+    end
+  end
+
   # ビュー数獲得のための記述
   is_impressionable
 
