@@ -13,6 +13,19 @@ class CompaniesController < ApplicationController
   end
 
   def search
-    @company = Company.search(params[:keyword])
+    if params[:keyword] != ""
+    @company_keyword = Company.keyword(params[:keyword])
+    else params[:area] != 0
+      @company_area = Company.area(params[:area])
+    end
+
+    # binding.pry
+
+    if @company_keyword.present?
+        @company = @company_keyword
+    elsif @company_area.present?
+        @company = @company_area
+    else
+    end
   end
 end

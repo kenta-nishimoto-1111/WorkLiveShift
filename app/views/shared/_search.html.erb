@@ -6,21 +6,16 @@
   </svg>検索条件</label>
 </div>
 
-<select class="form-select" aria-label="Default select example">
+<%= form_with url: search_companies_path, method: :get, local: true do |f| %>
+  <%= f.text_field :keyword, class:"form-control border border-primary rounded my-3", placeholder:'キーワード検索' %>
+  <select class="form-select" aria-label="Default select example">
   <option selected>ジャンル</option>
   <option value="1">エンジニア</option>
   <option value="2">教育</option>
   <option value="3">セールス</option>
 </select>
 
-<select class="form-select" aria-label="Default select example">
-  <option selected>地域</option>
-  <option value="1">東京</option>
-  <option value="2">大阪</option>
-  <option value="3">名古屋</option>
-</select>
+<%= f.collection_select(:area, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
 
-  <%= form_with url: search_companies_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, class:"form-control border border-primary rounded my-3", placeholder:'キーワード検索' %>
-    <%= f.submit "検索する", class:"btn btn-primary float-end mb-5" %>
-  <% end %>
+  <%= f.submit "検索する", class:"btn btn-primary float-end mb-5" %>
+<% end %>
