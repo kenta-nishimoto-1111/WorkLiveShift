@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
   resources :user_question_answers, only: [:show] do
     collection do
+      get 'question_description'
       get 'choice_questions'
       post 'answer_choice_questions'
       get 'scale_questions'
