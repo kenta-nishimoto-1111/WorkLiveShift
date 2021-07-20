@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   def top; end
 
   def index
-    @company = Company.all
+    @company = Company.all.page(params[:page]).per(5)
   end
 
   def show
