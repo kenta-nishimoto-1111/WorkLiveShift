@@ -33,16 +33,14 @@
             <p>株式会社CCCCC</p>
           </div>
       </div>
-            <div class="carousel-item">
-          <% @company.each do |company| %>
+      <div class="carousel-item">
+        <% @company.each do |company| %>
           <%= image_tag company.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
-          <div class="carousel-caption d-none d-md-block fs-1">
-          <% company.supplier.company_name %>
-          </div>
+            <div class="carousel-caption d-none d-md-block fs-1">
+              <% company.supplier.company_name %>
+            </div>
+        <% end %>
       </div>
-    <% end %>
-        </div>
-
     </div>
     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon " aria-hidden="true"></span>
@@ -57,17 +55,18 @@
 
 <%# 検索ページ %>
   <div class="container company_list">
-      <div class="row">
+    <div class="row">
         <%# 検索ページ %>
-      <div class="col-3">
-      <%= render "shared/search"%>
-      </div>
+        <div class="col-3">
+        <%= render "shared/search"%>
+        </div>
 
         <%# 会社一覧 %>
-      <div class="col-8 ms-5">
-        <h4 style="text-align: center;">おすすめ企業一覧</h4>
-        <%= render partial: 'company', collection: @company %>
-      </div>
+        <div class="col-8 ms-5">
+          <h4 style="text-align: center;">おすすめ企業一覧</h4>
+          <%= render partial: 'company', collection: @company %>
+          <%= paginate @company %>
+        </div>
     </div>
   </div>
 
