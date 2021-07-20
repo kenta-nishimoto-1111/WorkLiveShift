@@ -15,32 +15,32 @@
         <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
       </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-          <%= image_tag 'column-case015-01.png', class: 'd-block w-100 ' , :size =>'800x500'%>
-          <div class="carousel-caption d-none d-md-block fs-1">
-            <p>株式会社AAA</p>
-          </div>
-      </div>
-      <div class="carousel-item">
-          <%= image_tag 'cool.jpeg', class: 'd-block w-100' , :size =>'800x500'%>
-          <div class="carousel-caption d-none d-md-block fs-1">
-          <p>株式会社BBBB</p>
-          </div>
-      </div>
-      <div class="carousel-item">
-          <%= image_tag 'test.png', class: 'd-block w-100' , :size =>'800x500'%>
-          <div class="carousel-caption d-none d-md-block fs-1">
-            <p>株式会社CCCCC</p>
-          </div>
-      </div>
-      <div class="carousel-item">
-        <% @company.each do |company| %>
-          <%= image_tag company.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
+        <div class="carousel-item active">
+            <%= image_tag 'column-case015-01.png', class: 'd-block w-100 ' , :size =>'800x500'%>
             <div class="carousel-caption d-none d-md-block fs-1">
-              <% company.supplier.company_name %>
+              <p>株式会社AAA</p>
             </div>
-        <% end %>
-      </div>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag 'cool.jpeg', class: 'd-block w-100' , :size =>'800x500'%>
+            <div class="carousel-caption d-none d-md-block fs-1">
+            <p>株式会社BBBB</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag 'test.png', class: 'd-block w-100' , :size =>'800x500'%>
+            <div class="carousel-caption d-none d-md-block fs-1">
+              <p>株式会社CCCCC</p>
+            </div>
+        </div>
+        <%# <div class="carousel-item">
+          <% @company.each do |company| %>
+            <%# <%= image_tag company.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
+              <%# <div class="carousel-caption d-none d-md-block fs-1">
+                <% company.supplier.company_name %>
+              <%# </div>
+          <% end %>
+        <%# </div> %>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon " aria-hidden="true"></span>
