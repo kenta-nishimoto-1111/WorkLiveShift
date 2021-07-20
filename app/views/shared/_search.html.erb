@@ -4,20 +4,69 @@
   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search mx-3 my-2" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
   </svg>検索条件</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="キーワード検索">
 </div>
 
-<select class="form-select" aria-label="Default select example">
-  <option selected>ジャンル</option>
-  <option value="1">エンジニア</option>
-  <option value="2">教育</option>
-  <option value="3">セールス</option>
-</select>
+<%= form_with url: search_companies_path, method: :get, local: true do |f| %>
+  <%= f.text_field :keyword, class:"form-control border border-primary rounded my-3", placeholder:'キーワード検索' %>
 
-<select class="form-select" aria-label="Default select example">
-  <option selected>地域</option>
-  <option value="1">東京</option>
-  <option value="2">大阪</option>
-  <option value="3">名古屋</option>
-</select>
+  <select name="[genre]" class="form-select" aria-label="Default select example">
+    <option value="">ジャンル</option>
+    <optgroup label="営業">
+      <option value="個人営業">個人営業</option>
+      <option value="法人営業">法人営業</option>
+      <option value="ルート営業">ルート営業</option>
+      <option value="テレフォンアポインター">テレフォンアポインター</option>
+      <option value="営業アシスタント">営業アシスタント</option>
+    </optgroup>
+    <optgroup label="コーポレート">
+      <option value="一般事務">一般事務</option>
+      <option value="人事">人事</option>
+      <option value="経理">経理</option>
+      <option value="財務">財務</option>
+      <option value="法務">法務</option>
+      <option value="経営企画">経営企画</option>
+      <option value="秘書">秘書</option>
+    </optgroup>
+    <optgroup label="販売・サービス">
+      <option value="販売・接客">販売・接客</option>
+      <option value="店長(ファッション)">店長(ファッション)</option>
+      <option value="ホールスタッフ">ホールスタッフ</option>
+      <option value="調理">調理</option>
+      <option value="店長(飲食)">店長(飲食)</option>
+    </optgroup>
+    <optgroup label="コンサルティング">
+      <option value="経営コンサルティング">経営コンサルティング</option>
+      <option value="人事コンサルティング">人事コンサルティング</option>
+      <option value="ITコンサルティング">ITコンサルティング</option>
+      <option value="マーケティングコンサルティング">マーケティングコンサルティング</option>
+      <option value="キャリアコンサルティング">キャリアコンサルティング</option>
+    </optgroup>
+    <optgroup label="教育">
+      <option value="保育士・幼稚園教諭">保育士・幼稚園教諭</option>
+      <option value="スクール運営・マネジメント">スクール運営・マネジメント</option>
+      <option value="教師">教師</option>
+      <option value="講師">講師</option>
+      <option value="スポーツインストラクター">スポーツインストラクター</option>
+      <option value="教務事務">教務事務</option>
+    </optgroup>
+    <optgroup label="エンジニア">
+      <option value="モバイルエンジニア">モバイルエンジニア</option>
+      <option value="webエンジニア">webエンジニア</option>
+      <option value="インフラエンジニア">インフラエンジニア</option>
+      <option value="システムエンジニア">システムエンジニア</option>
+      <option value="データサイエンティストグラフィック">データサイエンティストグラフィック</option>
+    </optgroup>
+    <optgroup label="デザイナー">
+      <option value="デザイナー">デザイナー</option>
+      <option value="アートデザイナー">アートデザイナー</option>
+      <option value="クリエイティブデザイナー">クリエイティブデザイナー</option>
+      <option value="フォトグラファー">フォトグラファー</option>
+      <option value="動画クリエイター">動画クリエイター</option>
+      <option value="イラストレーター">イラストレーター</option>
+    </optgroup>
+  </select>
 
+<%= f.collection_select(:area, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+
+  <%= f.submit "検索する", class:"btn btn-primary float-end mb-5" %>
+<% end %>

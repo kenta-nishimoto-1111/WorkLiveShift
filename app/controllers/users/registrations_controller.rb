@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(_resource)
-    choice_questions_user_question_answers_path
+    question_description_user_question_answers_path
   end
 
   # The path used after sign up for inactive accounts.

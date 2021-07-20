@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
   resources :user_question_answers, only: [:show] do
     collection do
+      get 'question_description'
       get 'choice_questions'
       post 'answer_choice_questions'
       get 'scale_questions'
@@ -62,6 +63,7 @@ Rails.application.routes.draw do
     resource :entries, only: %i[new create destroy]
     collection do
       get 'top'
+      get 'search'
     end
   end
 end
