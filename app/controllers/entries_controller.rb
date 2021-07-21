@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @company = Company.find(params[:company_id])
     @entry = Entry.new
