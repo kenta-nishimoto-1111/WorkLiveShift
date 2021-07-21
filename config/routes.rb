@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create]
     end
 
-    resources :companies, only: %i[index create show] do
+    resources :companies, only: %i[index create show edit] do
       collection do
         get 'first_step'
         get 'second_step'
