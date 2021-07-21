@@ -2,9 +2,68 @@
   <div class="new_inbase ">
    <h1 class="appname" >Work,LiveShift</h1>
    <h1 class="user_title mb-5" >〜 企業情報を編集する 〜</h1>
-    <%= form_with model: @company, url: sixth_step_supplier_companies_path, method: :get, local: true do |f|%>
+    <%= form_with model: @company, url: sixth_step_supplier_companies_path, method: :post, local: true do |f|%>
+
+      <div class="container">
+        <div class="row ">
+        
+          <div class="col-3 d-flex align-items-center ">
+            <div class="form-floating mb-1 location">
+              <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select_box_company border-primary rounded-pill px-2", id:"item-prefecture"})%>
+            </div>
+          </div>
+
+          <div class="col-8 ">
+            <div class="px-4 pt-2">
+                <dl class="row">
+                    <dd class="col-sm-4 mt-4 ps-5">創立年月</dd>
+                    <dd class="col-sm-7 mt-3">
+                        <div class='input-birth-wrap'>
+                            <%= raw sprintf(
+                                  f.date_select(
+                                    :founding_date,
+                                    class:'select-birth',
+                                    id:"birth-date",
+                                    use_month_numbers: true,
+                                    discard_day: true,
+                                    prompt:'--',
+                                    start_year: 1980,
+                                    end_year: (Time.now.year),
+                                    date_separator: '%s'),
+                                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="p-3">
+        <div class="form-floating">
+          <%= f.text_field :phone_number , class:"form-control border border-primary rounded-pill" , id:"floatingInput" , placeholder:"name@example.com" %>
+          <label for="floatingInput">電話番号</label>
+        </div>
+      </div>
+
+      <div class="p-3">
+        <div class="form-floating">
+          <%= f.text_field :company_url, class:"form-control border border-primary rounded-pill" , id:"floatingInput" , placeholder:"name@example.com" %>
+          <label for="floatingInput">会社HP</label>
+        </div>
+      </div>
+
+      <div class="fs-6 mt-5">あなたの会社の事業内容について編集する</div>
+      <%= f.text_area :company_content, class:"form-control border border-primary rounded my-3", id:"floatingInput",rows: 7, placeholder:third_step_placeholder%>
+
+      <div class="fs-6 mt-5">あなたの事業の目的について編集する</div>
+      <%= f.text_area :company_purpose, class:"form-control border border-primary rounded my-3", id:"floatingInput",rows: 7, placeholder:fourth_step_placeholder %>
+
+      <div class="fs-6 mt-5">チームの文化や働く環境について編集する</div>
       <%= f.text_area :company_environment, class:"form-control border border-primary rounded my-3", id:"floatingInput",rows: 7, placeholder:fifth_step_placeholder %>
-      <%= f.submit "編集する" ,class:"btn btn-primary float-end mb-5" %>
+
+      <%= f.submit "企業情報を編集する" ,class:"btn btn-primary float-end my-5" %>
     <% end %>
   </div>
 </div>
