@@ -2,6 +2,7 @@ class Supplier::CompaniesController < ApplicationController
   before_action :authenticate_supplier!, except: %i[first_step]
   before_action :set_company_find, only: %i[edit update company_details]
   before_action :set_company_new, only: %i[second_step third_step fourth_step fifth_step sixth_step double_check]
+  before_action :move_to_index, only: %i[company_details edit update]
 
   def first_step; end
 
@@ -100,5 +101,9 @@ class Supplier::CompaniesController < ApplicationController
 
   def set_company_find
     @company = Company.find(params[:id])
+  end
+
+  def move_to_index
+    return redirect_to root_path if current_supplier.id != @company.supplier.id
   end
 end
