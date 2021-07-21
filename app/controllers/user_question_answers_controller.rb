@@ -1,4 +1,7 @@
 class UserQuestionAnswersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :move_to_index
+
   def choice_questions
     @questions = Question.choice.order(:sort_order)
   end
@@ -52,4 +55,10 @@ class UserQuestionAnswersController < ApplicationController
   def revel; end
 
   def pro; end
+
+  private
+
+  def move_to_index
+    return redirect_to root_path if current_user.user_question_answers.present?
+  end
 end
