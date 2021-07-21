@@ -1,8 +1,11 @@
 class Supplier::CompaniesController < ApplicationController
+  before_action :authenticate_supplier!, except: %i[first_step]
+  before_action :set_company_find, only: %i[edit update company_details]
+  before_action :set_company_new, only: %i[second_step third_step fourth_step fifth_step sixth_step double_check]
+
   def first_step; end
 
   def second_step
-    @company = Company.new
   end
 
   def third_step
@@ -12,22 +15,18 @@ class Supplier::CompaniesController < ApplicationController
     session['founding_date(3i)'] = params[:company]['founding_date(3i)']
     session[:phone_number] = company_params[:phone_number]
     session[:company_url] = company_params[:company_url]
-    @company = Company.new
   end
 
   def fourth_step
     session[:company_content] = company_params[:company_content]
-    @company = Company.new
   end
 
   def fifth_step
     session[:company_purpose] = company_params[:company_purpose]
-    @company = Company.new
   end
 
   def sixth_step
     session[:company_environment] = company_params[:company_environment]
-    @company = Company.new
   end
 
   def double_check
@@ -42,7 +41,6 @@ class Supplier::CompaniesController < ApplicationController
       company_environment: session[:company_environment],
       ingredients: session[:ingredients]
     )
-    @company = Company.new
   end
 
   def create
@@ -66,17 +64,14 @@ class Supplier::CompaniesController < ApplicationController
 
   # 企業側のユーザーページ
   def company_details
-    @company = Company.find(params[:id])
     @favorites = Favorite.where(company_id: current_supplier.id).count
     @entries = Entry.where(supplier_id: current_supplier.id).count
   end
 
   def edit
-    @company = Company.find(params[:id])
   end
 
   def update
-    @company = Company.find(params[:id])
     if @company.update(company_params)
       redirect_to company_details_supplier_company_path(@company.id)
     else
@@ -97,5 +92,13 @@ class Supplier::CompaniesController < ApplicationController
       :company_environment,
       ingredients: []
     ).merge(supplier_id: current_supplier.id)
+  end
+
+  def set_company_new
+    @company = Company.new
+  end
+
+  def set_company_find
+    @company = Company.find(params[:id])
   end
 end
