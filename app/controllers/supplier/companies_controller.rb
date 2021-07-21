@@ -6,8 +6,7 @@ class Supplier::CompaniesController < ApplicationController
 
   def first_step; end
 
-  def second_step
-  end
+  def second_step; end
 
   def third_step
     session[:prefecture_id] = company_params[:prefecture_id]
@@ -69,8 +68,7 @@ class Supplier::CompaniesController < ApplicationController
     @entries = Entry.where(supplier_id: current_supplier.id).count
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @company.update(company_params)
