@@ -71,6 +71,14 @@ class Supplier::CompaniesController < ApplicationController
     @entries = Entry.where(supplier_id: current_supplier.id).count
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    
+  end
+
   private
 
   def company_params
