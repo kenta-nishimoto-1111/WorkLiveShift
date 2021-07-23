@@ -4,7 +4,9 @@ class CompaniesController < ApplicationController
   def top; end
 
   def index
-    @company = Company.all.page(params[:page]).per(5)
+    @company_topimage = Company.find(1)
+    @company_images = Company.where.not(id: 1)
+    @companies = Company.all.page(params[:page]).per(5)
   end
 
   def show
