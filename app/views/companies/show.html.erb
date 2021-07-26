@@ -18,7 +18,7 @@
           <%= image_tag 'cool.jpeg', class: 'd-block w-100 rounded-3' , :size =>'700x500'%>
         </div>
         <div class="carousel-item">
-          <%= image_tag 'test.png', class: 'd-block w-100 rounded-3' , :size =>'700x500'%>
+          <%= image_tag 'test.jpg', class: 'd-block w-100 rounded-3' , :size =>'700x500'%>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
@@ -132,9 +132,11 @@
           <hr align="center" class="my-5">
 
           <h2 class="my-5 fs-4 text-secondary">希望している職種</h2>
-          <%# <% @company.ingredients do |ingredient| %>
-            <%# <%= ingredient %>
-          <%# <% end %>
+          <% @ingredients.each do |ingredient| %>
+            <div class="m-2 border border-primary rounded-pill p-2 check_box">
+              <%= ingredient %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @ingredients = JSON.parse(@company.ingredients)
     impressionist(@company, nil, unique: [:session_hash])
   end
 
