@@ -18,14 +18,14 @@
       <div class="carousel-item active">
           <%= image_tag @company_topimage.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
           <div class="carousel-caption d-none d-md-block fs-1">
-              <% @company_topimage.supplier.company_name %>
+              <%= @company_topimage.supplier.company_name %>
           </div>
       </div>
       <% @company_images.each do |company_image| %>
         <div class="carousel-item">
             <%= image_tag company_image.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
               <div class="carousel-caption d-none d-md-block fs-1">
-                <% company_image.supplier.company_name %>
+                <%= company_image.supplier.company_name %>
               </div>
         </div>
       <% end %>

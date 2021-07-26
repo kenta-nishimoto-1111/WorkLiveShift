@@ -16,10 +16,10 @@
       </div>
 
         <%# 会社一覧 %>
-    <% if @company.present? %>
+    <% if @companies.present? %>
       <div class="col-8 ms-5">
         <h4 style="text-align: center;">検索結果</h4>
-        <%= render partial: 'company', collection: @company %>
+        <%= render partial: 'company', collection: @companies %>
       </div>
     <% else %>
       <div class="col-8 ms-5">

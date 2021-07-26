@@ -16,13 +16,13 @@ class Company < ApplicationRecord
   end
 
   def self.keyword(keyword)
-    Company.where([
+    self.where([
                     'company_content like? OR company_purpose like? OR company_environment like? OR ingredients like?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
                   ])
   end
 
   def self.area(area)
-    Company.where(['prefecture_id like?', "%#{area}%"])
+    self.where(prefecture_id: area)
   end
 
   # ビュー数獲得のための記述
