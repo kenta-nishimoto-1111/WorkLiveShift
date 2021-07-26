@@ -1,6 +1,6 @@
 <%# 一つ一つのメッセージが表示されているビュー %>
 
-<div class="message overflow-auto" id="area">
+<div class="message overflow-auto pb-4" id="area">
   <% @messages.each do |message| %>
     <% if message.sent_person == current_user.family_name%>
       <div class="d-flex align-items-center d-flex justify-content-end ">

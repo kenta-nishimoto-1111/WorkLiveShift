@@ -1,7 +1,10 @@
 window.onload = function() {
-  var main = document.getElementById('area');
+  if (document.getElementById("area")) {
+    // 現在の縦スクロール位置
+    var scrollPosition = document.getElementById("area").scrollTop;
+    // スクロール要素の高さ
+    var scrollHeight = document.getElementById("area").scrollHeight;
 
-function scrollEnd() {
-      main.scrollTop = main.scrollHeight;
-      scrollEnd();
-}}
+    document.getElementById("area").scrollTop = scrollHeight;
+  }
+}
