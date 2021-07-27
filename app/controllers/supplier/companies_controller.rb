@@ -67,6 +67,7 @@ class Supplier::CompaniesController < ApplicationController
     @favorites = Favorite.where(company_id: current_supplier.id).count
     @entries = Entry.where(supplier_id: current_supplier.id).count
     @ingredients = JSON.parse(@company.ingredients)
+    @other_images = @company.supplier.image_other_companies
   end
 
   def edit; end
