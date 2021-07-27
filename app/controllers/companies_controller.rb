@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @ingredients = JSON.parse(@company.ingredients)
+    @other_images = @company.supplier.image_other_companies
     impressionist(@company, nil, unique: [:session_hash])
   end
 
