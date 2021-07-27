@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @ingredients = JSON.parse(@company.ingredients)
+    @other_images = @company.supplier.image_other_companies
     impressionist(@company, nil, unique: [:session_hash])
   end
 
@@ -19,6 +20,6 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @companies = @companies.keyword(params[:keyword]) if params[:keyword] != ''
     @companies = @companies.area(params[:area]) if params[:area] != 0
-    @companies = @ingredients.genre(params[:genre]) if params[:genre] != ''
+    # @companies = @ingredients.genre(params[:genre]) if params[:genre] != ''
   end
 end

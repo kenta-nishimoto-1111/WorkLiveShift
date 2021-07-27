@@ -21,9 +21,9 @@ class Company < ApplicationRecord
     ])
   end
 
-  def self.genre(genre)
-    self.where(['ingredients like?', "%#{genre}%"])
-  end
+  # def self.genre(genre)
+  #   self.where(['ingredients like?', "%#{genre}%"])
+  # end
 
   def self.area(area)
     self.where(prefecture_id: area)
