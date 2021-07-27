@@ -78,6 +78,10 @@ class Supplier::CompaniesController < ApplicationController
     end
   end
 
+  def ingredients_update
+    
+  end
+
   private
 
   def company_params

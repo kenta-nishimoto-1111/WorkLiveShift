@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
       member do
         get 'company_details'
+        get 'ingredients_update'
       end
     end
   end
