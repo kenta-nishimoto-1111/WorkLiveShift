@@ -82,7 +82,11 @@ class Supplier::CompaniesController < ApplicationController
   end
 
   def ingredients_update
-    binding.pry
+    if @company.update_attributes(ingredients_params)
+      redirect_to company_details_supplier_company_path(@company.id)
+    else
+      render 'ingredients_edit'
+    end  
   end
 
   private
@@ -98,6 +102,10 @@ class Supplier::CompaniesController < ApplicationController
       :company_environment,
       ingredients: []
     ).merge(supplier_id: current_supplier.id)
+  end
+
+  def ingredients_params
+    params.require(:company).permit(ingredients: [])
   end
 
   def set_company_new
