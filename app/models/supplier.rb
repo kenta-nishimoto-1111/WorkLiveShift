@@ -5,6 +5,7 @@ class Supplier < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :companies, dependent: :destroy
+  has_many :image_other_company, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_one_attached :company_image
