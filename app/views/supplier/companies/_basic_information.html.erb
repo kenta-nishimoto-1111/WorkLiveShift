@@ -37,6 +37,12 @@
     <dt class="col-sm-9 mb-4"><%= @company.company_url %></dt>
 
     <dd class="col-sm-3 mb-4 text-secondary">求めている職種</dd>
-    <dt class="col-sm-9 mb-4"><%= @company.ingredients %></dt>
+    <dt class="col-sm-9 mb-4">
+      <% @ingredients.each do |ingredient| %>
+        <label class="m-2 border border-primary rounded-pill p-2 check_box">
+          <%= ingredient %>
+        </label>
+      <% end %>
+    </dt>
 
   </dl>

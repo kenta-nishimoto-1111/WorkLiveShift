@@ -66,6 +66,7 @@ class Supplier::CompaniesController < ApplicationController
   def company_details
     @favorites = Favorite.where(company_id: current_supplier.id).count
     @entries = Entry.where(supplier_id: current_supplier.id).count
+    @ingredients = JSON.parse(@company.ingredients)
   end
 
   def edit; end
