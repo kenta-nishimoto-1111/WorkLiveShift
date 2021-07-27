@@ -1,6 +1,6 @@
 class Supplier::CompaniesController < ApplicationController
   before_action :authenticate_supplier!, except: %i[first_step]
-  before_action :set_company_find, only: %i[edit update company_details ingredients_update]
+  before_action :set_company_find, only: %i[edit update company_details ingredients_edit ingredients_update]
   before_action :set_company_new, only: %i[second_step third_step fourth_step fifth_step sixth_step double_check]
   before_action :move_to_index, only: %i[company_details edit update]
 
@@ -78,7 +78,11 @@ class Supplier::CompaniesController < ApplicationController
     end
   end
 
+  def ingredients_edit
+  end
+
   def ingredients_update
+    binding.pry
   end
 
   private
