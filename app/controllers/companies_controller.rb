@@ -20,14 +20,5 @@ class CompaniesController < ApplicationController
     @companies = @companies.keyword(params[:keyword]) if params[:keyword] != ''
     @companies = @companies.area(params[:area]) if params[:area] != 0
     @companies = @ingredients.genre(params[:genre]) if params[:genre] != ''
-
-
-    # if @company_keyword.present?
-    #   @companies = @company_keyword
-    # elsif @company_area.present?
-    #   @companies = @company_area
-    # end
-
-    # @companies = @companies.page(params[:page]).per(5)
   end
 end
