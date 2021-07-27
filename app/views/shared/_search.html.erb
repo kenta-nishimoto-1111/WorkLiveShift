@@ -7,9 +7,11 @@
 </div>
 
 <%= form_with url: search_companies_path, method: :get, local: true do |f| %>
-  <%= f.text_field :keyword, class:"form-control border border-primary rounded my-3", placeholder:'キーワード検索' %>
+  <%= f.text_field :keyword, class:"form-control border border-primary rounded my-2", placeholder:'キーワード検索' %>
 
-  <select name="[genre]" class="form-select" aria-label="Default select example">
+  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box border border-primary rounded my-3", id:"item-prefecture", style:"width: 100%;"})%>
+
+  <select name="[genre]" class="form-select border border-primary rounded my-2" aria-label="Default select example">
     <option value="">ジャンル</option>
     <optgroup label="営業">
       <option value="個人営業">個人営業</option>
@@ -66,7 +68,5 @@
     </optgroup>
   </select>
 
-<%= f.collection_select(:area, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
-
-  <%= f.submit "検索する", class:"btn btn-primary float-end mb-5" %>
+  <%= f.submit "検索する", class:"btn btn-primary float-end my-3" %>
 <% end %>

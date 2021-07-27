@@ -19,8 +19,8 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @companies = @companies.keyword(params[:keyword]) if params[:keyword] != ''
     @companies = @companies.area(params[:area]) if params[:area] != 0
+    @companies = @ingredients.genre(params[:genre]) if params[:genre] != ''
 
-    # binding.pry
 
     # if @company_keyword.present?
     #   @companies = @company_keyword

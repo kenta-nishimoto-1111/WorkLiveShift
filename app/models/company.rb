@@ -17,8 +17,12 @@ class Company < ApplicationRecord
 
   def self.keyword(keyword)
     self.where([
-                    'company_content like? OR company_purpose like? OR company_environment like? OR ingredients like?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
-                  ])
+      'company_content like? OR company_purpose like? OR company_environment like? OR ingredients like?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
+    ])
+  end
+
+  def self.genre(genre)
+    self.where(['ingredients like?', "%#{genre}%"])
   end
 
   def self.area(area)
