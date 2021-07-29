@@ -5,6 +5,11 @@ class Company < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
 
+  INGREDIENTS_MAP = {
+    '営業': ['個人営業', '法人営業'],
+    'コーポレート': ['一般事務', '人事']
+  }
+
   # 引数を受け取るように設定
   def already_favorited?(user)
     favorites.where(user_id: user.id).exists?
@@ -21,9 +26,9 @@ class Company < ApplicationRecord
     ])
   end
 
-  # def self.genre(genre)
-  #   self.where(['ingredients like?', "%#{genre}%"])
-  # end
+  def self.genre(genre)
+    self.where(['ingredients like ?', "%#{genre}%"])
+  end
 
   def self.area(area)
     self.where(prefecture_id: area)

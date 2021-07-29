@@ -7,28 +7,20 @@
 </div>
 
 <%= form_with url: search_companies_path, method: :get, local: true do |f| %>
-  <%= f.text_field :keyword, class:"form-control border border-primary rounded my-2", placeholder:'キーワード検索' %>
+  <%= f.text_field :keyword, class:"form-control border border-primary rounded my-2", placeholder:'キーワード検索', value: @keyword %>
 
-  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box border border-primary rounded my-3", id:"item-prefecture", style:"width: 100%;"})%>
+  <%= f.collection_select(:area, Prefecture.all, :id, :name, {selected: @area}, {class:"select-box border border-primary rounded my-3", id:"item-prefecture", style:"width: 100%;"})%>
 
   <select name="[genre]" class="form-select border border-primary rounded my-2" aria-label="Default select example">
     <option value="">ジャンル</option>
-    <optgroup label="営業">
-      <option value="個人営業">個人営業</option>
-      <option value="法人営業">法人営業</option>
-      <option value="ルート営業">ルート営業</option>
-      <option value="テレフォンアポインター">テレフォンアポインター</option>
-      <option value="営業アシスタント">営業アシスタント</option>
-    </optgroup>
-    <optgroup label="コーポレート">
-      <option value="一般事務">一般事務</option>
-      <option value="人事">人事</option>
-      <option value="経理">経理</option>
-      <option value="財務">財務</option>
-      <option value="法務">法務</option>
-      <option value="経営企画">経営企画</option>
-      <option value="秘書">秘書</option>
-    </optgroup>
+    <% Company::INGREDIENTS_MAP.keys.each do |key| %>
+      <optgroup label="<%= key %>">
+        <% Company::INGREDIENTS_MAP[key].each do |value| %>
+          <option value="<%= value %>" <%= @genre == value ? 'selected' : '' %>><%= value %></option>
+        <% end %>
+      </optgroup>
+    <% end %>
+
     <optgroup label="販売・サービス">
       <option value="販売・接客">販売・接客</option>
       <option value="店長(ファッション)">店長(ファッション)</option>
