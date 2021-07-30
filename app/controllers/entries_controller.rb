@@ -15,6 +15,7 @@ class EntriesController < ApplicationController
       user_id: current_user.id
     )
     if @entry.save
+      @company.supplier_notifications.create(user: current_user, notification_type: "entry")
       redirect_to root_path
     else
       render 'new'

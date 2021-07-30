@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_012110) do
   create_table "supplier_notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "supplier_id"
-    t.integer "notification_type"
+    t.string "notification_type"
     t.datetime "checked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
