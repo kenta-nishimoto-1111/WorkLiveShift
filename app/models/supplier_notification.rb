@@ -1,0 +1,2 @@
+class SupplierNotification < ApplicationRecord
+end
