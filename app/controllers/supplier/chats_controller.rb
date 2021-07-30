@@ -9,7 +9,6 @@ class Supplier::ChatsController < ApplicationController
     @messages = @chat_room.messages
     @message = Message.new
     @chat_room.supplier.supplier_notifications.where(supplier: @chat_room.user, checked_at: nil).update(checked_at: Time.current)
-
   end
 
   def new

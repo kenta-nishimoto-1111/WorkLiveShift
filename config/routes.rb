@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   namespace :supplier do
     resources :image_other_companies, only: %i[new create]
+    resources :supplier_notifications, only: %i[index]
     resources :chats, only: %i[index new create show] do
       resources :messages, only: %i[new create]
     end

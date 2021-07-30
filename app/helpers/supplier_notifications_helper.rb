@@ -1,0 +1,2 @@
+module SupplierNotificationsHelper
+end
