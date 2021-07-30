@@ -8,6 +8,7 @@ class Supplier < ApplicationRecord
   has_many :image_other_companies, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :user_notifications, dependent: :destroy
   has_one_attached :company_image
 
   validates :company_name, presence: true

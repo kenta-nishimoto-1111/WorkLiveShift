@@ -7,7 +7,10 @@ class Supplier::MessagesController < ApplicationController
     end
     @chat_room = Chat.find(params[:chat_id])
     @message = @chat_room.messages.new(message_params)
-    @chat_room.update(latest_message: @message.content, latest_message_time: Time.current) if @message.save
+    if @message.save
+      @chat_room.update(latest_message: @message.content, latest_message_time: Time.current)
+      @chat_room.user.user_notifications.create(supplier: current_supplier)
+    end
     redirect_to supplier_chat_path(@chat_room)
   end
 

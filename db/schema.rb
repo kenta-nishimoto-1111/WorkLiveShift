@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_27_031522) do
+ActiveRecord::Schema.define(version: 2021_07_29_122513) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -182,6 +182,16 @@ ActiveRecord::Schema.define(version: 2021_07_27_031522) do
     t.index ["reset_password_token"], name: "index_suppliers_on_reset_password_token", unique: true
   end
 
+  create_table "user_notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "supplier_id"
+    t.datetime "checked_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["supplier_id"], name: "index_user_notifications_on_supplier_id"
+    t.index ["user_id"], name: "index_user_notifications_on_user_id"
+  end
+
   create_table "user_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
@@ -218,4 +228,6 @@ ActiveRecord::Schema.define(version: 2021_07_27_031522) do
   add_foreign_key "favorites", "users"
   add_foreign_key "image_other_companies", "suppliers"
   add_foreign_key "messages", "chats"
+  add_foreign_key "user_notifications", "suppliers"
+  add_foreign_key "user_notifications", "users"
 end

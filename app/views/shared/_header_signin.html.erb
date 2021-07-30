@@ -32,7 +32,6 @@
             <span class="balloon text-center">チャット画面へ</span>
           </div>
 
-
         <%# すずのアイコン %>
           <div class="dropdown">
             <div class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,9 +40,9 @@
               </svg>
             </div>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
-              <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
-              <li><a class="dropdown-item" href="#">ここに通知を表示</a></li>
+              <% @user_notifications.each do |notification| %>
+                <li><a class="dropdown-item" href="#"><%= notification.supplier.company_name %>からメッセージが届きました</a></li>
+              <% end %>
             </ul>
           </div>
 
