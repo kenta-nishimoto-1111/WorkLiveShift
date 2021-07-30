@@ -1,3 +1,14 @@
 // Place all the styles related to the supplier_notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notification{
+  height: 85vh;
+  width: 100%;
+  margin: 30px 30px;
+}
+
+.notification-list{
+  width: 50vw;
+  padding: 30px;
+}

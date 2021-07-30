@@ -1,0 +1,9 @@
+<div class="notification overflow-auto">
+  <% @supplier_notifications.each do |notification| %>
+    <% if notification.notification_type == "message" %>
+      <%= link_to "#{notification.user.family_name}さんからメッセージが届きました", supplier_chat_path(notification.user.id), class: "dropdown-item me-4 notification-list border border-primary rounded-1 border-2"%>
+    <% elsif notification.notification_type == "entry" %>
+      <%= link_to "#{notification.user.family_name}さんからエントリーが届きました。メッセージを送信しましょう！", new_supplier_chat_path, class: "dropdown-item me-4 notification-list border border-primary rounded-1 border-2"%>
+    <% end %>
+  <% end %>
+</div>
