@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_user_notifications
+  before_action :set_supplier_notifications
 
   private
 
@@ -12,5 +13,11 @@ class ApplicationController < ActionController::Base
     return unless current_user
 
     @user_notifications = current_user.user_notifications.where(checked_at: nil).order(id: :desc)
+  end
+
+  def set_supplier_notifications
+    return unless current_supplier
+
+    @supplier_notifications = current_supplier.supplier_notifications.where(checked_at: nil).order(id: :desc)
   end
 end
