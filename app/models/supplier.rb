@@ -4,6 +4,7 @@ class Supplier < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :supplier_question_answers, dependent: :destroy
   has_many :companies, dependent: :destroy
   has_many :image_other_companies, dependent: :destroy
   has_many :chats, dependent: :destroy
