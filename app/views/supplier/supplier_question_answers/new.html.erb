@@ -5,7 +5,7 @@
     <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z"/>
     </svg>企業診断</h1>
 
-    <%= form_with url: answer_choice_questions_user_question_answers_path, local: true do |f| %>
+    <%=form_with model: @questions, url: supplier_supplier_question_answers_path, method: :post, local: true do |f|%>
         <% @questions.each do |question| %>
             <div class="choice_question" >
                 <h1 class="fs-4 mb-3 "><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 18 18">
@@ -25,7 +25,7 @@
             </div>
             <hr align="center" >
         <% end %>
-        <%= f.submit '次へ' ,class:" btn btn-primary float-end mb-5" %>
+        <%= f.submit '登録する' ,class:" btn btn-primary float-end my-5" %>
     <% end %>
   </div>
 </div>
