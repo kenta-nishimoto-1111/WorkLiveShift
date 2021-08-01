@@ -1,7 +1,7 @@
 class CreateSupplierQuestionAnswers < ActiveRecord::Migration[6.0]
   def change
     create_table :supplier_question_answers do |t|
-      t.integer :user_id, null: false
+      t.integer :supplier_id, null: false
       t.integer :question_id,   null: false
       t.integer :question_option_id
       t.string  :personality_type, null: false

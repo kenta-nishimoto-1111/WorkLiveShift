@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 2021_08_01_060134) do
   end
 
   create_table "supplier_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "supplier_id", null: false
     t.integer "question_id", null: false
     t.integer "question_option_id"
     t.string "personality_type", null: false
