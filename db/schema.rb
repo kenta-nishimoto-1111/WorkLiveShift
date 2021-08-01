@@ -193,7 +193,6 @@ ActiveRecord::Schema.define(version: 2021_08_01_060134) do
     t.integer "question_id", null: false
     t.string "option_text"
     t.string "personality_type"
-    t.integer "point", null: false
     t.integer "sort_order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

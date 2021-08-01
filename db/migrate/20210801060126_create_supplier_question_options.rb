@@ -4,7 +4,6 @@ class CreateSupplierQuestionOptions < ActiveRecord::Migration[6.0]
       t.integer :question_id, null: false
       t.string  :option_text
       t.string  :personality_type
-      t.integer :point, null: false
       t.integer :sort_order, null: false
       t.timestamps
     end
