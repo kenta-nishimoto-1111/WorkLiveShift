@@ -64,6 +64,7 @@ class Supplier::CompaniesController < ApplicationController
 
   # 企業側のユーザーページ
   def company_details
+    @supplier_answer = current_supplier.supplier_question_answers
     @favorites = Favorite.where(company_id: current_supplier.id).count
     @entries = Entry.where(supplier_id: current_supplier.id).count
     @ingredients = JSON.parse(@company.ingredients)
