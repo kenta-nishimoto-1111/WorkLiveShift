@@ -1,0 +1,2 @@
+class SupplierQuestionAnswer < ApplicationRecord
+end

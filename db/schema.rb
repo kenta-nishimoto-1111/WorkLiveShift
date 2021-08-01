@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_012110) do
+ActiveRecord::Schema.define(version: 2021_08_01_060134) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -177,6 +177,33 @@ ActiveRecord::Schema.define(version: 2021_07_30_012110) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["supplier_id"], name: "index_supplier_notifications_on_supplier_id"
     t.index ["user_id"], name: "index_supplier_notifications_on_user_id"
+  end
+
+  create_table "supplier_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.integer "question_option_id"
+    t.string "personality_type", null: false
+    t.integer "point", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "supplier_question_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string "option_text"
+    t.string "personality_type"
+    t.integer "point", null: false
+    t.integer "sort_order", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "supplier_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "message", null: false
+    t.integer "sort_order", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "suppliers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
