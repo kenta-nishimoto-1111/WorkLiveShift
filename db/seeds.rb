@@ -15,7 +15,7 @@ CSV.foreach('db/supplier_question.csv') do |supplier_question|
 end
 
 CSV.foreach('db/supplier_question_options.csv') do |supplier_question_options|
-  SupplierQuestionOption.find_or_create_by(id: supplier_question_options[0], question_id: supplier_question_options[1],
+  SupplierQuestionOption.find_or_create_by(id: supplier_question_options[0], supplier_question_id: supplier_question_options[1],
                                    option_text: supplier_question_options[2], personality_type: supplier_question_options[3], sort_order: supplier_question_options[4])
 end
 

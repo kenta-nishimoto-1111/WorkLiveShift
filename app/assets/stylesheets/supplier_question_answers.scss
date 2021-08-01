@@ -1,3 +1,59 @@
 // Place all the styles related to the supplier_question_answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.form-question{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  }
+
+  .form-question_inbase{
+    // background-color: #DDDDDD;
+    height: 80%;
+    width: 90%;
+    margin:  50px 0;
+  }
+
+  .choice_question{
+    margin: 50px 70px;
+  }
+
+  .form-checkbox{
+  display: inline;
+  padding: 0 30px;
+  }
+
+  // -------- 診断結果のCSS ---------
+
+  .graph{
+    height: 80%;
+    width: 70%;
+    margin: auto;
+  }
+
+  .answer{
+    height: 100px;
+    margin: 0px 50px;
+  }
+
+  .link{
+      width:500px;
+      height:150px;
+      background:#136FFF;
+      border-radius:70px 70px 70px 70px;
+      padding: 10px;
+      font-size: 16px;
+  }
+
+  .user_btn{
+    position: fixed;
+    top: 20px; 
+    right: 10px;
+    padding: 6px 40px;
+    background-color: #136FFF;
+  }
