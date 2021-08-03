@@ -1,84 +1,349 @@
-<div class="personality_base">
+<div class="supplier_answer">
   <h1 class="appname fs-5" >Work,LiveShift</h1>
   <h1 class="user_title mb-5 fs-6" >〜 <%= current_supplier.company_name %>様の企業診断 〜</h1>
 </div>
 <div class="supplier_answer">
   <% if @supplier_answer.present? %>
-      <canvas id="myRaderChart"></canvas>
-      <!-- CDN -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-      <script>
-        var ctx = document.getElementById("myRaderChart");
-        var myRadarChart = new Chart(ctx, {
-          type: 'radar', 
-            data: { 
-              labels: ["心情・思いやり", "思考・論理", "信念・価値観", "内省・想像", "反応・ユーモア", "行動・魅力"],
-                datasets: [ {
-                  label: '<%= current_supplier.company_name %>',
-                    data: [<%= @total["hamo"] %>, <%= @total["thinker"] %>, <%= @total["pasi"] %>, <%= @total["ima"] %>, <%= @total["revel"] %>, <%= @total["pro"] %>],
-                    backgroundColor: '#136FFF',
-                    borderColor: 'RGBA(115,255,25, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGBA(115,255,25, 1)'
-                }]
-            },
-            options: {
-              scale:{
-                ticks:{
-                  suggestedMin: 0,
-                        suggestedMax: 50,
-                        stepSize: 10,
-                    }
-                }
-            }
-        });
-      </script>
+    <canvas id="myRaderChart"></canvas>
+    <!-- CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script>
+      var ctx = document.getElementById("myRaderChart");
+      var myRadarChart = new Chart(ctx, {
+        type: 'radar', 
+          data: { 
+            labels: ["心情・思いやり", "思考・論理", "信念・価値観", "内省・想像", "反応・ユーモア", "行動・魅力"],
+              datasets: [ {
+                label: '<%= current_supplier.company_name %>',
+                  data: [<%= @total["hamo"] %>, <%= @total["thinker"] %>, <%= @total["pasi"] %>, <%= @total["ima"] %>, <%= @total["revel"] %>, <%= @total["pro"] %>],
+                  backgroundColor: '#136FFF',
+                  borderColor: 'RGBA(115,255,25, 1)',
+                  borderWidth: 1,
+                  pointBackgroundColor: 'RGBA(115,255,25, 1)'
+              }]
+          },
+          options: {
+            scale:{
+              ticks:{
+                suggestedMin: 0,
+                      suggestedMax: 50,
+                      stepSize: 10,
+                  }
+              }
+          }
+      });
+    </script>
 
-      <div class="answer mt-5">
-        <div class="container">
-          <div class="row">
-            <% @total = @total.sort_by { |_, v| -v }.to_h %>
-              <div class="col text-center ">
-                <% @total_strong = @total.keys[0] %>
-                  <% if @total_strong == "thinker" %>
-                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”思考・論理”を強く持っている人です", thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-white" %>
-                  <% elsif @total_strong == "pasi" %>
-                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”意見・価値観”を強く持っている人です", pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-white" %>
-                  <% elsif @total_strong == "hamo" %>
-                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”心情・思いやり”を強く持っている人です", hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-white" %>
-                  <% elsif @total_strong == "ima" %>
-                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”内省・想像”を強く持っている人です", ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-white" %>
-                  <% elsif @total_strong == "revel" %>
-                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”反応・ユーモア”を強く持っている人です", revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-secondary" %>
-                  <% else @total_strong == "pro" %>
-                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”行動・魅力”を強く持っている人です", pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-white" %>
-                <% end %>
-              </div>
-          </div>
+    <div class="answer mt-5">
+      <div class="container">
+        <div class="row">
+          <% @total = @total.sort_by { |_, v| -v }.to_h %>
+            <div class="col text-center ">
+              <% @total_strong = @total.keys[0] %>
+                <% if @total_strong == "thinker" %>
+                  <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”思考・論理”を強く持っている人です", thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                <% elsif @total_strong == "pasi" %>
+                  <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”意見・価値観”を強く持っている人です", pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                <% elsif @total_strong == "hamo" %>
+                  <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”心情・思いやり”を強く持っている人です", hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                <% elsif @total_strong == "ima" %>
+                  <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”内省・想像”を強く持っている人です", ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                <% elsif @total_strong == "revel" %>
+                  <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”反応・ユーモア”を強く持っている人です", revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-secondary" %>
+                <% else @total_strong == "pro" %>
+                  <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”行動・魅力”を強く持っている人です", pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-white" %>
+              <% end %>
+            </div>
         </div>
       </div>
+    </div>
 
-      <div class="container  border-left">
-        <div class="pt-5 fs-6">全てのパーソナリティについても見る</div>
-          <div class="mt-5">
-              <div class="d-flex justify-content-around ">
-                <%= link_to '思考・論理', thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-dark" %>
-                <%= link_to '意見・価値観', pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-dark" %>
-                <%= link_to '心情・思いやり', hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-dark" %>
-                <%= link_to '内省・想像', ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-dark" %>
-                <%= link_to '反応・ユーモア', revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-dark" %>
-                <%= link_to '行動・魅力', pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-dark" %>
-              </div>
-          </div>
-      </div>
-
-
+    <div class="container  border-left">
+      <div class="pt-5 fs-6">全てのパーソナリティについても見る</div>
+        <div class="mt-5">
+            <div class="d-flex justify-content-around ">
+              <%= link_to '思考・論理', thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+              <%= link_to '意見・価値観', pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+              <%= link_to '心情・思いやり', hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+              <%= link_to '内省・想像', ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+              <%= link_to '反応・ユーモア', revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+              <%= link_to '行動・魅力', pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+            </div>
+        </div>
+    </div>
   <% else %>
-    <%= link_to(new_supplier_supplier_question_answer_path, class: "mouse_white border border-white rounded-pill text-white p-3 text-decoration-none top_image my-4 bg-primary bg-gradient")  do %>
+
+    <div class="question_description ps-5 my-4">
+      相性の合う仲間とマッチができるよう企業の皆様には簡単な5問の企業診断を実施させていただきます。<br>
+      ご質問の回答を基に企業の社風を分析をさせていただき、会社合うに人材をご提案させていただきます。<br>
+      全ての質問に正しい答えはありません。<br>
+      リラックスした状態で、ご自身の会社にについてご回答をお願いいたします。<br>
+
+      =================================================<br>
+      << 回答方法 >><br>
+
+      5問のそれぞれの質問には、6つの回答が用意されています。<br>
+      回答を注意深く読んで、理想ではなく“現在のあなたの会社に合う”と思うものから順に、<br>
+      1から6までの優先順位で選択して下さい。<br>
+
+      ( 回答例 )<br>
+      質問：あなたの好きな飲み物は？
+
+        <div class="row mt-3">
+          <div class="col-4">
+            <div>オレンジジュース</div>
+          </div>
+          <div class="col-6">
+            <div class="form-check question-answer mb-2">
+              <div class="form-checkbox">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" checked>
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div>コーヒー</div>
+          </div>
+          <div class="col-6">
+            <div class="form-check question-answer mb-2">
+              <div class="form-checkbox">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" >
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" checked>
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div>コーラ</div>
+          </div>
+          <div class="col-6">
+            <div class="form-check question-answer mb-2">
+              <div class="form-checkbox">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" checked>
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" >
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div>烏龍茶</div>
+          </div>
+          <div class="col-6">
+            <div class="form-check question-answer mb-2">
+              <div class="form-checkbox">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" checked>
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" >
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div>紅茶</div>
+          </div>
+          <div class="col-6">
+            <div class="form-check question-answer mb-2">
+              <div class="form-checkbox">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" >
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1"checked>
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div>ジンジャーエール</div>
+          </div>
+          <div class="col-6">
+            <div class="form-check question-answer mb-2">
+              <div class="form-checkbox">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1" checked>
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  id="inlineRadio1">
+                  <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      上記のような回答の場合の優先順位は以下のようになります。<br>
+      1位　コーラ<br>
+      2位　ジンジャーエール<br>
+      3位　烏龍茶<br>
+      4位　コーヒー<br>
+      5位　オレンジジュース<br>
+      6位　紅茶<br>
+
+      =================================================<br>
+
+      そして、今回の社風診断の特徴は、「あなたの会社は〇〇タイプです！」など、<br>
+      複数のタイプから一つを当てはめるようなものではありません。<br>
+      <br>
+      私たちの中には<br>
+      =================================================<br>
+      ・物事を冷静に考え、逆算や計画を立てる力<br>
+      ・自分の信念を持ち、粘り強く努力する力<br>
+      ・相手の心情を察し、相手に寄り添う力<br>
+      ・豊かな想像力を働かせる力<br>
+      ・直観やひらめきが鋭く、自由で柔軟な発想ができる力<br>
+      ・逆境やピンチな状況でも柔軟に適応し、行動できる力<br>
+      =================================================<br>
+
+      これら特徴的な6つの能力は全ての人の中に持っており、<br>
+      あくまでこれらを<br>
+      ”どの力を大事してに使っているのか？” ”どの力を強く持っている人を求めているのか？”<br>
+      という違いであなたの会社を診断し、相性の合う人とのマッチをおこないます。<br>
+
+      回答後には6つの特徴的な性格の詳しい説明も記述しております。<br>
+      診断結果、性格の詳細を参考にあなたの会社にあった人材を見つけていただければ幸いです。<br>
+
+
+    </div>
+    <%= link_to(new_supplier_supplier_question_answer_path, class: "mouse_white border border-white rounded-pill text-white p-3 text-decoration-none top_image my-4 bg-primary bg-gradient float-end")  do %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
         <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
       </svg>
       <span class="text-white  ms-2">企業診断をする</span>
     <% end %>
+
   <% end %>
 </div>
