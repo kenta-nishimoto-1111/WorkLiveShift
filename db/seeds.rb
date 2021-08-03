@@ -10,6 +10,15 @@ CSV.foreach('db/question_options.csv') do |question_options|
                                    option_text: question_options[2], personality_type: question_options[3], point: question_options[4], sort_order: question_options[5])
 end
 
+CSV.foreach('db/supplier_question.csv') do |supplier_question|
+  SupplierQuestion.find_or_create_by(id: supplier_question[0], message: supplier_question[1], sort_order: supplier_question[2])
+end
+
+CSV.foreach('db/supplier_question_options.csv') do |supplier_question_options|
+  SupplierQuestionOption.find_or_create_by(id: supplier_question_options[0], supplier_question_id: supplier_question_options[1],
+                                   option_text: supplier_question_options[2], personality_type: supplier_question_options[3], sort_order: supplier_question_options[4])
+end
+
 20.times do |n|
   supplier = Supplier.find_or_initialize_by(
     company_name: "株式会社#{n + 1}"

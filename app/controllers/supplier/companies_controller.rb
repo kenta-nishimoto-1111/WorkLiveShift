@@ -68,6 +68,12 @@ class Supplier::CompaniesController < ApplicationController
     @entries = Entry.where(supplier_id: current_supplier.id).count
     @ingredients = JSON.parse(@company.ingredients)
     @other_images = @company.supplier.image_other_companies
+
+    @supplier_answer = current_supplier.supplier_question_answers
+    @total = { 'hamo' => 0, 'pasi' => 0, 'revel' => 0, 'thinker' => 0, 'ima' => 0, 'pro' => 0 }
+    @supplier_answer.each do |answer|
+      @total[answer.personality_type] += answer.point
+    end
   end
 
   def edit; end

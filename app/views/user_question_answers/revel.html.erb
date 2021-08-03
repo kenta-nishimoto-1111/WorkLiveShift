@@ -65,7 +65,11 @@
 
 <%# 戻るボタン %>
 <div class="d-flex justify-content-center">
-  <button class="user_btn border border-white rounded-pill bg-gradient ">  
+  <button class="user_btn border border-white rounded-pill bg-gradient "> 
+  <% if user_signed_in? %>
     <%= link_to 'ユーザー画面に戻る', user_path(current_user.id), class: "text-decoration-none text-white" %>
+  <% elsif supplier_signed_in? %>
+    <%= link_to '企業詳細画面に戻る', company_details_supplier_company_path(current_supplier.id), class: "text-decoration-none text-white" %>
+  <% end %>
   </button>
 </div>

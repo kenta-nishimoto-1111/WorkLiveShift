@@ -45,7 +45,7 @@
             <ul class="dropdown-menu dropdown-menu-end ps-3" aria-labelledby="dropdownMenuButton">
             <% if @user_notifications.present? %>
               <% @user_notifications.each do |notification| %>
-                <li><%= link_to "#{notification.supplier.company_name}からメッセージが届きました", chat_path(notification.supplier.id), class: "dropdown-item me-4"%></li>
+                <li><%= link_to "#{notification.supplier.company_name}からメッセージが届きました", chats_path, class: "dropdown-item me-4"%></li>
               <% end %>
             <% else %>
               <li><a class="dropdown-item me-3" href="#">現在通知はありません</a></li>

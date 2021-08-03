@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :supplier do
+    resources :supplier_question_answers, only: %i[new create]
     resources :image_other_companies, only: %i[new create]
     resources :supplier_notifications, only: %i[index]
     resources :chats, only: %i[index new create show] do
