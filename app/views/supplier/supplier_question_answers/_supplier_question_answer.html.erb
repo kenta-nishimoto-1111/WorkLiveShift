@@ -1,5 +1,78 @@
-<div class="d-flex flex-column ms-5">
+<div class="personality_base">
+  <h1 class="appname fs-5" >Work,LiveShift</h1>
+  <h1 class="user_title mb-5 fs-6" >〜 <%= current_supplier.company_name %>様の企業診断 〜</h1>
+</div>
+<div class="supplier_answer">
   <% if @supplier_answer.present? %>
+      <canvas id="myRaderChart"></canvas>
+      <!-- CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+      <script>
+        var ctx = document.getElementById("myRaderChart");
+        var myRadarChart = new Chart(ctx, {
+          type: 'radar', 
+            data: { 
+              labels: ["心情・思いやり", "思考・論理", "信念・価値観", "内省・想像", "反応・ユーモア", "行動・魅力"],
+                datasets: [ {
+                  label: '<%= current_supplier.company_name %>',
+                    data: [<%= @total["hamo"] %>, <%= @total["thinker"] %>, <%= @total["pasi"] %>, <%= @total["ima"] %>, <%= @total["revel"] %>, <%= @total["pro"] %>],
+                    backgroundColor: '#136FFF',
+                    borderColor: 'RGBA(115,255,25, 1)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'RGBA(115,255,25, 1)'
+                }]
+            },
+            options: {
+              scale:{
+                ticks:{
+                  suggestedMin: 0,
+                        suggestedMax: 50,
+                        stepSize: 10,
+                    }
+                }
+            }
+        });
+      </script>
+
+      <div class="answer mt-5">
+        <div class="container">
+          <div class="row">
+            <% @total = @total.sort_by { |_, v| -v }.to_h %>
+              <div class="col text-center ">
+                <% @total_strong = @total.keys[0] %>
+                  <% if @total_strong == "thinker" %>
+                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”思考・論理”を強く持っている人です", thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                  <% elsif @total_strong == "pasi" %>
+                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”意見・価値観”を強く持っている人です", pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                  <% elsif @total_strong == "hamo" %>
+                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”心情・思いやり”を強く持っている人です", hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                  <% elsif @total_strong == "ima" %>
+                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”内省・想像”を強く持っている人です", ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                  <% elsif @total_strong == "revel" %>
+                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”反応・ユーモア”を強く持っている人です", revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-secondary" %>
+                  <% else @total_strong == "pro" %>
+                    <%= link_to "#{current_supplier.company_name}様と相性が合うメンバーは”行動・魅力”を強く持っている人です", pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-white" %>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container  border-left">
+        <div class="pt-5 fs-6">全てのパーソナリティについても見る</div>
+          <div class="mt-5">
+              <div class="d-flex justify-content-around ">
+                <%= link_to '思考・論理', thinker_user_question_answers_path, class: "thinker_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+                <%= link_to '意見・価値観', pasi_user_question_answers_path, class: "pasi_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+                <%= link_to '心情・思いやり', hamo_user_question_answers_path, class: "hamo_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+                <%= link_to '内省・想像', ima_user_question_answers_path, class: "ima_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+                <%= link_to '反応・ユーモア', revel_user_question_answers_path, class: "revel_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+                <%= link_to '行動・魅力', pro_user_question_answers_path, class: "pro_tag border rounded-pill p-3 text-decoration-none text-dark" %>
+              </div>
+          </div>
+      </div>
+
+
   <% else %>
     <%= link_to(new_supplier_supplier_question_answer_path, class: "mouse_white border border-white rounded-pill text-white p-3 text-decoration-none top_image my-4 bg-primary bg-gradient")  do %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
