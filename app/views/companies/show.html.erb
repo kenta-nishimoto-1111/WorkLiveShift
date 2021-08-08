@@ -141,14 +141,14 @@
       </div>
     </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4 my-5">
+  <%# <div class="row row-cols-1 row-cols-md-3 g-4 my-5"> %>
+  <div class="slider my-5">
     <% @other_images.each do |other_images| %>
       <div class="col">
-        <%= image_tag other_images.image_other_company, :size =>'350x200' %>
+        <%= image_tag other_images.image_other_company, :size =>'350x200', class: 'pe-3'%>
       </div>
     <% end %>
   </div>
-
 </div>
 
 
