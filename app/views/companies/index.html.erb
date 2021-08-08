@@ -8,37 +8,14 @@
 
 
 <%# 画像のスライド %>
-  <div id="carouselExampleCaptions" class="carousel carousel-dark slide mouse_white mt-3" data-bs-ride="carousel">
-      <ol class="carousel-indicators ">
-        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-      </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-          <%= image_tag @company_topimage.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
-          <div class="carousel-caption d-none d-md-block fs-1">
-              <%= @company_topimage.supplier.company_name %>
-          </div>
-      </div>
+    <div class="slider_top mt-3 mb-5">
       <% @company_images.each do |company_image| %>
-        <div class="carousel-item">
-            <%= image_tag company_image.supplier.company_image, class: 'd-block w-100 ' , :size =>'800x500'%>
-              <div class="carousel-caption d-none d-md-block fs-1">
-                <%= company_image.supplier.company_name %>
-              </div>
+        <div>
+          <%= image_tag company_image.supplier.company_image, :size =>'900x400'%>
+          <p class="fs-2 text-center mt-2 "><%= company_image.supplier.company_name %></p>
         </div>
       <% end %>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
-  </div>
 <%# 画像のスライドショー %>
 
 <%# 検索ページ %>

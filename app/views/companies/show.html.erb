@@ -6,31 +6,16 @@
   <%= render "shared/header"%>
 <% end %>
 
-<div class="company_show">
 
     <%# 画像のスライドショー部分 %>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade shadow-lg mb-5 bg-white rounded" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag @company.supplier.company_image, class: 'd-block w-100 rounded-3' , :size =>'700x500'%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag 'cool.jpeg', class: 'd-block w-100 rounded-3' , :size =>'700x500'%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag 'test.jpg', class: 'd-block w-100 rounded-3' , :size =>'700x500'%>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
+    <div class="slider_top my-3">
+      <div><%= image_tag @company.supplier.company_image, :size =>'900x400'%></div>
+      <% @other_images.each do |other_images| %>
+        <div><%= image_tag other_images.image_other_company, :size =>'900x400'%></div>
+      <% end %>
     </div>
 
+<div class="company_show">
     <%# 企業名 %>
     <h1 class="fw-bolder mx-5"><%= @company.supplier.company_name %></h1>
       <% if user_signed_in? %>
