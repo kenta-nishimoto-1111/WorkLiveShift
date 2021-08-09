@@ -1,5 +1,5 @@
 class UserQuestionAnswersController < ApplicationController
-  before_action :authenticate_user!, except: [:thinker, :pasi, :hamo, :ima, :revel, :pro]
+  before_action :authenticate_user!, except: %i[thinker pasi hamo ima revel pro]
 
   def choice_questions
     @questions = Question.choice.order(:sort_order)

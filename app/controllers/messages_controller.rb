@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     @message = @chat_room.messages.new(message_params)
     if @message.save
       @chat_room.update(latest_message: @message.content, latest_message_time: Time.current)
-      @chat_room.supplier.supplier_notifications.create(user: current_user, notification_type: "message")
+      @chat_room.supplier.supplier_notifications.create(user: current_user, notification_type: 'message')
     end
     redirect_to chat_path(@chat_room)
   end
@@ -21,4 +21,3 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content).merge(sent_person: @sent_person)
   end
 end
-

@@ -11,12 +11,13 @@ CSV.foreach('db/question_options.csv') do |question_options|
 end
 
 CSV.foreach('db/supplier_question.csv') do |supplier_question|
-  SupplierQuestion.find_or_create_by(id: supplier_question[0], message: supplier_question[1], sort_order: supplier_question[2])
+  SupplierQuestion.find_or_create_by(id: supplier_question[0], message: supplier_question[1],
+                                     sort_order: supplier_question[2])
 end
 
 CSV.foreach('db/supplier_question_options.csv') do |supplier_question_options|
   SupplierQuestionOption.find_or_create_by(id: supplier_question_options[0], supplier_question_id: supplier_question_options[1],
-                                   option_text: supplier_question_options[2], personality_type: supplier_question_options[3], sort_order: supplier_question_options[4])
+                                           option_text: supplier_question_options[2], personality_type: supplier_question_options[3], sort_order: supplier_question_options[4])
 end
 
 20.times do |n|
@@ -25,8 +26,8 @@ end
   )
   supplier.assign_attributes(
     email: "testaaa#{n + 1}@test.com",
-    password: "test1111", 
-    password_confirmation: "test1111",
+    password: 'test1111',
+    password_confirmation: 'test1111'
     # company_image: File.open(Rails.root.join('app/assets/images', 'test.jpg'))
   )
   supplier.company_image.attach(io: File.open(Rails.root.join('app/assets/images', 'test.jpg')), filename: 'test.jpg')
@@ -37,14 +38,14 @@ end
     supplier_id: supplier.id
   )
   company.assign_attributes(
-    prefecture_id: "#{n + 2}",
-    founding_date: "2000-11-04",
-    phone_number: "000000000#{n + 1}", 
-    company_url: "https://tenshoku.mynavi.jp/",
-    company_content: "あなたの会社の事業内容について書く",
-    company_purpose: "あなたの事業の目的について書く",
-    company_environment: "チームの文化や働く環境について書く",
-    ingredients: %w[法人営業 財務 ITコンサルティング スクール運営・マネジメント イラストレーター],
+    prefecture_id: (n + 2).to_s,
+    founding_date: '2000-11-04',
+    phone_number: "000000000#{n + 1}",
+    company_url: 'https://tenshoku.mynavi.jp/',
+    company_content: 'あなたの会社の事業内容について書く',
+    company_purpose: 'あなたの事業の目的について書く',
+    company_environment: 'チームの文化や働く環境について書く',
+    ingredients: %w[法人営業 財務 ITコンサルティング スクール運営・マネジメント イラストレーター]
   )
   company.save!
   # supplier.company_image.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')),

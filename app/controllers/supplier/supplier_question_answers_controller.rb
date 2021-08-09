@@ -8,16 +8,15 @@ class Supplier::SupplierQuestionAnswersController < ApplicationController
     ActiveRecord::Base.transaction do
       @questions.each do |question|
         question.supplier_question_options.each do |option|
-          unless params[option.id.to_s].present?
-            raise ActiveRecord::Rollback
-          end
-          SupplierQuestionAnswer.create!(supplier_id: current_supplier.id, supplier_question_id: option.supplier_question_id, personality_type: option.personality_type, point: params[option.id.to_s])
+          raise ActiveRecord::Rollback unless params[option.id.to_s].present?
+
+          SupplierQuestionAnswer.create!(supplier_id: current_supplier.id,
+                                         supplier_question_id: option.supplier_question_id, personality_type: option.personality_type, point: params[option.id.to_s])
         end
       end
       redirect_to company_details_supplier_company_path(current_supplier.id)
-    rescue
+    rescue StandardError
       render :new
     end
   end
-
 end

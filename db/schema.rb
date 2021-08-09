@@ -10,262 +10,264 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_060134) do
-
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+ActiveRecord::Schema.define(version: 20_210_801_060_134) do
+  create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.bigint 'record_id', null: false
+    t.bigint 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
+                                                    unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table 'active_storage_blobs', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.bigint 'byte_size', null: false
+    t.string 'checksum', null: false
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "careers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "career_name", null: false
-    t.string "position", null: false
-    t.date "period_start", null: false
-    t.date "period_end", null: false
-    t.text "business_content", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["position"], name: "index_careers_on_position"
-    t.index ["user_id"], name: "index_careers_on_user_id"
+  create_table 'careers', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'career_name', null: false
+    t.string 'position', null: false
+    t.date 'period_start', null: false
+    t.date 'period_end', null: false
+    t.text 'business_content', null: false
+    t.bigint 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['position'], name: 'index_careers_on_position'
+    t.index ['user_id'], name: 'index_careers_on_user_id'
   end
 
-  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "latest_message"
-    t.datetime "latest_message_time"
-    t.bigint "user_id"
-    t.bigint "supplier_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_chats_on_supplier_id"
-    t.index ["user_id"], name: "index_chats_on_user_id"
+  create_table 'chats', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.text 'latest_message'
+    t.datetime 'latest_message_time'
+    t.bigint 'user_id'
+    t.bigint 'supplier_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['supplier_id'], name: 'index_chats_on_supplier_id'
+    t.index ['user_id'], name: 'index_chats_on_user_id'
   end
 
-  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id", null: false
-    t.date "founding_date", null: false
-    t.string "phone_number", null: false
-    t.string "company_url", null: false
-    t.text "company_content", null: false
-    t.text "company_purpose", null: false
-    t.text "company_environment", null: false
-    t.text "ingredients", null: false
-    t.integer "supplier_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["prefecture_id"], name: "index_companies_on_prefecture_id"
+  create_table 'companies', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'prefecture_id', null: false
+    t.date 'founding_date', null: false
+    t.string 'phone_number', null: false
+    t.string 'company_url', null: false
+    t.text 'company_content', null: false
+    t.text 'company_purpose', null: false
+    t.text 'company_environment', null: false
+    t.text 'ingredients', null: false
+    t.integer 'supplier_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['prefecture_id'], name: 'index_companies_on_prefecture_id'
   end
 
-  create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "supplier_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_entries_on_supplier_id"
-    t.index ["user_id"], name: "index_entries_on_user_id"
+  create_table 'entries', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'supplier_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['supplier_id'], name: 'index_entries_on_supplier_id'
+    t.index ['user_id'], name: 'index_entries_on_user_id'
   end
 
-  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "company_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_favorites_on_company_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
+  create_table 'favorites', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'company_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['company_id'], name: 'index_favorites_on_company_id'
+    t.index ['user_id'], name: 'index_favorites_on_user_id'
   end
 
-  create_table "image_other_companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image_other_company"
-    t.bigint "supplier_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_image_other_companies_on_supplier_id"
+  create_table 'image_other_companies', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'image_other_company'
+    t.bigint 'supplier_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['supplier_id'], name: 'index_image_other_companies_on_supplier_id'
   end
 
-  create_table "impressions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "impressionable_type"
-    t.integer "impressionable_id"
-    t.integer "user_id"
-    t.string "controller_name"
-    t.string "action_name"
-    t.string "view_name"
-    t.string "request_hash"
-    t.string "ip_address"
-    t.string "session_hash"
-    t.text "message"
-    t.text "referrer"
-    t.text "params"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
-    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
-    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
-    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
-    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", length: { params: 255 }
-    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
-    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
-    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: { message: 255 }
-    t.index ["user_id"], name: "index_impressions_on_user_id"
+  create_table 'impressions', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'impressionable_type'
+    t.integer 'impressionable_id'
+    t.integer 'user_id'
+    t.string 'controller_name'
+    t.string 'action_name'
+    t.string 'view_name'
+    t.string 'request_hash'
+    t.string 'ip_address'
+    t.string 'session_hash'
+    t.text 'message'
+    t.text 'referrer'
+    t.text 'params'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index %w[controller_name action_name ip_address], name: 'controlleraction_ip_index'
+    t.index %w[controller_name action_name request_hash], name: 'controlleraction_request_index'
+    t.index %w[controller_name action_name session_hash], name: 'controlleraction_session_index'
+    t.index %w[impressionable_type impressionable_id ip_address], name: 'poly_ip_index'
+    t.index %w[impressionable_type impressionable_id params], name: 'poly_params_request_index',
+                                                              length: { params: 255 }
+    t.index %w[impressionable_type impressionable_id request_hash], name: 'poly_request_index'
+    t.index %w[impressionable_type impressionable_id session_hash], name: 'poly_session_index'
+    t.index %w[impressionable_type message impressionable_id], name: 'impressionable_type_message_index',
+                                                               length: { message: 255 }
+    t.index ['user_id'], name: 'index_impressions_on_user_id'
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content"
-    t.string "sent_person"
-    t.bigint "chat_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
+  create_table 'messages', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.text 'content'
+    t.string 'sent_person'
+    t.bigint 'chat_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['chat_id'], name: 'index_messages_on_chat_id'
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "birth_date", null: false
-    t.integer "prefecture_id", null: false
-    t.text "strong_point", null: false
-    t.text "dream", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["birth_date", "prefecture_id"], name: "index_profiles_on_birth_date_and_prefecture_id"
-    t.index ["birth_date"], name: "index_profiles_on_birth_date"
-    t.index ["prefecture_id"], name: "index_profiles_on_prefecture_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
+  create_table 'profiles', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.date 'birth_date', null: false
+    t.integer 'prefecture_id', null: false
+    t.text 'strong_point', null: false
+    t.text 'dream', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index %w[birth_date prefecture_id], name: 'index_profiles_on_birth_date_and_prefecture_id'
+    t.index ['birth_date'], name: 'index_profiles_on_birth_date'
+    t.index ['prefecture_id'], name: 'index_profiles_on_prefecture_id'
+    t.index ['user_id'], name: 'index_profiles_on_user_id', unique: true
   end
 
-  create_table "question_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "question_id", null: false
-    t.string "option_text"
-    t.string "personality_type"
-    t.integer "point", null: false
-    t.integer "sort_order", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["personality_type"], name: "index_question_options_on_personality_type"
+  create_table 'question_options', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'question_id', null: false
+    t.string 'option_text'
+    t.string 'personality_type'
+    t.integer 'point', null: false
+    t.integer 'sort_order', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['personality_type'], name: 'index_question_options_on_personality_type'
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "message", null: false
-    t.string "question_type", null: false
-    t.string "personality_type", null: false
-    t.integer "sort_order", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["personality_type"], name: "index_questions_on_personality_type"
+  create_table 'questions', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'message', null: false
+    t.string 'question_type', null: false
+    t.string 'personality_type', null: false
+    t.integer 'sort_order', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['personality_type'], name: 'index_questions_on_personality_type'
   end
 
-  create_table "supplier_notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "supplier_id"
-    t.string "notification_type"
-    t.datetime "checked_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_supplier_notifications_on_supplier_id"
-    t.index ["user_id"], name: "index_supplier_notifications_on_user_id"
+  create_table 'supplier_notifications', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'supplier_id'
+    t.string 'notification_type'
+    t.datetime 'checked_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['supplier_id'], name: 'index_supplier_notifications_on_supplier_id'
+    t.index ['user_id'], name: 'index_supplier_notifications_on_user_id'
   end
 
-  create_table "supplier_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "supplier_id", null: false
-    t.integer "supplier_question_id", null: false
-    t.string "personality_type", null: false
-    t.integer "point", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'supplier_question_answers', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'supplier_id', null: false
+    t.integer 'supplier_question_id', null: false
+    t.string 'personality_type', null: false
+    t.integer 'point', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "supplier_question_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "supplier_question_id", null: false
-    t.string "option_text"
-    t.string "personality_type"
-    t.integer "sort_order", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'supplier_question_options', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'supplier_question_id', null: false
+    t.string 'option_text'
+    t.string 'personality_type'
+    t.integer 'sort_order', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "supplier_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "message", null: false
-    t.integer "sort_order", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'supplier_questions', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'message', null: false
+    t.integer 'sort_order', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "suppliers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "company_name", null: false
-    t.string "company_image"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_suppliers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_suppliers_on_reset_password_token", unique: true
+  create_table 'suppliers', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'company_name', null: false
+    t.string 'company_image'
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_suppliers_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_suppliers_on_reset_password_token', unique: true
   end
 
-  create_table "user_notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "supplier_id"
-    t.datetime "checked_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_user_notifications_on_supplier_id"
-    t.index ["user_id"], name: "index_user_notifications_on_user_id"
+  create_table 'user_notifications', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'supplier_id'
+    t.datetime 'checked_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['supplier_id'], name: 'index_user_notifications_on_supplier_id'
+    t.index ['user_id'], name: 'index_user_notifications_on_user_id'
   end
 
-  create_table "user_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "question_id", null: false
-    t.integer "question_option_id"
-    t.string "personality_type", null: false
-    t.integer "point", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["personality_type", "user_id"], name: "index_user_question_answers_on_personality_type_and_user_id"
-    t.index ["personality_type"], name: "index_user_question_answers_on_personality_type"
+  create_table 'user_question_answers', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.integer 'question_id', null: false
+    t.integer 'question_option_id'
+    t.string 'personality_type', null: false
+    t.integer 'point', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index %w[personality_type user_id], name: 'index_user_question_answers_on_personality_type_and_user_id'
+    t.index ['personality_type'], name: 'index_user_question_answers_on_personality_type'
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "last_name", default: "", null: false
-    t.string "family_name", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'last_name', default: '', null: false
+    t.string 'family_name', default: '', null: false
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'image'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "careers", "users"
-  add_foreign_key "chats", "users"
-  add_foreign_key "entries", "suppliers"
-  add_foreign_key "entries", "users"
-  add_foreign_key "favorites", "companies"
-  add_foreign_key "favorites", "users"
-  add_foreign_key "image_other_companies", "suppliers"
-  add_foreign_key "messages", "chats"
-  add_foreign_key "supplier_notifications", "suppliers"
-  add_foreign_key "supplier_notifications", "users"
-  add_foreign_key "user_notifications", "suppliers"
-  add_foreign_key "user_notifications", "users"
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'careers', 'users'
+  add_foreign_key 'chats', 'users'
+  add_foreign_key 'entries', 'suppliers'
+  add_foreign_key 'entries', 'users'
+  add_foreign_key 'favorites', 'companies'
+  add_foreign_key 'favorites', 'users'
+  add_foreign_key 'image_other_companies', 'suppliers'
+  add_foreign_key 'messages', 'chats'
+  add_foreign_key 'supplier_notifications', 'suppliers'
+  add_foreign_key 'supplier_notifications', 'users'
+  add_foreign_key 'user_notifications', 'suppliers'
+  add_foreign_key 'user_notifications', 'users'
 end

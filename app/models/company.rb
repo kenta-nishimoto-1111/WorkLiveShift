@@ -6,13 +6,13 @@ class Company < ApplicationRecord
   has_many :users, through: :favorites
 
   INGREDIENTS_MAP = {
-    '営業': ['個人営業', '法人営業', 'ルート営業', 'テレフォンアポインター', '営業アシスタント'],
-    'コーポレート': ['一般事務', '人事', '経理', '財務', '法務', '経営企画', '秘書'],
+    '営業': %w[個人営業 法人営業 ルート営業 テレフォンアポインター 営業アシスタント],
+    'コーポレート': %w[一般事務 人事 経理 財務 法務 経営企画 秘書],
     '販売・サービス': ['販売・接客', '店長(ファッション)', 'ホールスタッフ', '調理', '店長(飲食)'],
-    'コンサルティング': ['経営コンサルティング', '人事コンサルティング', 'ITコンサルティング', 'マーケティングコンサルティング', 'キャリアコンサルティング'],
+    'コンサルティング': %w[経営コンサルティング 人事コンサルティング ITコンサルティング マーケティングコンサルティング キャリアコンサルティング],
     '教育': ['保育士・幼稚園教諭', 'スクール運営・マネジメント', '教師', '講師', 'スポーツインストラクター', '教務事務'],
-    'エンジニア': ['モバイルエンジニア', 'webエンジニア', 'インフラエンジニア', 'システムエンジニア', 'データサイエンティストグラフィック'],
-    'デザイナー': ['デザイナー', 'アートデザイナー', 'クリエイティブデザイナー', 'フォトグラファー', '動画クリエイター', 'イラストレーター'],
+    'エンジニア': %w[モバイルエンジニア webエンジニア インフラエンジニア システムエンジニア データサイエンティストグラフィック],
+    'デザイナー': %w[デザイナー アートデザイナー クリエイティブデザイナー フォトグラファー 動画クリエイター イラストレーター]
 
   }
 
@@ -27,17 +27,17 @@ class Company < ApplicationRecord
   end
 
   def self.keyword(keyword)
-    self.where([
-      'company_content like? OR company_purpose like? OR company_environment like? OR ingredients like?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
-    ])
+    where([
+            'company_content like? OR company_purpose like? OR company_environment like? OR ingredients like?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
+          ])
   end
 
   def self.genre(genre)
-    self.where(['ingredients like ?', "%#{genre}%"])
+    where(['ingredients like ?', "%#{genre}%"])
   end
 
   def self.area(area)
-    self.where(prefecture_id: area)
+    where(prefecture_id: area)
   end
 
   # ビュー数獲得のための記述

@@ -86,15 +86,14 @@ class Supplier::CompaniesController < ApplicationController
     end
   end
 
-  def ingredients_edit
-  end
+  def ingredients_edit; end
 
   def ingredients_update
     if @company.update_attributes(ingredients_params)
       redirect_to company_details_supplier_company_path(@company.id)
     else
       render 'ingredients_edit'
-    end  
+    end
   end
 
   private

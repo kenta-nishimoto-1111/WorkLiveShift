@@ -20,4 +20,3 @@ class Supplier::MessagesController < ApplicationController
     params.require(:message).permit(:content).merge(sent_person: @sent_person)
   end
 end
-

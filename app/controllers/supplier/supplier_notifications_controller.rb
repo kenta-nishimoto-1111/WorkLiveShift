@@ -1,4 +1,3 @@
 class Supplier::SupplierNotificationsController < ApplicationController
-  def index
-  end
+  def index; end
 end
