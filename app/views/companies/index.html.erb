@@ -9,12 +9,12 @@
 
 <%# 画像のスライド %>
     <div class="slider_top mt-3 mb-5">
-      <% @company_images.each do |company_image| %>
+      <% @company_images.limit(3).each do |company_image| %>
         <div>
           <%= link_to(company_path(company_image.id), class: "text-decoration-none") do %>
-          <%= image_tag company_image.supplier.company_image, :size =>'900x400'%>
-          <p class="fs-2 text-center mt-2 text-dark"><%= company_image.supplier.company_name %></p>
-                <% end %>
+            <%= image_tag company_image.supplier.company_image, :size =>'900x400'%>
+            <p class="fs-2 text-center mt-2 text-dark"><%= company_image.supplier.company_name %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
