@@ -32,15 +32,14 @@ class UserQuestionAnswersController < ApplicationController
       answer.point = point
       answer.save!
     end
+    current_user.personality_score = current_user.calc_personality_score
+    current_user.save!
     redirect_to user_question_answer_path(current_user)
   end
 
   def show
     answers = current_user.user_question_answers
-    @total = { 'hamo' => 0, 'pasi' => 0, 'revel' => 0, 'thinker' => 0, 'ima' => 0, 'pro' => 0 }
-    answers.each do |answer|
-      @total[answer.personality_type] += answer.point
-    end
+    @total = current_user.build_personality_hash
   end
 
   def thinker; end

@@ -15,4 +15,32 @@ class Supplier < ApplicationRecord
 
   validates :company_name, presence: true
   validates :company_image, presence: true
+
+  PERSONALITY_TYPE_SCORE_BASE = {
+    thinker: 1,
+    pasi: 2,
+    hamo: 3,
+    ima: 4,
+    revel: 5,
+    pro: 6
+  }
+
+  def build_personality_hash
+    supplier_answer = current_supplier.supplier_question_answers
+    hash = { 'hamo' => 0, 'pasi' => 0, 'revel' => 0, 'thinker' => 0, 'ima' => 0, 'pro' => 0 }
+    supplier_answer.each do |answer|
+      hash[answer.personality_type] += answer.point
+    end
+    hash
+  end
+
+  def calc_personality_score
+    place = 100_000
+    score = 0
+    build_personality_hash.sort_by { |_, v| -v }.to_h.each do |personality_type, _score|
+      score += place * User::PERSONALITY_TYPE_SCORE_BASE[personality_type.to_sym]
+      place = place / 10  
+    end
+    score
+  end
 end
