@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       expect(@supplier).to be_valid
     end
     
-    it 'nicknameが空では登録できない' do
+    it 'company_nameが空では登録できない' do
       @supplier.company_name = ''
       @supplier.valid?
       expect(@supplier.errors.full_messages).to include("Company name can't be blank")
