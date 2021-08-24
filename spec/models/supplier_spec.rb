@@ -9,13 +9,13 @@ RSpec.describe User, type: :model do
     it 'company_nameとcompany_image、email、passwordとpassword_confirmationが存在すれば登録できる' do
       expect(@supplier).to be_valid
     end
-    
+
     it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
       @supplier.password = '000000'
       @supplier.password_confirmation = '000000'
       expect(@supplier).to be_valid
     end
-    
+
     it 'company_nameが空では登録できない' do
       @supplier.company_name = ''
       @supplier.valid?
@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
       @supplier.valid?
       expect(@supplier.errors.full_messages).to include("Email can't be blank")
     end
-    
+
     it 'passwordが空では登録できない' do
       @supplier.password = ''
       @supplier.valid?

@@ -46,7 +46,7 @@ class User < ApplicationRecord
     score = 0
     build_personality_hash.sort_by { |_, v| -v }.to_h.each do |personality_type, _score|
       score += place * User::PERSONALITY_TYPE_SCORE_BASE[personality_type.to_sym]
-      place = place / 10  
+      place /= 10
     end
     score
   end

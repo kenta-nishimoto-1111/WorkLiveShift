@@ -45,5 +45,4 @@ class CareersController < ApplicationController
   def move_to_index
     return redirect_to root_path if current_user.id != @career.user.id
   end
-
 end

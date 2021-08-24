@@ -42,7 +42,6 @@ class ProfilesController < ApplicationController
   end
 
   def move_to_edit
-    return redirect_to edit_profile_path(current_user.profile.id) if current_user.profile != nil
+    return redirect_to edit_profile_path(current_user.profile.id) unless current_user.profile.nil?
   end
-
 end
