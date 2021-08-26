@@ -62,4 +62,12 @@ RSpec.describe 'ユーザーのプロフィール保存', type: :system do
       end.to change { Company.count }.by(1)
     end
   end
+
+  context '企業情報が保存できない時' do
+    it 'ログイン・新規登録していない企業は企業情報入力画面に遷移できず企業のログイン画面に遷移される' do
+      @supplier = FactoryBot.build(:supplier)
+      visit second_step_supplier_companies_path
+      expect(current_path).to eq new_supplier_session_path
+    end
+  end
 end
