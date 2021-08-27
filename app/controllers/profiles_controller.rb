@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :set_profile, only: %i[edit update]
   before_action :move_to_index, only: %i[edit update]
+  before_action :move_to_edit, only: %i[new create]
 
   def new
     @profile = Profile.new
@@ -38,5 +39,9 @@ class ProfilesController < ApplicationController
 
   def move_to_index
     return redirect_to root_path if current_user.id != @profile.user.id
+  end
+
+  def move_to_edit
+    return redirect_to edit_profile_path(current_user.profile.id) unless current_user.profile.nil?
   end
 end
