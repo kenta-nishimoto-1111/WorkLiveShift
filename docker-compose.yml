@@ -11,7 +11,9 @@ services:
       - mysql-data:/var/lib/mysql
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && RAILS_ENV=production bundle exec rails s -p 80 -b '0.0.0.0'"
+    environment:
+      RAILS_ENV: ${RAILS_ENV}
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 80 -b '0.0.0.0'"
     volumes:
       - .:/myapp
     ports:
