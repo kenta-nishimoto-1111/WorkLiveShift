@@ -6,7 +6,11 @@ class CompaniesController < ApplicationController
   def index
     @company_topimage = Company.find(1)
     @company_images = Company.where.not(id: 1)
-    @companies = Company.joins(:supplier).order("abs(suppliers.personality_score - #{current_user.personality_score})").page(params[:page]).per(5)
+    if current_user
+      @companies = Company.joins(:supplier).order("abs(suppliers.personality_score - #{current_user.personality_score})").page(params[:page]).per(5)
+    else
+      @companies = Company.all.page(params[:page]).per(5)
+    end
   end
 
   def show
