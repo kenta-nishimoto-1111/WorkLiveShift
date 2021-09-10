@@ -66,3 +66,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'impressionist'
 
 gem 'kaminari'
+
+# 監視ツールsentyy用のGem
+gem 'sentry-ruby'
+gem 'sentry-rails'
