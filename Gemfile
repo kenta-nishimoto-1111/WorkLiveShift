@@ -66,3 +66,6 @@ gem 'carrierwave', '~> 2.0'
 gem 'impressionist'
 
 gem 'kaminari'
+
+gem 'sentry-ruby'
+gem 'sentry-rails'
