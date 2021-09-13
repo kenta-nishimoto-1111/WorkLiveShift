@@ -9,7 +9,7 @@
             <div class="d-flex ">
 
                  <%# ヘッダーのログインなどのリンク %>
-              <% if user_signed_in %>
+              <% if user_signed_in? %>
 
                 <div class="balloonoya">
                     <%= link_to(user_path(current_user.id), class: "d-flex justify-content-end d-flex align-items-center mt-1") do %>
