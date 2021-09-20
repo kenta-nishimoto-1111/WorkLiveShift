@@ -1,4 +1,7 @@
-cd trapla
+set +e
+
+source ~/.bash_profile
+cd WorkLiveShift
 git pull
 docker-compose stop
 docker-compose run web bundle install
