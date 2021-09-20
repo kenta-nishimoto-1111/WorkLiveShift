@@ -10,7 +10,7 @@ jobs:
               - "33:74:33:d8:4c:65:b8:0c:dd:7e:35:f2:55:64:d6:0a"
       - run:
           name: ssh & deploy
-          command: ssh ec2-user@52.199.95.189 '/var/www/WorkLiveShift/deploy.sh'
+          command: ssh ${USER_NAME}@${HOST_NAME} '/var/www/WorkLiveShift/deploy.sh'
 
 workflows:
     version: 2
