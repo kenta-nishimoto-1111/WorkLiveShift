@@ -49,7 +49,7 @@ http://52.199.95.189/
 - Bootstrap 5  
   
 [JS]  
-- jquery 3.6.  
+- jquery 3.6.0
   
 [Gem]  
 - devise (ログイン機能)  
